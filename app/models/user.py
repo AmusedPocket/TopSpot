@@ -2,6 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from .user_follower import follows
 
 
 class User(db.Model, UserMixin):
@@ -11,12 +12,12 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.string(255), nullable=False)
-    lastName = db.Column(db.string(255), nullable=False)
+    firstName = db.Column(db.String(255), nullable=False)
+    lastName = db.Column(db.String(255), nullable=False)
     userName = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profilePic = db.Column(db.string(255))
+    profilePic = db.Column(db.String(255))
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
@@ -28,6 +29,22 @@ class User(db.Model, UserMixin):
         backref=db.backref("follows", lazy="dynamic"),
         lazy="dynamic"
     )
+
+    favorites = db.relationship(
+        "Favorites",
+        secondary="favorite"
+    )
+
+    reviews = db.relationship(
+        "Review",
+        back_populates="user"
+    )
+
+    likes = db.relationship(
+        'Spots',
+        back_populates='user'
+    )
+
 
     @property
     def password(self):
