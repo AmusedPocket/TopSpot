@@ -5,12 +5,14 @@ follows = db.Table(
     db.Column(
         'user_id',
         db.Integer,
-        db.ForeignKey(add_prefix_for_prod(add_prefix_for_prod("users.id")))
+        db.ForeignKey(add_prefix_for_prod("users.id"), ondelete="CASCADE"),
+        primary_key=True
     ),
     db.Column(
         'follower_id',
         db.Integer,
-        db.ForeignKey(add_prefix_for_prod(add_prefix_for_prod("users.id")))
+        db.ForeignKey(add_prefix_for_prod("users.id"), ondelete="CASCADE"),
+        primary_key=True
     )
 )
 

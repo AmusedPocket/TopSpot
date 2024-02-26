@@ -8,7 +8,7 @@ class BusinessHour(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    spotId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('spots.id')), nullable=False)
+    spot_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('spots.id')), nullable=False)
     mondayHours = db.Column(db.DateTime)
     tuesdayHours = db.Column(db.DateTime)
     wednesdayHours = db.Column(db.DateTime)
@@ -24,6 +24,7 @@ class BusinessHour(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
+            'spot_id': self.spot_id,
             'mondayHours': self.mondayHours,
             'tuesdayHours': self.tuesdayHours,
             'wednesdayHours': self.wednesdayHours,
@@ -34,4 +35,4 @@ class BusinessHour(db.Model):
             'createdAt': self.createdAt,
             'updatedAt': self.updatedAt
         }
-    
+

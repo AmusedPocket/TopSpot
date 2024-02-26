@@ -1,20 +1,28 @@
 from app.models import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
-
+import json
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    demo = User(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = User(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = User(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    data = open('/app/seeds/data/users.json')
+    users = json.load(data)
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    print('/nSeeding users table...')
+  
+
+    for user in users:
+        new_user = User(
+            firstName = user['firstName'],
+            lastName = user["lastName"],
+            userName = user["userName"],
+            email=user['email'],
+            profile_pic='https://topspots.s3.us-west-1.amazonaws.com/icons8-customer-64.png',
+            password='password'
+        )
+        db.session.add(new_user)
+
     db.session.commit()
+    print("Users table seeded")
 
 
 # Uses a raw SQL query to TRUNCATE or DELETE the users table. SQLAlchemy doesn't
@@ -27,6 +35,6 @@ def undo_users():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute(text("DELETE FROM users"))
+        db.session.execute(text("TRUNCATE table users RESTART IDENTITY CASCADE;"))
         
     db.session.commit()

@@ -3,6 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
 from .user_follower import follows
+from .user_favorite import user_favorites
 
 
 class User(db.Model, UserMixin):
@@ -12,12 +13,12 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(255), nullable=False)
-    lastName = db.Column(db.String(255), nullable=False)
+    firstName = db.Column(db.String(40), nullable=False)
+    lastName = db.Column(db.String(40), nullable=False)
     userName = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
+    email = db.Column(db.String(40), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profilePic = db.Column(db.String(255))
+    profile_pic = db.Column(db.String(255))
     createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
@@ -31,8 +32,9 @@ class User(db.Model, UserMixin):
     )
 
     favorites = db.relationship(
-        "Favorites",
-        secondary="favorite"
+        "Spot",
+        secondary=user_favorites,
+        backref=db.backref("users", lazy="dynamic")
     )
 
     reviews = db.relationship(
@@ -43,6 +45,11 @@ class User(db.Model, UserMixin):
     likes = db.relationship(
         'Spots',
         back_populates='user'
+    )
+
+    images = db.relationship(
+        'ReviewImage',
+        back_populates="user"
     )
 
 
@@ -63,5 +70,7 @@ class User(db.Model, UserMixin):
             'firstName': self.firstName,
             'lastName': self.lastName,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'favorites': [favorite.to_dict() for favorite in self.favorites],
+            'images': self.images
         }
