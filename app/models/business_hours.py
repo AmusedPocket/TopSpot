@@ -2,7 +2,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
 
 class BusinessHour(db.Model):
-    __tablename__ = 'business hours'
+    __tablename__ = 'business_hours'
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
