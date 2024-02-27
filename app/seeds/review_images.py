@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA
+
 from sqlalchemy.sql import text
 from app.models import ReviewImage, db, environment, SCHEMA
 from random import sample, randint, random
