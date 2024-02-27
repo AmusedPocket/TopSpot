@@ -2,11 +2,11 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from enum import Enum
 from datetime import datetime
 
-class Category(Enum):
-    Restaurants = "Restaurants"
-    Shopping = "Shopping"
-    Active_Life = "Active Life"
-    Health = "Health"
+# class Category(Enum):
+#     Restaurants = "Restaurants"
+#     Shopping = "Shopping"
+#     Active_Life = "Active Life"
+#     Health = "Health"
 
 class Spot(db.Model):
     __tablename__ = "spots"
@@ -18,7 +18,7 @@ class Spot(db.Model):
     
     title = db.Column(db.String(255), nullable=False)
     description = db.Column(db.String(255), nullable=False)
-    category = db.Column(db.Enum(Category), nullable=False)
+    category = db.Column(db.String(255), nullable=False)
     address = db.Column(db.String(255))
     phone = db.Column(db.String(255))
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
