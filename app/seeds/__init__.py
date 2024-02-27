@@ -19,6 +19,11 @@ def seed():
          # Before seeding, truncate all tables prefixed with schema name
         
         # Add a truncate command here for every table that will be seeded.
+        undo_review_images()
+        undo_reviews()
+        undo_user_spots()
+        undo_spots()
+        undo_users()
         db.session.commit()
     seed_users()
     seed_spots()
