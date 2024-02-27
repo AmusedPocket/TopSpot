@@ -2,240 +2,280 @@
     {
         "title": "The Cheesecake Factory",
         "category": "Restaurants",
+        "description": "Culpa magna magna laboris ullamco nulla adipisicing cillum fugiat amet ex enim.",
         "address": "251 Geary St, San Francisco, CA 94102",
         "phone": "(415) 391-4444"
     },
     {
         "title": "Westfield San Francisco Centre",
         "category": "Shopping",
+        "description": "Reprehenderit est esse sunt anim ipsum elit Lorem.",
         "address": "865 Market St, San Francisco, CA 94103",
         "phone": "(415) 512-6776"
     },
     {
         "title": "Crunch Fitness",
         "category": "Active Life",
+        "description": "Laborum incididunt consectetur laboris elit duis culpa.",
         "address": "61 New Montgomery St, San Francisco, CA 94105",
         "phone": "(415) 543-8555"
     },
     {
         "title": "UCSF Medical Center at Mission Bay",
         "category": "Health",
+        "description": "Eu dolore culpa duis cillum consectetur tempor ipsum irure occaecat sint.",
         "address": "1825 4th St, San Francisco, CA 94158",
         "phone": "(415) 353-3000"
     },
     {
         "title": "The Slanted Door",
         "category": "Restaurants",
+        "description": "Consequat aliquip duis est commodo fugiat dolor ea exercitation proident esse laboris reprehenderit.",
         "address": "1 Ferry Building #3, San Francisco, CA 94111",
         "phone": "(415) 861-8032"
     },
     {
         "title": "Union Square San Francisco",
         "category": "Shopping",
+        "description": "Nulla pariatur occaecat magna sint aliqua proident velit Lorem.",
         "address": "333 Post St, San Francisco, CA 94108",
         "phone": "(415) 477-2610"
     },
     {
         "title": "Golden Gate Park",
         "category": "Active Life",
+        "description": "Nisi reprehenderit voluptate voluptate voluptate culpa esse in nostrud elit velit.",
         "address": "San Francisco, CA 94121",
         "phone": "(415) 831-2700"
     },
     {
         "title": "California Pacific Medical Center",
         "category": "Health",
+        "description": "Est ipsum Lorem velit sunt eiusmod sunt proident esse exercitation consequat dolore.",
         "address": "2333 Buchanan St, San Francisco, CA 94115",
         "phone": "(415) 600-6000"
     },
     {
         "title": "Boudin Bakery & Cafe",
         "category": "Restaurants",
+        "description": "Ad nostrud ea cillum esse enim culpa duis ea aute ex.",
         "address": "160 Jefferson St, San Francisco, CA 94133",
         "phone": "(415) 928-1849"
     },
     {
         "title": "Westfield Valley Fair",
         "category": "Shopping",
+        "description": "Quis incididunt anim veniam reprehenderit velit aliquip exercitation consectetur amet sit excepteur.",
         "address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
         "phone": "(408) 248-4451"
     },
     {
         "title": "Equinox Sports Club San Francisco",
         "category": "Active Life",
+        "description": "Deserunt excepteur ipsum culpa minim Lorem duis non cupidatat elit deserunt.",
         "address": "747 Market St, San Francisco, CA 94103",
         "phone": "(415) 633-3900"
     },
     {
         "title": "Kaiser Permanente San Francisco Medical Center",
         "category": "Health",
+        "description": "Consequat esse laboris reprehenderit esse.",
         "address": "2425 Geary Blvd, San Francisco, CA 94115",
         "phone": "(415) 833-2200"
     },
     {
         "title": "Farmhouse Kitchen Thai Cuisine",
         "category": "Restaurants",
+        "description": "Sint ad duis enim ea culpa aliquip.",
         "address": "710 Florida St, San Francisco, CA 94110",
         "phone": "(415) 814-2920"
     },
     {
         "title": "Westlake Shopping Center",
         "category": "Shopping",
+        "description": "Aliquip elit id occaecat voluptate enim pariatur minim dolor quis nisi nisi.",
         "address": "22 Serramonte Center, Daly City, CA 94015",
         "phone": "(650) 992-8687"
     },
     {
         "title": "24 Hour Fitness",
         "category": "Active Life",
+        "description": "Culpa esse ad dolor fugiat consectetur excepteur ullamco enim occaecat aliqua occaecat cillum anim.",
         "address": "350 Bay St, San Francisco, CA 94133",
         "phone": "(415) 956-0999"
     },
     {
         "title": "Kaiser Permanente Santa Clara Medical Center",
         "category": "Health",
+        "description": "Adipisicing aliqua Lorem officia incididunt pariatur nostrud.",
         "address": "700 Lawrence Expy, Santa Clara, CA 95051",
         "phone": "(408) 851-1000"
     },
     {
         "title": "House of Prime Rib",
         "category": "Restaurants",
+        "description": "Consectetur nisi fugiat in aliquip.",
         "address": "1906 Van Ness Ave, San Francisco, CA 94109",
         "phone": "(415) 885-4605"
     },
     {
         "title": "Stonestown Galleria",
         "category": "Shopping",
+        "description": "Fugiat aliquip ullamco exercitation deserunt exercitation nulla.",
         "address": "3251 20th Ave, San Francisco, CA 94132",
         "phone": "(415) 759-2626"
     },
     {
         "title": "YMCA Embarcadero",
         "category": "Active Life",
+        "description": "Ex aliquip laborum ex officia quis esse reprehenderit enim eu reprehenderit.",
         "address": "169 Steuart St, San Francisco, CA 94105",
         "phone": "(415) 957-9622"
     },
     {
         "title": "Dignity Health - Saint Francis Memorial Hospital",
         "category": "Health",
+        "description": "Ut culpa reprehenderit eiusmod ut consequat ea laboris sit eu cillum nulla.",
         "address": "900 Hyde St, San Francisco, CA 94109",
         "phone": "(415) 353-6000"
     },
     {
         "title": "Golden Gate Restaurant",
         "category": "Restaurants",
+        "description": "Nostrud enim id veniam duis dolor nostrud magna deserunt minim.",
         "address": "123 Main Street, San Francisco, CA 94103",
         "phone": "415-123-4567"
     },
     {
         "title": "Bay Area Mall",
         "category": "Shopping",
+        "description": "Incididunt aliquip minim non duis eu aliquip.",
         "address": "456 Oak Avenue, Fremont, CA 94536",
         "phone": "510-456-7890"
     },
     {
         "title": "Healthy Life Gym",
         "category": "Active Life",
+        "description": "Ea officia ex in id incididunt nisi qui.",
         "address": "789 Elm Street, San Mateo, CA 94401",
         "phone": "650-789-1234"
     },
     {
         "title": "Bayview Hospital",
         "category": "Health",
+        "description": "Ad commodo ipsum est exercitation duis consequat dolor ad duis laboris ipsum.",
         "address": "987 Pine Street, Redwood City, CA 94061",
         "phone": "650-987-6543"
     },
     {
         "title": "Bayview Cafe",
         "category": "Restaurants",
+        "description": "Ullamco duis non veniam anim.",
         "address": "321 Maple Avenue, Fremont, CA 94538",
         "phone": "510-321-6543"
     },
     {
         "title": "City Center Mall",
         "category": "Shopping",
+        "description": "Ullamco dolor magna dolore Lorem nulla adipisicing labore.",
         "address": "654 Broadway Street, San Mateo, CA 94403",
         "phone": "650-654-9876"
     },
     {
         "title": "Active Fitness Club",
         "category": "Active Life",
+        "description": "Sint tempor do exercitation Lorem.",
         "address": "987 Chestnut Avenue, Fremont, CA 94539",
         "phone": "510-987-3210"
     },
     {
         "title": "Bay Area Medical Center",
         "category": "Health",
+        "description": "Quis nisi do ex sit quis eu minim irure.",
         "address": "741 Walnut Street, Redwood City, CA 94063",
         "phone": "650-741-8520"
     },
     {
         "title": "Oceanview Diner",
         "category": "Restaurants",
+        "description": "Proident nostrud elit non eiusmod exercitation fugiat excepteur dolore nisi.",
         "address": "852 Pine Street, San Mateo, CA 94402",
         "phone": "650-852-7410"
     },
     {
         "title": "Sunset Mall",
         "category": "Shopping",
+        "description": "Fugiat anim ipsum labore qui esse quis aliquip magna sunt laborum commodo veniam consequat.",
         "address": "147 Cherry Lane, Fremont, CA 94555",
         "phone": "510-147-3698"
     },
     {
         "title": "Downtown Diner",
         "category": "Restaurants",
+        "description": "Commodo fugiat proident excepteur officia est exercitation.",
         "address": "258 Maple Avenue, Fremont, CA 94537",
         "phone": "510-258-3698"
     },
     {
         "title": "Bayfront Shopping Center",
         "category": "Shopping",
+        "description": "Voluptate consequat mollit occaecat nisi Lorem ipsum laborum dolor duis id nisi.",
         "address": "369 Elm Street, San Mateo, CA 94404",
         "phone": "650-369-2587"
     },
     {
         "title": "FitZone Gym",
         "category": "Active Life",
+        "description": "Veniam id aliquip amet nisi eiusmod aliqua.",
         "address": "147 Walnut Street, Fremont, CA 94540",
         "phone": "510-147-3698"
     },
     {
         "title": "San Mateo General Hospital",
         "category": "Health",
+        "description": "Ullamco esse fugiat id non et fugiat.",
         "address": "258 Oak Avenue, San Mateo, CA 94405",
         "phone": "650-258-1478"
     },
     {
         "title": "Harborview Restaurant",
         "category": "Restaurants",
+        "description": "Nisi voluptate duis labore qui esse sint proident officia aliquip sint id mollit.",
         "address": "369 Broadway Street, Fremont, CA 94541",
         "phone": "510-369-2587"
     },
     {
         "title": "Citywide Mall",
         "category": "Shopping",
+        "description": "Do veniam sit nisi voluptate laboris id consectetur enim nulla fugiat exercitation Lorem aliquip magna.",
         "address": "147 Cherry Lane, San Mateo, CA 94406",
         "phone": "650-147-3698"
     },
     {
         "title": "Active Lifestyle Center",
         "category": "Active Life",
+        "description": "Incididunt irure fugiat duis irure duis consectetur irure esse aliquip excepteur Lorem anim quis occaecat.",
         "address": "258 Pine Street, Fremont, CA 94542",
         "phone": "510-258-1478"
     },
     {
         "title": "Peninsula Health Clinic",
         "category": "Health",
+        "description": "Reprehenderit id anim sunt et ut commodo non incididunt amet duis qui ullamco.",
         "address": "369 Oak Avenue, San Mateo, CA 94407",
         "phone": "650-369-2587"
     },
     {
         "title": "Bayview Bistro",
         "category": "Restaurants",
+        "description": "Dolore labore quis dolor nisi consectetur laborum ea.",
         "address": "147 Maple Avenue, Fremont, CA 94543",
         "phone": "510-147-3698"
     },
     {
         "title": "Town Center Mall",
         "category": "Shopping",
+        "description": "Sunt elit aliqua tempor excepteur nisi.",
         "address": "258 Elm Street, San Mateo, CA 94408",
         "phone": "650-258-1478"
     }

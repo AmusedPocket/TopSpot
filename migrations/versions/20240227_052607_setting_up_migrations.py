@@ -1,18 +1,16 @@
-"""empty message
+"""setting up migrations
 
-Revision ID: 7a2ff05a3779
+Revision ID: a6a72f180f75
 Revises: 
-Create Date: 2024-02-26 15:20:20.858473
+Create Date: 2024-02-27 05:26:07.889322
 
 """
 from alembic import op
 import sqlalchemy as sa
-import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get("SCHEMA")
+
 
 # revision identifiers, used by Alembic.
-revision = '7a2ff05a3779'
+revision = 'a6a72f180f75'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -27,31 +25,16 @@ def upgrade():
     sa.Column('userName', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=40), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
-    sa.Column('profile_pic', sa.String(length=255), nullable=True),
     sa.Column('createdAt', sa.DateTime(), nullable=False),
     sa.Column('updatedAt', sa.DateTime(), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('userName')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-
-    op.create_table('follows',
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('follower_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['follower_id'], ['users.id'], ondelete='CASCADE'),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('user_id', 'follower_id')
-    )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE follows SET SCHEMA {SCHEMA};")
-
     op.create_table('spots',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255), nullable=False),
+    sa.Column('description', sa.String(length=255), nullable=False),
     sa.Column('category', sa.Enum('Restaurants', 'Shopping', 'Active_Life', 'Health', name='category'), nullable=False),
     sa.Column('address', sa.String(length=255), nullable=True),
     sa.Column('phone', sa.String(length=255), nullable=True),
@@ -61,67 +44,32 @@ def upgrade():
     sa.ForeignKeyConstraint(['owner_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE spots SET SCHEMA {SCHEMA};")
-
-    op.create_table('business_hours',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('spot_id', sa.Integer(), nullable=False),
-    sa.Column('mondayHours', sa.DateTime(), nullable=True),
-    sa.Column('tuesdayHours', sa.DateTime(), nullable=True),
-    sa.Column('wednesdayHours', sa.DateTime(), nullable=True),
-    sa.Column('thursdayHours', sa.DateTime(), nullable=True),
-    sa.Column('fridayHours', sa.DateTime(), nullable=True),
-    sa.Column('saturdayHours', sa.DateTime(), nullable=True),
-    sa.Column('sundayHours', sa.DateTime(), nullable=True),
-    sa.Column('createdAt', sa.DateTime(), nullable=False),
-    sa.Column('updatedAt', sa.DateTime(), nullable=False),
-    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE business_hours SET SCHEMA {SCHEMA};")
-
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('rating', sa.Integer(), nullable=False),
+    sa.Column('body', sa.String(length=255), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('spot_id', sa.Integer(), nullable=False),
-    sa.Column('review', sa.String(length=255), nullable=False),
-    sa.Column('rating', sa.Float(), nullable=True),
-    sa.Column('photos', sa.String(length=255), nullable=True),
-    sa.Column('helpful', sa.Integer(), nullable=True),
-    sa.Column('thanks', sa.Integer(), nullable=True),
-    sa.Column('love_this', sa.Integer(), nullable=True),
-    sa.Column('oh_no', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
-
-    op.create_table('user_favorites',
+    op.create_table('user_spots',
+    sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('spot_id', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
-    sa.PrimaryKeyConstraint('user_id', 'spot_id')
+    sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE user_favorites SET SCHEMA {SCHEMA};")
-
     op.create_table('review_images',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('review_id', sa.Integer(), nullable=False),
+    sa.Column('url', sa.String(length=255), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('url', sa.String(length=255), nullable=True),
-    sa.Column('spot_id', sa.Integer(), nullable=False),
+    sa.Column('spot_id', sa.Integer(), nullable=True),
+    sa.Column('review_id', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=False),
     sa.Column('updated_at', sa.DateTime(), nullable=False),
     sa.ForeignKeyConstraint(['review_id'], ['reviews.id'], ),
@@ -129,19 +77,14 @@ def upgrade():
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-
-    if environment == "production":
-        op.execute(f"ALTER TABLE review_images SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
 def downgrade():
     # ### commands auto generated by Alembic - please adjust! ###
     op.drop_table('review_images')
-    op.drop_table('user_favorites')
+    op.drop_table('user_spots')
     op.drop_table('reviews')
-    op.drop_table('business_hours')
     op.drop_table('spots')
-    op.drop_table('follows')
     op.drop_table('users')
     # ### end Alembic commands ###

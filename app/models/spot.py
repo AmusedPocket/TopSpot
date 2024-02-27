@@ -17,6 +17,7 @@ class Spot(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     
     title = db.Column(db.String(255), nullable=False)
+    description = db.Column(db.String(255), nullable=False)
     category = db.Column(db.Enum(Category), nullable=False)
     address = db.Column(db.String(255))
     phone = db.Column(db.String(255))
@@ -24,15 +25,44 @@ class Spot(db.Model):
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     owner_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    
+    images = db.relationship("ReviewImage", back_populates="spot")
+
+    reviews = db.relationship("Review", back_populates="spot", cascade='all, delete-orphan')
+    user = db.relationship("UserSpot", back_populates="spot")
+    owner = db.relationship("User", back_populates="owned_spot")
+
     def to_dict(self):
         return {
             'id': self.id,
+            'title': self.title,
+            'description': self.description,
             'category': self.category,
             'address': self.address,
             'phone': self.phone,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'owner_id': self.owner_id,
+            'owner': self.owner.to_obj() if self.owner else None,
+            'avg_rating': self.avg_rating(),
+            'reviews': [review.to_obj() for review in self.reviews] if self.reviews else [],
+            'images': [image.to_obj() for image in self.images] if self.images else []
         }
 
+    def to_obj(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'description': self.description,
+            'category': self.category,
+            'avg_rating': self.avg_rating()
+        }
+    
+    def avg_rating(self):
+        rating_total = sum([r.rating for r in self.reviews])
+        number_of_ratings = len(self.reviews)
+
+        if number_of_ratings == 0:
+            return 0
+        
+        return rating_total / number_of_ratings
 

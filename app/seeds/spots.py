@@ -1,7 +1,7 @@
 from app.models import db, User, environment, SCHEMA
 from sqlalchemy.sql import text
 from app.models import Spot, db, environment, SCHEMA
-from random import sample, randint, random
+from random import sample, randint, random, choice
 from datetime import datetime
 import json
 
@@ -11,15 +11,16 @@ def seed_spots():
     data = open('app/seeds/data/spots.json')
     spots = json.load(data)
     print("/nSeeding spots data...")
-    user_arr = list(range(1, 40))
+    user_arr = list(range(1, 41))
 
     for spot in spots:
-        user = random.choice(user_arr)
+        user = choice(user_arr)
         user_arr.remove(user)
 
         new_spot = Spot(
             title=spot['title'],
             category=spot['category'],
+            description=spot['description'],
             address=spot['address'],
             phone=spot['phone'],
             owner_id=user
@@ -38,6 +39,6 @@ def undo_spots():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.spots RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM spots")
+        db.session.execute(text("DELETE FROM spots;"))
         
     db.session.commit()

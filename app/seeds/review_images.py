@@ -8,7 +8,7 @@ import json
 
 
 def seed_review_images():
-    data = open('/app/seeds/data/review_images.json')
+    data = open('app/seeds/data/review_images.json')
     images = json.load(data)
     review_images_grouped = [images[i:i+3] for i in range(0, len(images), 3)]
 
@@ -36,6 +36,6 @@ def undo_review_images():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.review images RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM review_images")
+        db.session.execute(text("DELETE FROM review_images;"))
         
     db.session.commit()

@@ -4,7 +4,7 @@ import json
 
 # Adds a demo user, you can add other users here if you want
 def seed_users():
-    data = open('/app/seeds/data/users.json')
+    data = open('app/seeds/data/users.json')
     users = json.load(data)
 
     print('/nSeeding users table...')
@@ -16,7 +16,6 @@ def seed_users():
             lastName = user["lastName"],
             userName = user["userName"],
             email=user['email'],
-            profile_pic='https://topspots.s3.us-west-1.amazonaws.com/icons8-customer-64.png',
             password='password'
         )
         db.session.add(new_user)
@@ -35,6 +34,6 @@ def undo_users():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
-        db.session.execute("DELETE FROM users")
+        db.session.execute(text("DELETE FROM users;"))
         
     db.session.commit()
