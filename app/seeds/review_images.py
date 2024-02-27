@@ -34,7 +34,7 @@ def seed_review_images():
 # it will reset the primary keys for you as well.
 def undo_review_images():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.review images RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.review_images RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM review_images;"))
         
