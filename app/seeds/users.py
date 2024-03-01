@@ -12,9 +12,9 @@ def seed_users():
 
     for user in users:
         new_user = User(
-            firstName = user['firstName'],
-            lastName = user["lastName"],
-            userName = user["userName"],
+            first_name = user['first_name'],
+            last_name = user["last_name"],
+            user_name = user["user_name"],
             email=user['email'],
             password='password'
         )

@@ -11,21 +11,18 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    firstName = db.Column(db.String(40), nullable=False)
-    lastName = db.Column(db.String(40), nullable=False)
-    userName = db.Column(db.String(40), nullable=False, unique=True)
+    first_name = db.Column(db.String(40), nullable=False)
+    last_name = db.Column(db.String(40), nullable=False)
+    user_name = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(40), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-    createdAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
-    updatedAt = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    hashed_password = db.Column(db.String(500), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
     spots = db.relationship("UserSpot", back_populates="user")
     reviews = db.relationship("Review", back_populates="user")
     images = db.relationship('ReviewImage', back_populates="user")
     owned_spot = db.relationship("Spot", back_populates="owner")
-
-    
-
 
     @property
     def password(self):
@@ -41,9 +38,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'firstName': self.firstName,
-            'lastName': self.lastName,
-            'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'user_name': self.user_name,
             'email': self.email,
             'created_at': self.created_at,
             'updated_at': self.updated_at,
@@ -55,8 +52,8 @@ class User(db.Model, UserMixin):
     
     def to_obj(self):
         return {
-            'firstName': self.firstName,
-            'lastName': self.lastName,
-            'username': self.username,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'user_name': self.user_name,
             'email': self.email
         }
