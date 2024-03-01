@@ -69,7 +69,8 @@ def update_spot(id):
         return {'errors': errors_message(form.errors)}, 401
     
     spot = Spot.query.get(id)
-
+    
+    
     if not spot:
         return {'errors': ["Spot couldn't be found."]}, 404
     
@@ -86,6 +87,7 @@ def update_spot(id):
     spot.description = form.data['description']
     spot.category = form.data['category']
     spot.address = form.data['address']
+    spot.phone = form.data['phone']
     spot.owner_id = owner()
 
     db.session.commit()
@@ -97,7 +99,7 @@ def update_spot(id):
 def delete_spot(id):
     print('in delete area')
     spot = Spot.query.get(id)
-
+    print("=======================>>>>>>>>>>>>>", spot)
     if not spot:
         return {'errors': ['Spot could not be found']}, 404
     
