@@ -6,9 +6,49 @@ import {
 } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import spotReducer from "./spot";
+import reviewReducer from "./reviews";
+
+
+
+export const errorHandler = async (response) => {
+  const errors = await response.json();
+  return errors;
+}
+
+export const normalizeData = (data) => {
+  switch (typeof data){
+    case "object": {
+      if (data === null) return null;
+
+      switch(Array.isArray(data)) {
+        case true:
+          return data.reduce((acc, item) => {
+            item = normalizeData(item);
+            acc[item.id] = item;
+            return acc;
+          }, {});
+
+          default:
+            return Object.entries(data).reduce((acc, [key, val]) => {
+              val = normalizeData(val);
+              acc[key] = val
+              return acc;
+            }, {})
+      }
+    }
+    case "undefined":
+      return null;
+    
+    default:
+      return data;
+  }
+}
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  spot: spotReducer,
+  reviews: reviewReducer
 });
 
 let enhancer;

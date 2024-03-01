@@ -16,7 +16,7 @@ def errors_message(validation_errors):
 
 @spot_routes.route('', methods=['GET'])
 def get_all_spots():
-    print('hi')
+    
     category = request.args.get('category')
 
     if category:
