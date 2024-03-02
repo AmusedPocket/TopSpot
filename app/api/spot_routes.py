@@ -94,15 +94,16 @@ def update_spot(id):
 
     return {'spot': spot.to_dict()}
 
-@spot_routes.route('/<int:id>', methods=['DELETE'])
+@spot_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_spot(id):
     print('in delete area')
     spot = Spot.query.get(id)
-    print("=======================>>>>>>>>>>>>>", spot)
+    
     if not spot:
         return {'errors': ['Spot could not be found']}, 404
     
+    print("=======================>>>>>>>>>>>>>", spot)
     db.session.delete(spot)
     db.session.commit()
 

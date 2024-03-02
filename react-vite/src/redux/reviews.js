@@ -10,37 +10,37 @@ const DELETE_REVIEW = "reviews/DELETE_REVIEW"
 
 const _getReview = (review) => ({
     type: GET_REVIEW,
-    payload: review
+    review
 })
 
 const _getAllReviews = (reviews) => ({
     type: GET_ALL_REVIEWS,
-    payload: reviews
+    reviews
 })
 
 const _getUserReviews = (reviews) => ({
     type: GET_ALL_USER_REVIEWS,
-    payload: reviews
+    reviews
 })
 
 const _getRandomReviews = (reviews) => ({
     type: GET_RANDOM_REVIEWS,
-    payload: reviews
+    reviews
 })
 
 const _createReview = (review) => ({
     type: CREATE_REVIEW,
-    payload: review
+    review
 })
 
 const _updateReview = (review) => ({
     type: UPDATE_REVIEW,
-    payload: review
+    review
 })
 
 const _deleteReview = (reviewId) => ({
     type: DELETE_REVIEW,
-    payload: reviewId
+    reviewId
 })
 
 export const thunkGetReview = (reviewId) => async (dispatch) => {
@@ -66,7 +66,7 @@ export const thunkGetAllReviews = () => async (dispatch) => {
     return reviews;
 }
 
-export const getUserReviews = () => async (dispatch) => {
+export const thunkGetUserReviews = () => async (dispatch) => {
     const response = await fetch(`/api/reviews/user/curr`)
 
     if(!response.ok) return await errorHandler(response);
@@ -77,7 +77,7 @@ export const getUserReviews = () => async (dispatch) => {
     return reviews;
 }
 
-export const getRandomReviews = (number) => async (dispatch) => {
+export const thunkGetRandomReviews = (number) => async (dispatch) => {
     const response = await fetch(`/api/reviews/random/${number}`)
 
     if(!response.ok) return await errorHandler(response);

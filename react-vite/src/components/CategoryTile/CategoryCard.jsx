@@ -1,13 +1,14 @@
 import { NavLink } from "react-router-dom";
+import "./CategoryCard.css"
 
-const CategoryCard = ({category, url}) => {
+const CategoryTile = ({category, url}) => {
     const catIcon = {
-        Restaurants: "fa-solid fa-utensils",
-        Shopping: "fa-solid fa-store",
-        ActiveLife: "fa-solid fa-person-walking",
-        Health: "fa-solid fa-file-medical"
+        Restaurants: "fa-utensils",
+        Shopping: "fa-store",
+        "Active Life": "fa-person-walking",
+        Health: "fa-file-medical"
     }
-
+    console.log("image url is: ", url)
     return(
         <NavLink className="category-container" to={`/category/${category}`}>
             <div 
@@ -17,14 +18,14 @@ const CategoryCard = ({category, url}) => {
                 }} 
             />
 
-            <div className="category-card">
-                <i className={`${catIcon[category]} fa-lg`} />
+            <div className="category-tile">
+                <i className={`fa-solid ${catIcon[category]} fa-lg`} />
                 <p className="category-name">
-                    {category.split(" ").map((word) => word[0].toUpperCse() + word.slice(1)).join(" ")}
+                    {category.split(" ").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}
                 </p>
             </div>
         </NavLink>
     )
 }
 
-export default CategoryCard;
+export default CategoryTile;

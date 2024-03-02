@@ -28,7 +28,7 @@ class Spot(db.Model):
     images = db.relationship("ReviewImage", back_populates="spot")
 
     reviews = db.relationship("Review", back_populates="spot", cascade='all, delete-orphan')
-    user = db.relationship("UserSpot", back_populates="spot")
+    user = db.relationship("UserSpot", back_populates="spot", cascade='all, delete-orphan')
     owner = db.relationship("User", back_populates="owned_spot")
 
     def to_dict(self):

@@ -29,6 +29,8 @@ class Review(db.Model):
             'user_id': self.user_id,
             'user': self.user.to_obj(),
             'spot_id': self.spot_id,
+            'spot': self.spot.to_obj(),
+            'images': [image.to_obj() for image in self.images],
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
