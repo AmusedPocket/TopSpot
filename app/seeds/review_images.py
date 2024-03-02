@@ -8,21 +8,26 @@ import json
 
 
 def seed_review_images():
+
     data = open('app/seeds/data/review_images.json')
+
     images = json.load(data)
-    review_images_grouped = [images[i:i+3] for i in range(0, len(images), 3)]
+
+    current_spot_id = 1
 
     print("\nSeeding images table...")
-    for review_idx, review_images in enumerate(review_images_grouped):
-        for idx, image in enumerate(review_images):
-            new_image = ReviewImage(
-                review_id=review_idx + 1,
-                user_id=(review_idx % 40) + 1,
-                url = image['url'],
-                spot_id = (review_idx % 40) + 1
-            )
+    for idx, image in enumerate(images):
+        new_image = ReviewImage(
+            review_id=idx + 1,
+            user_id=(idx % 40) + 1,
+            url = image['url'],
+            spot_id = current_spot_id
+        )
         db.session.add(new_image)
-    
+
+        if(idx + 1) % 3 == 0:
+            current_spot_id += 1
+
     db.session.commit()
     print("Images table seeded.")
 
