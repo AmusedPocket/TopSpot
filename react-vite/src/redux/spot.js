@@ -8,27 +8,27 @@ const DELETE_SPOT = "spot/DELETE_SPOT"
 
 const _getSpot = (spot) => ({
     type: GET_SPOT,
-    payload: spot
+    spot
 })
 
 const _getAllSpots = (spots) => ({
     type: GET_ALL_SPOTS,
-    payload: spots
+    spots
 })
 
 const _createSpot = (spot) => ({
     type: CREATE_SPOT,
-    payload: spot
+    spot
 })
 
 const _updateSpot = (spot) => ({
     type: UPDATE_SPOT,
-    payload: spot
+    spot
 })
 
 const _deleteSpot = (spotId) => ({
     type: DELETE_SPOT,
-    payload: spotId
+    spotId
 })
 
 export const thunkGetSpot = (spotId) => async (dispatch) => {
@@ -66,13 +66,15 @@ export const thunkCreateSpot = (spotData) => async (dispatch) => {
 
     const {spot} = await response.json()
 
+    console.log("spot thunk is: ", spot)
+
     dispatch(_createSpot(spot));
 
     return spot;
 }
 
 export const thunkUpdateSpot = (spotData) => async (dispatch) => {
-    const response = await fetch(`/api/spots${spotData.id}`, {
+    const response = await fetch(`/api/spots/${spotData.id}`, {
         method: "PUT",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(spotData)
@@ -121,9 +123,20 @@ const spotReducer = (state = initialState, action) => {
             return newState
         }
 
+        case CREATE_SPOT: {
+            const newState = normalizeData(state);
+            
+            newState.currSpot = normalizeData(action.spot)
+        
+            newState.allSpots[action.spot.id] = normalizeData(action.spot)
+            
+            
+            return newState;
+        }
+
         case UPDATE_SPOT: {
             const newState = normalizeData(state);
-
+            
             newState.currSpot = normalizeData(action.spot)
             newState.allSpots[action.spot.id] = normalizeData(action.spot)
 

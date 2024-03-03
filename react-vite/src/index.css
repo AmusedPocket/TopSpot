@@ -1,1 +1,7 @@
 /* TODO: Add sitewide styles */
+:root {
+    --orange: #fdb900;
+    --red: #e20001;
+    --darkOrange: #fb7401;
+    --black: #000000;
+}

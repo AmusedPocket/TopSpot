@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from app.models import db, Spot
 from app.forms import SpotForm
 
@@ -30,8 +30,9 @@ def get_all_spots():
     return {'spots': [spot.to_dict() for spot in spots]}
 
 @spot_routes.route('', methods=['POST'])
+@login_required
 def create_spot():
-    print("in post")
+    
     form = SpotForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -42,7 +43,9 @@ def create_spot():
         title=form.data['title'],
         description=form.data['description'],
         category=form.data['category'],
-        phone=form.data['phone']
+        address=form.data['address'],
+        phone=form.data['phone'],
+        owner_id=current_user.id
     )
 
     db.session.add(new_spot)
@@ -94,7 +97,7 @@ def update_spot(id):
 
     return {'spot': spot.to_dict()}
 
-@spot_routes.route('/<int:id>/delete', methods=['DELETE'])
+@spot_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
 def delete_spot(id):
     print('in delete area')

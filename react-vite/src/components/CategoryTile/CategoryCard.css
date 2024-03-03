@@ -1,9 +1,37 @@
-.category-container {
-    border: 2px solid black;
+import
+.category-tile {
+    position: relative;
 }
 
-.category-tile {
-    min-width: 200px;
-    min-height: 200px;
-    border: 2px solid black;
+.category-container  {
+    position: relative;
+   
+    
+
+    .background {
+        z-index: -1;
+        object-fit: contain;
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        filter: blur(2px);
+        min-width: 200px;
+        min-height: 200px;
+        padding: 20px;
+        container: fit-content;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        border: 10px solid var(--darkOrange);
+    }
+  
 }
+
+.category-container:hover{
+    .background {
+        box-shadow: 2px 2px 2px black;
+        
+    }
+}
+

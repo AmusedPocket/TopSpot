@@ -1,32 +1,73 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
+
 
 function LoginFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [credential, setCredential] = useState("")
+  const [submitted, setSubmitted]= useState(false)
   const { closeModal } = useModal();
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const serverResponse = await dispatch(
-      thunkLogin({
-        email,
-        password,
-      })
-    );
+    setSubmitted(true);
 
-    if (serverResponse) {
-      setErrors(serverResponse);
-    } else {
-      closeModal();
+    if(Object.values(errors).length === 0){
+      const serverResponse = await dispatch(
+        thunkLogin({
+          email,
+          password,
+        })
+      );
+  
+      if (serverResponse) {
+        const errorsObj = {}
+
+        for (const error of serverResponse){
+          const [name, message] = error.split(" : ")
+          errorsObj[name] = message
+        }
+
+        return setErrors(errorsObj);
+      } 
+        closeModal();
+      
     }
+
   };
+
+  useEffect(()=> {
+    setErrors({})
+    const errorsObj = {}
+
+    if(!credential) errorsObj.credential = "Must provide a username or email"
+    else if (password.length > 40){
+      errorsObj.credential = "Username or Email must be less than 40 characters"
+    }
+
+    if(!password) errorsObj.password = "Password required"
+    else if (password.length > 40) {
+      errorsObj.password = "Password must be less than 40 characters"
+    }
+
+    setErrors(errorsObj)
+  }, [credential, password])
+
+  const demoUserLogin = async (e) => {
+    e.preventDefault();
+    
+    await dispatch(thunkLogin({email: "demo@aa.io", password: "password"}));
+
+    closeModal();
+  }
 
   return (
     <>

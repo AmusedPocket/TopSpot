@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./CategoryCard.css"
 
-const CategoryTile = ({category, url}) => {
+const CategoryTile = ({ category, url }) => {
     const catIcon = {
         Restaurants: "fa-utensils",
         Shopping: "fa-store",
@@ -9,13 +9,13 @@ const CategoryTile = ({category, url}) => {
         Health: "fa-file-medical"
     }
     console.log("image url is: ", url)
-    return(
+    return (
         <NavLink className="category-container" to={`/category/${category}`}>
-            <div 
+            <div
                 className="background"
                 style={{
-                    backgroundImage: `url(${url})`,
-                }} 
+                    backgroundImage: `url(${url})`
+                }}
             />
 
             <div className="category-tile">
