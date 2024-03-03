@@ -1,5 +1,5 @@
 import random
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import current_user, login_required
 from app.models import db, Review
 from app.forms import ReviewForm
@@ -46,7 +46,7 @@ def get_random_reviews(number):
 @review_routes.route('', methods=['POST'])
 def new_review():
     form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_toekn']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if not form.validate_on_submit():
         return {'errors': errors_message(form.errors)}, 401
@@ -66,24 +66,24 @@ def new_review():
 @review_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def edit_review(id):
+    
     form = ReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    
     if not form.validate_on_submit():
         return {'errors': errors_message(form.errors)}, 401
     
     review = Review.query.get(id)
-
+    
     if not review:
         return {'errors': ['Unable to find review.']}, 404
     
     review.rating = form.data['rating']
     review.body = form.data['body']
-
-    db.session.add(review)
+    
     db.session.commit()
 
-    return {'review:', review.to_dict()}
+    return {'review': review.to_dict()}, 200
 
 @review_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
