@@ -20,8 +20,11 @@ const SpotForm = ({ spot }) => {
     const [category, setCategory] = useState(spot ? spot.category : "")
     const [address, setAddress] = useState(spot ? spot.address : "")
     
-    const addressParts = address.split(",").map(part => part.trim())
-
+    let addressParts = " , , , "
+    if(address){
+        addressParts = address.split(",").map(part => part.trim())
+    }
+    
     const [streetAddress, setStreetAddress] = useState(spot ? addressParts[0] : " ")
     const [city, setCity] = useState(spot ? addressParts[1] : " ")
     const stateZip = addressParts[2].split(" ")

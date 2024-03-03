@@ -88,38 +88,42 @@ export const thunkGetRandomReviews = (number) => async (dispatch) => {
     return reviews;
 }
 
-export const createReview = (reviewData) => async (dispatch) => {
+export const thunkCreateReview = (reviewData) => async (dispatch) => {
     const response = await fetch(`/api/reviews`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(reviewData)
     })
-
+    
     if(!response.ok) return await errorHandler(response);
 
     const {review} = await response.json()
-
+    
     dispatch(_createReview(review))
 
     return review;
 }
 
-export const updateReview = (reviewData) => async (dispatch) => {
+export const thunkUpdateReview = (reviewData) => async (dispatch) => {
+    console.log("=========================1")
+    console.log("review data is: ", reviewData)
     const response = await fetch(`/api/reviews/${reviewData.id}`, {
         method: "PUT",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(reviewData)
-    })
-
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(reviewData),
+      });
+    console.log("=========================2")
+    console.log("response is: ", response)
     if(!response.ok) return await errorHandler(response);
-
+    console.log("=========================3")
     const {review} = await response.json();
+    console.log("=========================4")
     dispatch(_updateReview(review))
 
     return review;
 }
 
-export const deleteReview = (reviewId) => async (dispatch) => {
+export const thunkDeleteReview = (reviewId) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}`, {
         method: "DELETE"
     })
@@ -179,12 +183,13 @@ const reviewReducer = (state = initialState, action) => {
         }
 
         case UPDATE_REVIEW: {
+            console.log("in update review")
             const newState = normalizeData(state);
-
-            newState.currReview = {};
-
-            delete newState.allReviews[action.reviewid];
-            delete newState.userReviews[action.reviewid];
+            const newReview = normalizeData(action.review)
+            newState.currReview = newReview;
+            newState.allReviews[action.review.id] = newReview
+            newState.userReviews[action.review.id] = newReview;
+         
 
             return newState;
         }

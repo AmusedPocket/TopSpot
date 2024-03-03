@@ -8,6 +8,7 @@ import { thunkGetSpot, thunkUpdateSpot } from "../../redux/spot";
 import StarRatings from "../StarRatings/StarRatings";
 import LoginFormPage from "../LoginFormPage";
 import './SpotPage.css'
+import ReviewForm from "../ReviewForm/ReviewForm";
 
 const reviewedAlready = (user, reviews) => {
     reviews = Object.values(reviews)
@@ -84,7 +85,7 @@ const SpotPage = () => {
                                 star.className = "fa-regular fa-star"
                             }}
                             onClick={() =>
-                                setModalContent(<ReviewForm business={business} review={hasBeenReviewed} />)} >
+                                setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
                             <i className="fa-regular fa-star" />
                             Update your review!
                         </button>
@@ -100,7 +101,7 @@ const SpotPage = () => {
                                 star.className = "fa-regular fa-star"
                             }}
                             onClick={() =>
-                                setModalContent(<ReviewForm business={business} review={hasBeenReviewed} />)} >
+                                setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
                             <i className="fa-regular fa-star" />
                             Submit a review!
                         </button>
