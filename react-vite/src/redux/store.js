@@ -8,6 +8,7 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import spotReducer from "./spot";
 import reviewReducer from "./reviews";
+import reviewImageReducer from "./review_images";
 
 
 
@@ -48,7 +49,8 @@ export const normalizeData = (data) => {
 const rootReducer = combineReducers({
   session: sessionReducer,
   spot: spotReducer,
-  reviews: reviewReducer
+  reviews: reviewReducer,
+  reviewImages: reviewImageReducer
 });
 
 let enhancer;

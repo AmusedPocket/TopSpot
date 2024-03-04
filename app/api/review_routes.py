@@ -46,7 +46,7 @@ def get_random_reviews(number):
 @review_routes.route('', methods=['POST'])
 def new_review():
     form = ReviewForm()
-    form['csrf_token'].data = request.cookies['csrf_toekn']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if not form.validate_on_submit():
         return {'errors': errors_message(form.errors)}, 401

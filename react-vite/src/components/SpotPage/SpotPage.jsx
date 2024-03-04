@@ -9,6 +9,7 @@ import StarRatings from "../StarRatings/StarRatings";
 import LoginFormPage from "../LoginFormPage";
 import './SpotPage.css'
 import ReviewForm from "../ReviewForm/ReviewForm";
+import UploadReviewImages from "../UploadImages/UploadReviewImages";
 
 const reviewedAlready = (user, reviews) => {
     reviews = Object.values(reviews)
@@ -134,7 +135,7 @@ const SpotPage = () => {
                     <div className="upload-image-button"
                         style={{ visibility: user ? "visible" : "hidden" }}
                         onClick={() => {
-                            if (user) setModalContent(<UploadImages spotId={spotId} />)
+                            if (user) setModalContent(<UploadReviewImages spotId={spotId} />)
                         }} >
                         <i className="fa-solid fa-image">
                             <p>Upload an image!</p>

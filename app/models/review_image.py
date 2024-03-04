@@ -30,7 +30,7 @@ class ReviewImage(db.Model):
             'spot_id': self.spot_id,
             'spot': self.spot.to_obj() if self.spot else None,
             'review_id': self.review_id,
-            'review': self.review.to_obj() if self.review else {},
+            'reviews': self.reviews.to_obj() if self.reviews else {},
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
