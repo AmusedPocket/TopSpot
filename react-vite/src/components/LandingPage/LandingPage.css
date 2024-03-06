@@ -5,7 +5,6 @@
     align-items: center;
     margin-bottom: 25px;
     width: 100%;
-    
     overflow-x: hidden;
 }
 
@@ -33,16 +32,17 @@
 }
 
 .categories {
+    /* margin: 0 auto; */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 100%;
-    align-items: center;
+    /* flex-wrap: wrap; */
+    justify-content: flex-start;
+    /* width: 100%; */
+    max-width: 90vw;
+    /* left: 0%; */
     margin-bottom: 200px;
-    height: 100%;
+   gap: 300px;
+   margin-right: 250px;
+    
     
 }
 
-.category-cards {
-    border: 20px solid black;
-}

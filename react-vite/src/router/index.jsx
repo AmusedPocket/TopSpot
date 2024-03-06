@@ -16,6 +16,7 @@ import LoginPage from '../components/LoginPage/LoginPage';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
+    errorElement: <LandingPage />,
     children: [
       {
         path: "/",

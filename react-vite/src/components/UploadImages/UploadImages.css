@@ -1,0 +1,10 @@
+.upload-review-images {
+    background-color: red;
+}
+
+.upload-review-images-title {
+    color: red;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid orange;
+}

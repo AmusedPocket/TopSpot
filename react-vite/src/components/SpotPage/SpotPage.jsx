@@ -13,6 +13,7 @@ import UploadReviewImages from "../UploadImages/UploadReviewImages";
 import LoginPage from "../LoginPage/LoginPage";
 import LoginFormModal from "../LoginFormModal";
 
+
 const reviewedAlready = (user, reviews) => {
     reviews = Object.values(reviews)
     for (const review of reviews) {
@@ -34,8 +35,8 @@ const SpotPage = () => {
     const { spotId } = useParams()
 
     const spot = useSelector((state) => state.spot.currSpot)
- 
 
+    console.log("spot is: ", spot)
     const { title, description, category, address, phone, reviews, avg_rating, images } = spot
 
     const [loaded, setLoaded] = useState(false)
@@ -58,8 +59,10 @@ const SpotPage = () => {
 
     if (!loaded) return (<>...Loading</>)
 
+    console.log("images for this spot are: ", images)
+
     const style = () => {
-        if (Object.values(images).length === 0) return { backgroundColor: "#9C5B38" };
+        if (Object.values(images).length === 0) return { backgroundColor: "#fa8e54" };
 
         return {
             backgroundImage: `linear-gradient(90deg, black, transparent), url(${Object.values(images)[Math.floor(Math.random() * Object.values(images).length)].url})`,
@@ -72,52 +75,54 @@ const SpotPage = () => {
                 <div className="title">
                     <div className="name">
                         <h1>{title}</h1>
-                        {user?.id === spot.owner_id &&  (
+                        {user?.id === spot.owner_id && (
                             <p onClick={() => setModalContent(<SpotForm spot={spot} />)}> Update your spot! </p>)}
-                       
+
                     </div>
-                    {user && hasBeenReviewed ? (
-                        <button
-                            className="add-review"
-                            onMouseEnter={() => {
-                                const star = document.querySelector(".fa-star");
-                                star.className = "fa-solid fa-star"
-                            }}
-                            onMouseLeave={() => {
-                                const star = document.querySelector(".fa-star");
-                                star.className = "fa-regular fa-star"
-                            }}
-                            onClick={() =>
-                                setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
-                            <i className="fa-regular fa-star" />
-                            Update your review!
-                        </button>
-                    ) : user ? (
-                        <button
-                            className="add-review"
-                            onMouseEnter={() => {
-                                const star = document.querySelector(".fa-star");
-                                star.className = "fa-solid fa-star"
-                            }}
-                            onMouseLeave={() => {
-                                const star = document.querySelector(".fa-star");
-                                star.className = "fa-regular fa-star"
-                            }}
-                            onClick={() =>
-                                setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
-                            <i className="fa-regular fa-star" />
-                            Submit a review!
-                        </button>
-                    ) : (
-                        <button onClick={() => setModalContent(<LoginFormModal />)}>
-                            Log in to review!
-                        </button>
-                    )}
+                    <div>
+                        {user && hasBeenReviewed ? (
+                            <button
+                                className="add-review"
+                                onMouseEnter={() => {
+                                    const star = document.querySelector(".fa-star");
+                                    star.className = "fa-solid fa-star"
+                                }}
+                                onMouseLeave={() => {
+                                    const star = document.querySelector(".fa-star");
+                                    star.className = "fa-regular fa-star"
+                                }}
+                                onClick={() =>
+                                    setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
+                                <i className="fa-regular fa-star" />
+                                Update your review!
+                            </button>
+                        ) : user ? (
+                            <button
+                                className="add-review"
+                                onMouseEnter={() => {
+                                    const star = document.querySelector(".fa-star");
+                                    star.className = "fa-solid fa-star"
+                                }}
+                                onMouseLeave={() => {
+                                    const star = document.querySelector(".fa-star");
+                                    star.className = "fa-regular fa-star"
+                                }}
+                                onClick={() =>
+                                    setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
+                                <i className="fa-regular fa-star" />
+                                Submit a review!
+                            </button>
+                        ) : (
+                            <button className="add-review" onClick={() => setModalContent(<LoginFormModal />)}>
+                                Log in to review!
+                            </button>
+                        )}
+                    </div>
                 </div>
 
                 <div className="average-rating-top">
                     <StarRatings rating={Math.round(Number(avg_rating))} />
-                    <p className="reviews">
+                    <p className="spot-reviews">
                         {Object.values(reviews).length} review
                         {Object.values(reviews).length > 1 ? "s" : ""}
                     </p>
@@ -146,29 +151,29 @@ const SpotPage = () => {
                 </div>
             </div>
 
-            <div className="about">
-                <div className="description">
-                    <p className="title">About this spot:</p>
-                    <div className="description">{description}</div>
-                </div>
+            <div className="description-about">
+                
+                    <p className="description-title">About this spot:</p>
+                    <div className="description-body">{description}</div>
+              
             </div>
 
             <div className="featured-reviews">
                 <div className="review-wrap">
-                    <p className="title">Top Reviews:</p>
+                    <h1 className="title">Top Reviews:</h1>
 
                     <div className="reviews-tile">
-                        {loaded && 
+                        {loaded &&
                             Object.values(reviews)
                                 .reverse()
                                 .map((review) => (
                                     <SingleReview
-                                    key={review.id}
-                                    review={review}
-                                    userEMail={user?.email}
-                                    spot={spot}
-                                />
-                            ))}
+                                        key={review.id}
+                                        review={review}
+                                        userEmail={user?.email}
+                                        spot={spot}
+                                    />
+                                ))}
                     </div>
                 </div>
             </div>

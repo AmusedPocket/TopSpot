@@ -35,7 +35,7 @@ const LandingPage = () => {
             <div className="categories">
                 {["Restaurants", "Shopping", "Active Life", "Health"].map(
                     (category, index) => (
-                        <CategoryTile  key={index} category={category} url={categoryImages[index]} />
+                        <CategoryTile className="category-tile" key={index} index={index} category={category} url={categoryImages[index]} />
                     )
                 )}
             </div>

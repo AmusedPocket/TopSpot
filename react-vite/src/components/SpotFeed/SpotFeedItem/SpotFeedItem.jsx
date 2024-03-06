@@ -1,17 +1,24 @@
 import StarRatings from "../../StarRatings/StarRatings"
-
+import './SpotFeedItem.css'
 
 const SpotFeedItem = ({spot}) => {
-    const {title, avg_rating, description, reviews} = spot
+    const {title, avg_rating, description, reviews, images} = spot
     const numberOfReviews = Object.values(reviews).length
+   
+    console.log("image values: ", Object.values(images))
+    const url = Object.values(images)[0]?.url
+   
     return (
-        <div className="spot-feed-item">
+        <div className="spot-feed-item" style={{
+            backgroundImage: `url(${url})`
+        }}>
+            <p className="spot-card-title">{title}</p>
             <div className="title-rating">
-                <p className="title">{title}</p>
-                <div className="rating">
+                
+                <div className="spot-card-rating">
                     <StarRatings rating={Math.round(Number(avg_rating))} />
                     <p>
-                        {numberOfReviews} review{numberOfReviews > 1 ? "s" : ""}
+                        Based on {numberOfReviews} review{numberOfReviews > 1 ? "s" : ""}.
                     </p>
                 </div>
             </div>

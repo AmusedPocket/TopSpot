@@ -70,7 +70,7 @@ const UploadReviewImages = ({spotId}) => {
         }
         if(reviewImages.length === 1){
             return {
-                alignItems: "center"
+                alignItems: "flex-start"
             }
         }
         if(reviewImages.length === 2){
@@ -100,7 +100,7 @@ const UploadReviewImages = ({spotId}) => {
                     {loadingImages && <div className="review-image-loader" />}
 
                     {!loadingImages && reviewImages.length === 0 && (
-                        <p className="no-images">No Selected Images</p>
+                        <p className="no-images">No Images Attached</p>
                     )}
 
                     {!loadingImages && reviewImages.length > 0 && Array.from(reviewImages).map((file, index) =>(

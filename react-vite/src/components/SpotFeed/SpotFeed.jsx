@@ -3,17 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { thunkGetAllSpots } from "../../redux/spot";
 import SpotFeedItem from "./SpotFeedItem/SpotFeedItem";
+import './SpotFeed.css'
 
 const SpotFeed = () => {
     const dispatch = useDispatch()
-    const {category} = useParams()
+    const { category } = useParams()
     const spots = useSelector((state) => state.spot.allSpots)
     const spotsCategory = Object.values(spots)
-
+    console.log("spots are: ", spots)
     const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        dispatch(thunkGetAllSpots(category)).then(()=> setLoaded(true))
+        dispatch(thunkGetAllSpots(category)).then(() => setLoaded(true))
     }, [category, dispatch])
 
     const catIcon = {
@@ -23,23 +24,23 @@ const SpotFeed = () => {
         Health: "fa-file-medical"
     }
 
-    if(!loaded) return (<>...Loading</>)
+    if (!loaded) return (<>...Loading</>)
 
     return (
         <>
-            <h1 className="spot-feed-tile">
+            <h1 className="spot-feed-title">
                 <i className={`fa-solid ${catIcon[category]} fa-lg`} />
-                {category.split("").map((word)=>word[0].toUpperCase() + word.slice(1)).join(" ")}{" "}
+                {category.split("").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}{" "}
             </h1>
 
-            <div className="spot-feed">
+            <div className="spot-feed-card">
                 {spotsCategory.reverse().map((spot) => (
-                    <NavLink 
+                    <NavLink
                         key={spot.id}
                         className="spot-feed-link"
                         to={`/spot/${spot.id}`}
                     >
-                        <SpotFeedItem spot={spot}/>
+                        <SpotFeedItem spot={spot} />
                     </NavLink>
                 ))}
             </div>

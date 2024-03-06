@@ -24,6 +24,9 @@
   background-color:white;
   border-radius: 20px;
   border: 6px solid var(--darkOrange);
-  display: inline-flex;
-  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+  box-shadow: 6px 6px 6px var(--red);
 }

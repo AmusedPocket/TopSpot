@@ -41,6 +41,7 @@ class Review(db.Model):
             'rating': self.rating,
             'body': self.body,
             'user': self.user.to_obj(),
-            'spot': self.spot.to_obj() if self.spot else None
+            'spot': self.spot.to_obj() if self.spot else None,
+            'created_at': self.created_at
         }
     

@@ -7,17 +7,44 @@
 }
 
 .top-bar{
+    margin-top: 10px;
     cursor: default;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 600px;
+    height: fit-content;
     padding: 0 120px;
     color: white;
     background-size: cover;
     background-position: center;
-   
-    .title {
-        border: 2px solid red;
-    }
+    border-radius: 20px;
+
+}
+
+.add-review {
+    border-radius: 20px;
+    background-color: var(--darkOrange);
+    border: none;
+}
+
+.add-review:hover {
+    box-shadow: 2px 2px 2px white;
+    cursor: pointer;
+}
+
+.description-about {
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    width: fit-content;
+    box-shadow: 2px 2px 2px var(--darkOrange)
+}
+
+.reviews-tile {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
 }

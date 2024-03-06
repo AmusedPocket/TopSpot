@@ -5,52 +5,52 @@ import './ReviewTile.css'
 const ReviewTile = ({ review }) => {
     const navigate = useNavigate()
 
-    const imageLink = Object.values(review.images)[0].url
+    const imageLink = Object.values(review.images)[0]?.url
 
     return (
         <div className="review-tile"
-        style={{
-            backgroundImage: `url(${imageLink})`,
-        }}>
+            style={{
+                backgroundImage: `url(${imageLink})`,
+            }}>
 
             <div className="container">
                 <div className="user-info">
                     <i className="fa-solid fa-user" />
                     <div className="r-div">
                         <p className="name">
-                            {review.user.first_name} {review.user.last_name[0]}
+                            {review.user.first_name} {review.user.last_name[0]}.
 
                         </p>
                         <p className="wrote">Wrote a review</p>
                     </div>
                 </div>
-            <div className="star-ratings">
-                <NavLink to={`/spots/${review.spot.id}`}>
-                    {review.spot.name}
-                </NavLink>
-                <StarRatings rating={review.rating} />
-            </div>
+                <div className="star-ratings">
+                    <NavLink to={`/spots/${review.spot.id}`}>
+                        {review.spot.name}
+                    </NavLink>
+                    <StarRatings rating={review.rating} />
+                </div>
             </div>
             <div className="r-wrap">
                 <div className="review-body">
                     <p className="body">{review.body}</p>
-                    <p 
+                    <p
                         className="continue-review"
                         onClick={() => navigate(`/spot/${review.spot.id}`)}>
-                            Continue reading review...
-                        </p>
+                        Continue reading review...
+                    </p>
                 </div>
             </div>
 
             <div className='icon-bar'>
                 {["fa-regular fa-lightbulb fa-xl",
                     "fa-regular fa-thumbs-up fa-xl",
-                    "fa-solid fa-heart fa-xl",
+                    "fa-regular fa-heart fa-xl",
                     "fa-regular fa-face-sad-tear fa-xl"].map((className, index) => (
                         <div className="icon" key={index}>
-                            <i 
-                            onClick={()=>alert("Feature coming soon!")}
-                            className={className}
+                            <i
+                                onClick={() => alert("Feature coming soon!")}
+                                className={className}
                             />
                         </div>
                     ))}
