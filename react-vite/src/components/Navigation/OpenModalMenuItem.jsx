@@ -16,7 +16,7 @@ function OpenModalMenuItem({
   };
 
   return (
-    <button color={color} text={itemText} onClick={onClick} />
+    <button color={color} onClick={onClick} type="submit">{itemText}</button>
   );
 }
 

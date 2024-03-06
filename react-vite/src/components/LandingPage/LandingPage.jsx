@@ -21,7 +21,12 @@ const LandingPage = () => {
 
     if(!loaded) return (<>...loading</>);
  
-    const categoryImages = reviews.map((review) => Object.values(review.images)[0]?.url)
+    const categoryImages = [
+        "https://topspots.s3.us-west-1.amazonaws.com/restaurant_cat.jpg",
+        "https://topspots.s3.us-west-1.amazonaws.com/shopping_cat.jpg",
+        "https://topspots.s3.us-west-1.amazonaws.com/activelife_cat.jpeg",
+        "https://topspots.s3.us-west-1.amazonaws.com/health_cat.jpg"
+    ]
 
     return (
         <div className="landing-page">
@@ -30,12 +35,12 @@ const LandingPage = () => {
             <div className="categories">
                 {["Restaurants", "Shopping", "Active Life", "Health"].map(
                     (category, index) => (
-                        <CategoryTile key={index} category={category} url={categoryImages[index]} />
+                        <CategoryTile  key={index} category={category} url={categoryImages[index]} />
                     )
                 )}
             </div>
 
-            <h1 className="title">Recent Activity</h1>
+            <h1 className="recent-activity">Recent Activity</h1>
             <div className="reviews">
                 {reviews.slice(0, 6).map((review) => (
                     <ReviewTile key={review.id} review={review} />

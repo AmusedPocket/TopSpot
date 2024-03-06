@@ -5,11 +5,12 @@ import { thunkLogout } from "../../redux/session";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import ProfileImage from "../Form/ProfileImage/ProfileImage";
 
-function ProfileButton() {
+function ProfileButton({user}) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
-  const user = useSelector((store) => store.session.user);
+  // const user = useSelector((store) => store.session.user);
   const ulRef = useRef();
 
   const toggleMenu = (e) => {
@@ -39,39 +40,40 @@ function ProfileButton() {
     closeMenu();
   };
 
+  const divClassName = "profile-dropdown" + (showMenu ? "" : " hidden")
+
   return (
-    <>
-      <button onClick={toggleMenu}>
-        <FaUserCircle />
-      </button>
-      {showMenu && (
-        <ul className={"profile-dropdown"} ref={ulRef}>
-          {user ? (
-            <>
-              <li>{user.username}</li>
-              <li>{user.email}</li>
-              <li>
-                <button onClick={logout}>Log Out</button>
-              </li>
-            </>
-          ) : (
-            <>
-              <OpenModalMenuItem
-                itemText="Log In"
-                onItemClick={closeMenu}
-                modalComponent={<LoginFormModal />}
-              />
-              <OpenModalMenuItem
-                itemText="Sign Up"
-                onItemClick={closeMenu}
-                modalComponent={<SignupFormModal />}
-              />
-            </>
-          )}
-        </ul>
+    <div className="profile-button-div">
+      <ProfileImage props={{onClick: toggleMenu}} />
+
+      <div className={divClassName} ref={ulRef}>
+
+      {user && (
+        <>
+          <div className="profile-header">
+            <p>{user.first_name} {user.last_name[0]}.</p>
+          </div>
+
+          <p
+            className="about"
+            onClick={() => {
+            setShowMenu(false);
+            navigate('/user');
+            }}>
+              <i className="fa-solid fa-user"/>
+                User Profile
+            </p>
+
+            <p className="logout" onClick={logout}>
+            <i className="fa-solid fa-arrow-right-from-bracket"/>
+              Sign Out
+            </p>
+        </>
       )}
-    </>
-  );
+      </div>
+    </div>
+  )
 }
+     
 
 export default ProfileButton;
