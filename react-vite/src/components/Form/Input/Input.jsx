@@ -1,3 +1,4 @@
+import "./Input.css"
 
 export const toInput = (label, value, onChange, type="text") => ({
     label,
@@ -18,13 +19,14 @@ const FormInput = ({input, errorHandler}) => {
 
     return (
         <div className="form-input">
-            {isSubmitted && error && <p className="p-error">{Error}</p> }
+            {isSubmitted && error && <p className="p-error">{error}</p> }
+            
             <input 
                 type={type}
                 name={label}
                 value={value}
                 onChange={(e)=> onChange(e.target.value)}
-                placeHolder={label}
+                placeholder={label}
                 />
         </div>
     )

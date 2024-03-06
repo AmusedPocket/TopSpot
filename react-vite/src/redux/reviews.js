@@ -71,7 +71,8 @@ export const thunkGetUserReviews = () => async (dispatch) => {
 
     if(!response.ok) return await errorHandler(response);
 
-    const {reviews} = await response.json();
+    const data = await response.json();
+    const reviews = data.reviews;
     dispatch(_getUserReviews(reviews))
 
     return reviews;
@@ -191,6 +192,12 @@ const reviewReducer = (state = initialState, action) => {
             newState.userReviews[action.review.id] = newReview;
          
 
+            return newState;
+        }
+
+        case GET_ALL_USER_REVIEWS: {
+            const newState = normalizeData(state);
+            newState.userReviews = normalizeData(action.reviews)
             return newState;
         }
 

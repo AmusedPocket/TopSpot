@@ -1,0 +1,11 @@
+.p-error {
+    color: red;
+    font-size: 12px;
+}
+
+.form-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}

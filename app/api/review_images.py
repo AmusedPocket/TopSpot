@@ -36,7 +36,9 @@ def get_all_review_images():
 @review_image_routes.route("/curr", methods=['GET'])
 @login_required
 def get_user_review_images():
+   
     user_images = ReviewImage.query.where(ReviewImage.user_id == current_user.id)
+    
     return {'images': [image.to_dict() for image in user_images]}
 
 @review_image_routes.route("", methods=["POST"])

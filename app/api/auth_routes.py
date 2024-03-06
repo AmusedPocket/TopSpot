@@ -6,15 +6,24 @@ from flask_login import current_user, login_user, logout_user, login_required
 
 auth_routes = Blueprint('auth', __name__)
 
+def errors_message(validation_errors):
+    errorMessages = []
+
+    for item in validation_errors:
+        for error in validation_errors[item]:
+            errorMessages.append(f'{item} : {error}')
+    
+    return errorMessages
 
 @auth_routes.route('/')
 def authenticate():
     """
     Authenticates a user.
     """
-    if current_user.is_authenticated:
-        return current_user.to_dict()
-    return {'errors': {'message': 'Unauthorized'}}, 401
+    if not current_user.is_authenticated:
+        return {'errors': ['Unauthorized.']}
+    
+    return current_user.to_dict()
 
 
 @auth_routes.route('/login', methods=['POST'])
@@ -22,17 +31,23 @@ def login():
     """
     Logs a user in
     """
-    print("---------------------------------------------------in log in")
+   
     form = LoginForm()
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
+    if not form.validate_on_submit():
         # Add the user to the session, we are logged in!
-        user = User.query.filter(User.email == form.data['email']).first()
-        login_user(user)
-        return user.to_dict()
-    return form.errors, 401
+        return {'errors': errors_message(form.errors)}, 401
+    
+    user = User.query.filter(
+        (User.email == form.data['credential']) |
+        (User.username == form.data['credential'])
+    ).first()
+
+    login_user(user)
+
+    return user.to_dict()
 
 
 @auth_routes.route('/logout')
@@ -51,17 +66,21 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
-        )
-        db.session.add(user)
-        db.session.commit()
-        login_user(user)
-        return user.to_dict()
-    return form.errors, 401
+    if not form.validate_on_submit():
+        return {'errors': errors_message(form.errors)}, 401
+    
+    user = User(
+        user_name = form.data['user_name'],
+        first_name = form.data['first_name'],
+        last_name = form.data['last_name'],
+        email = form.data['email'],
+        password = form.data['password']
+    )
+    db.session.add(user)
+    db.session.commit()
+    login_user(user)
+    return user.to_dict()
+
 
 
 @auth_routes.route('/unauthorized')
@@ -69,4 +88,4 @@ def unauthorized():
     """
     Returns unauthorized JSON when flask-login authentication fails
     """
-    return {'errors': {'message': 'Unauthorized'}}, 401
+    return {'errors': ['Unauthorized']}, 401

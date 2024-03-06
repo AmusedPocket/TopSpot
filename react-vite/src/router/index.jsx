@@ -5,6 +5,9 @@ import Layout from './Layout';
 import LandingPage from '../components/LandingPage/LandingPage';
 import SpotFeed from '../components/SpotFeed/SpotFeed';
 import SpotPage from '../components/SpotPage/SpotPage';
+import UserPage from '../components/UserPage/UserPage';
+
+
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +32,10 @@ export const router = createBrowserRouter([
       {
         path: "spot/:spotId",
         element: <SpotPage />
+      },
+      {
+        path: "user",
+        element: <UserPage />
       }
     ],
   },

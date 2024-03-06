@@ -85,10 +85,11 @@ export const thunkDeleteReviewImage = (reviewImageId) => async (dispatch) => {
 
 export const thunkGetUserReviewImages = () => async (dispatch) => {
     const response = await fetch(`/api/reviewimages/curr`);
+   
     if(!response.ok) return await errorHandler(response);
 
-    const {userImages} = await response.json()
-
+    const data = await response.json()
+    const userImages = data.images
     dispatch(_getUserReviewImages(userImages))
 
     return userImages;

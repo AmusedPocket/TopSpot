@@ -8,7 +8,7 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import { thunkLogin } from "../../redux/session";
 import SpotForm from "../SpotForm/SpotForm";
-
+import SignupFormPage from "../SignupFormPage/SignupFormPage";
 
 function Navigation({isLoaded}) {
   const dispatch = useDispatch()
@@ -65,7 +65,8 @@ function Navigation({isLoaded}) {
             />
             <OpenModalMenuItem
               itemText={"Sign Up"}
-              modalComponent={<>Sign up page here</>}
+              modalComponent={<SignupFormPage />}
+              color={"black"}
             />
             </div>
         )}

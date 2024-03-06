@@ -21,7 +21,12 @@ const LandingPage = () => {
 
     if(!loaded) return (<>...loading</>);
  
-    const categoryImages = reviews.map((review) => Object.values(review.images)[0]?.url)
+    const categoryImages = [
+        "https://topspots.s3.us-west-1.amazonaws.com/restaurant_cat.jpg",
+        "https://topspots.s3.us-west-1.amazonaws.com/shopping_cat.jpg",
+        "https://topspots.s3.us-west-1.amazonaws.com/activelife_cat.jpeg",
+        "https://topspots.s3.us-west-1.amazonaws.com/health_cat.jpg"
+    ]
 
     return (
         <div className="landing-page">

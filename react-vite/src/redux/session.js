@@ -19,7 +19,10 @@ const updateUser = (user) => ({
 })
 
 export const thunkAuthenticate = () => async (dispatch) => {
-	const response = await fetch("/api/auth/");
+	const response = await fetch("/api/auth/", {
+    headers: {"Content-Type": "application/json"}
+  });
+  
 	if (response.ok) {
 		const data = await response.json();
 		if (data.errors) {
