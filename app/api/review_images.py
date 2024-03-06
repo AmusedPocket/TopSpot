@@ -20,11 +20,6 @@ def get_review_image(id):
     review_image = ReviewImage.query.get(id)
 
     if not review_image:
-<<<<<<< HEAD
-        return {"errors": "Cannot load images"}
-    
-    return {'image': review_image.to_dict()}
-=======
         return {"errors": "Cannot load image."}
     
     return {'image': review_image.to_dict()}
@@ -92,4 +87,3 @@ def delete_review_image(id):
     db.session.commit()
 
     return {'message': 'Review image successfully deleted.'}
->>>>>>> dev
