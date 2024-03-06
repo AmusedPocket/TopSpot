@@ -1,22 +1,48 @@
 .landing-page {
-    overflow-y: scroll;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 25px;
+    width: 100%;
+    
+    overflow-x: hidden;
+}
 
-    .title {
-        margin: 40px 0;
-    }
+.title {
+    display: flex;
+    align-items: center;
+}
 
-    .categories {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        width: 90%;
-        
-    }
+.recent-activity {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    width: fit-content;
+}
 
+.reviews {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 200px;
+    height: 100%;
     
 }
 
+.category-cards {
+    border: 20px solid black;
+}

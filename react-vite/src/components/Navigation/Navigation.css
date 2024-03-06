@@ -1,6 +1,6 @@
-.profile-dropdown {
+/* .profile-dropdown {
   position: absolute;
-}
+} */
 
 .navigation-bar-div {
   z-index: 1;
@@ -10,10 +10,21 @@
  
   
   background-color: white;
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid black;
+  margin-bottom: 20px;
+  padding: 8px 0;
+}
+
+/* .navigation-bar-div > * {
+  flex: 1
+} */
+
+.navigation-bar-div > :last-child {
+  text-align: right;
 }
 
 .navigation-bar-logo {
@@ -28,7 +39,11 @@
   padding: 5px;
   border-radius: 10px;
   display: flex;
-  width: 300px;
+  width: 400px;
+}
+
+.search-bar:hover {
+  box-shadow: 2px 2px 2px black;
 }
 
 .search-bar-input {
@@ -42,4 +57,15 @@
 
 .fa-searchengin {
   font-weight: 500;
+}
+
+.profile-div {
+  display: flex;
+  
+}
+
+.login-modal {
+ 
+  border-radius: 20px;
+  background-color: rgba(245, 199, 39, 0.5);
 }

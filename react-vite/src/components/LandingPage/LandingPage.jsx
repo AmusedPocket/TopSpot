@@ -35,12 +35,12 @@ const LandingPage = () => {
             <div className="categories">
                 {["Restaurants", "Shopping", "Active Life", "Health"].map(
                     (category, index) => (
-                        <CategoryTile key={index} category={category} url={categoryImages[index]} />
+                        <CategoryTile  key={index} category={category} url={categoryImages[index]} />
                     )
                 )}
             </div>
 
-            <h1 className="title">Recent Activity</h1>
+            <h1 className="recent-activity">Recent Activity</h1>
             <div className="reviews">
                 {reviews.slice(0, 6).map((review) => (
                     <ReviewTile key={review.id} review={review} />

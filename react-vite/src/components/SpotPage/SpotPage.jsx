@@ -6,10 +6,12 @@ import SpotForm from "../SpotForm/SpotForm";
 import { useModal } from "../../context/Modal";
 import { thunkGetSpot, thunkUpdateSpot } from "../../redux/spot";
 import StarRatings from "../StarRatings/StarRatings";
-import LoginFormPage from "../LoginFormPage";
+
 import './SpotPage.css'
 import ReviewForm from "../ReviewForm/ReviewForm";
 import UploadReviewImages from "../UploadImages/UploadReviewImages";
+import LoginPage from "../LoginPage/LoginPage";
+import LoginFormModal from "../LoginFormModal";
 
 const reviewedAlready = (user, reviews) => {
     reviews = Object.values(reviews)
@@ -107,7 +109,7 @@ const SpotPage = () => {
                             Submit a review!
                         </button>
                     ) : (
-                        <button onClick={() => setModalContent(<LoginFormPage />)}>
+                        <button onClick={() => setModalContent(<LoginFormModal />)}>
                             Log in to review!
                         </button>
                     )}

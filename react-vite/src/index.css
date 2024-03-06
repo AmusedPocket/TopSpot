@@ -5,3 +5,11 @@
     --darkOrange: #fb7401;
     --black: #000000;
 }
+
+html {
+    font-family: "Roboto Condensed", sans-serif
+}
+
+body {
+    padding-top: 170px;
+}

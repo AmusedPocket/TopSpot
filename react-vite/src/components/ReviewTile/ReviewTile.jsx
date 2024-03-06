@@ -1,18 +1,17 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import StarRatings from "../StarRatings/StarRatings";
+import './ReviewTile.css'
 
 const ReviewTile = ({ review }) => {
     const navigate = useNavigate()
 
     const imageLink = Object.values(review.images)[0].url
-    console.log("review background image is: ", imageLink)
+
     return (
-        <div className="review-tile">
-            <div className="background"
-                style={{
-                    backgroundImage: `url(${imageLink})`
-                }}
-            />
+        <div className="review-tile"
+        style={{
+            backgroundImage: `url(${imageLink})`,
+        }}>
 
             <div className="container">
                 <div className="user-info">

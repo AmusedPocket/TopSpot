@@ -42,7 +42,7 @@ def login():
     
     user = User.query.filter(
         (User.email == form.data['credential']) |
-        (User.username == form.data['credential'])
+        (User.user_name == form.data['credential'])
     ).first()
 
     login_user(user)
