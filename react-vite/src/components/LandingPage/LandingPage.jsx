@@ -4,7 +4,7 @@ import { thunkGetRandomReviews} from "../../redux/reviews";
 import CategoryTile from "../CategoryTile/CategoryCard";
 import "./LandingPage.css"
 import ReviewTile from "../ReviewTile/ReviewTile";
-
+import Loading from "../Form/Loading/Loading";
 
 const LandingPage = () => {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const LandingPage = () => {
         dispatch(thunkGetRandomReviews(10)).then(()=> setLoaded(true))
     }, [dispatch]);
 
-    if(!loaded) return (<>...loading</>);
+    if(!loaded) return (<Loading/>);
  
     const categoryImages = [
         "https://topspots.s3.us-west-1.amazonaws.com/restaurant_cat.jpg",

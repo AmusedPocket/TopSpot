@@ -6,6 +6,7 @@ import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import ProfileImage from "../Form/ProfileImage/ProfileImage";
+import './Navigation.css'
 
 function ProfileButton({user}) {
   const dispatch = useDispatch();
@@ -40,38 +41,14 @@ function ProfileButton({user}) {
     closeMenu();
   };
 
-  const divClassName = "profile-dropdown" + (showMenu ? "" : " hidden")
-
   return (
-    <div className="profile-button-div">
-      <ProfileImage props={{onClick: toggleMenu}} />
-
-      <div className={divClassName} ref={ulRef}>
-
-      {user && (
-        <>
-          <div className="profile-header">
-            <p>{user.first_name} {user.last_name[0]}.</p>
-          </div>
-
-          <p
-            className="about"
-            onClick={() => {
-            setShowMenu(false);
-            navigate('/user');
-            }}>
-              <i className="fa-solid fa-user"/>
-                User Profile
-            </p>
-
-            <p className="logout" onClick={logout}>
+    <div className="logged-out-buttons" onClick={logout}>
+            
             <i className="fa-solid fa-arrow-right-from-bracket"/>
               Sign Out
-            </p>
-        </>
-      )}
+           
       </div>
-    </div>
+   
   )
 }
      

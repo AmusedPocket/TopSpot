@@ -4,6 +4,7 @@ import { useModal } from "../../context/Modal";
 import Button from "../Form/Button/Button";
 import { thunkUploadReviewImage } from "../../redux/review_images";
 import { thunkGetSpot } from "../../redux/spot";
+import './UploadImages.css'
 
 const UploadReviewImageFeed = ({file, reviewImages, setReviewImages}) => {
     const url = URL.createObjectURL(file);
@@ -112,7 +113,7 @@ const UploadReviewImages = ({spotId}) => {
                         />
                     ))}
                 </div>
-                <Button text={"Upload Image(s)"} />
+                <Button className="upload-button" text={"Upload Image(s)"} onClick={onSubmit} />
             </form>
         </div>
     )

@@ -6,6 +6,7 @@ import { thunkGetUserReviews } from "../../redux/reviews";
 import AccountImages from "./PostedImages/PostedImages";
 import UserDetails from "./UserDetails/UserDetails";
 import ReviewListings from "../ReviewListings/ReviewListings";
+import Loading from "../Form/Loading/Loading";
 
 const UserPage = () => {
     const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const UserPage = () => {
         else dispatch(thunkGetUserReviews()).then(()=> setLoaded(true))
     }, [dispatch, navigate, user])
 
-    if(!loaded) return (<>Loading...</>)
+    if(!loaded) return (<Loading />)
 
     return (
         <div className="user-page">

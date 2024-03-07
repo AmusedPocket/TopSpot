@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { thunkGetAllSpots } from "../../redux/spot";
 import SpotFeedItem from "./SpotFeedItem/SpotFeedItem";
 import './SpotFeed.css'
-
+import Loading from "../Form/Loading/Loading";
 const SpotFeed = () => {
     const dispatch = useDispatch()
     const { category } = useParams()
@@ -24,12 +24,12 @@ const SpotFeed = () => {
         Health: "fa-file-medical"
     }
 
-    if (!loaded) return (<>...Loading</>)
+    if (!loaded) return (<Loading />)
 
     return (
         <>
             <h1 className="spot-feed-title">
-                <i className={`fa-solid ${catIcon[category]} fa-lg`} />
+                <i className={`spot-feed-icon fa-solid ${catIcon[category]} fa-lg`} />
                 {category.split("").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}{" "}
             </h1>
 

@@ -4,13 +4,13 @@ import { useParams, useNavigate } from "react-router-dom";
 import SingleReview from "../SingleReview/SingleReview";
 import SpotForm from "../SpotForm/SpotForm";
 import { useModal } from "../../context/Modal";
-import { thunkGetSpot, thunkUpdateSpot } from "../../redux/spot";
+import { thunkGetSpot} from "../../redux/spot";
 import StarRatings from "../StarRatings/StarRatings";
-
+import Loading from "../Form/Loading/Loading";
 import './SpotPage.css'
 import ReviewForm from "../ReviewForm/ReviewForm";
 import UploadReviewImages from "../UploadImages/UploadReviewImages";
-import LoginPage from "../LoginPage/LoginPage";
+
 import LoginFormModal from "../LoginFormModal";
 
 
@@ -37,7 +37,7 @@ const SpotPage = () => {
     const spot = useSelector((state) => state.spot.currSpot)
 
     console.log("spot is: ", spot)
-    const { title, description, category, address, phone, reviews, avg_rating, images } = spot
+    const { title, description, category, address, reviews, avg_rating, images } = spot
 
     const [loaded, setLoaded] = useState(false)
 
@@ -57,9 +57,9 @@ const SpotPage = () => {
         })
     }, [dispatch, spotId, navigate])
 
-    if (!loaded) return (<>...Loading</>)
+    if (!loaded) return (<Loading/>)
 
-    console.log("images for this spot are: ", images)
+   
 
     const style = () => {
         if (Object.values(images).length === 0) return { backgroundColor: "#fa8e54" };
@@ -79,7 +79,7 @@ const SpotPage = () => {
                             <p onClick={() => setModalContent(<SpotForm spot={spot} />)}> Update your spot! </p>)}
 
                     </div>
-                    <div>
+                    <div className="add-review-wrap">
                         {user && hasBeenReviewed ? (
                             <button
                                 className="add-review"

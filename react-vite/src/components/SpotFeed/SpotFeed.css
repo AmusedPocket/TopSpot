@@ -1,3 +1,11 @@
 .spot-feed-link {
     text-decoration: none;
 }
+
+.spot-feed-icon {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    color: red;
+    margin-right: 20px;
+    text-shadow:  rgb(255, 217, 0) 0px 0px 5px;
+}

@@ -27,7 +27,7 @@ const SingleReview = ({ review, userEmail}) => {
         } else if (day === 3 || day === 23){
             daySuffix = "rd"
         } else {
-            daySuffix = "st"
+            daySuffix = "th"
         }
 
         return `${month} ${day}${daySuffix}, ${year}`
@@ -54,7 +54,7 @@ const SingleReview = ({ review, userEmail}) => {
                 <div className="name-tag">
                     <i className="fa-solid fa-user" />
 
-                    {userOwned ? (<p>Your Review.</p>
+                    {userOwned ? (<p>Your Review </p>
                     ) : (
                         <>
                             {user.first_name} {user.last_name[0]}.
@@ -63,7 +63,7 @@ const SingleReview = ({ review, userEmail}) => {
 
 
                     )}
-                  on {happyDate}
+                 <p>&nbsp;on {happyDate}.</p>
                 </div>
             </div>
             <StarRatings rating={rating} />

@@ -1,0 +1,12 @@
+.default-button {
+    color: red;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: none;
+}
+
+.default-button:hover{
+    box-shadow: 2px 2px 2px black;
+}

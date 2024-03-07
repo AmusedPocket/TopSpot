@@ -47,30 +47,31 @@ function Navigation({ isLoaded }) {
       <div className="profile-div">
         {isLoaded && sessionUser ? (<>
           
-            <p className="add-spot"
+            <p className="logged-out-buttons"
               onClick={() => setModalContent(<SpotForm/>)} >
-                Add a Spot
+                Create a Spot
               </p>
               <ProfileButton user={sessionUser} />
           </>
         ) : (
           <>
           <div className="logged-out">
-            <p onClick={demoUserLogin}>Demo User Log In</p>
+            <p className="logged-out-buttons" onClick={demoUserLogin}>Demo User Log In</p>
 
             <OpenModalMenuItem
               itemText={"Log In"}
               modalComponent={<LoginFormModal />}
               color={"black"}
+              className="logged-out-buttons"
             />
             <OpenModalMenuItem
               itemText={"Sign Up"}
               modalComponent={<SignupFormPage />}
               color={"black"}
+              className="logged-out-buttons"
             />
           </div>
           </>)}
-        <ProfileButton />
       </div>
     </div>
   );

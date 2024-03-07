@@ -1,3 +1,4 @@
+import './Button.css'
 
 const Button = ({text, onClick, color = "red"}) => {
     return (

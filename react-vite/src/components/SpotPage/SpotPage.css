@@ -21,15 +21,31 @@
 
 }
 
+.add-review-wrap {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .add-review {
-    border-radius: 20px;
-    background-color: var(--darkOrange);
+    padding: 10px;
+    background-color: transparent;
     border: none;
+    border: 2px solid var(--darkOrange);
+    color: white;
+    border-radius: 10px;
+    justify-self: flex-end;
+    display: flex;
+    width: 100%;
 }
 
 .add-review:hover {
     box-shadow: 2px 2px 2px white;
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.24);
+    transition-duration: 500ms;
+    transition-property: background-color;
 }
 
 .description-about {

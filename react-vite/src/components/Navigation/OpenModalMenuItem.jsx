@@ -6,6 +6,7 @@ function OpenModalMenuItem({
   onItemClick, // optional: callback function that will be called once the button that opens the modal is clicked
   onModalClose, // optional: callback function that will be called once the modal is closed
   color,
+  className
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
@@ -16,7 +17,7 @@ function OpenModalMenuItem({
   };
 
   return (
-    <button color={color} onClick={onClick} type="submit">{itemText}</button>
+    <button color={color} onClick={onClick} type="submit" className={className}>{itemText}</button>
   );
 }
 
