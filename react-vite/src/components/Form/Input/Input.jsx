@@ -27,6 +27,7 @@ const FormInput = ({input, errorHandler}) => {
                 value={value}
                 onChange={(e)=> onChange(e.target.value)}
                 placeholder={label}
+                className="form-input-field"
                 />
         </div>
     )

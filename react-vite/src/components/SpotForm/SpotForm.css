@@ -1,10 +1,19 @@
 .spot-form {
-    background-image: url('https://topspots.s3.us-west-1.amazonaws.com/logo.png');
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ), url('https://topspots.s3.us-west-1.amazonaws.com/logo.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     display: inline-flex;
     flex-direction: column;
+    overflow-y: auto;
+    height: 300px;
+
+    
+    
 }
 
 .delete-spot {
@@ -30,4 +39,18 @@
     flex-direction: column;
     align-items: center;
     
+}
+
+.spot-form-add-button {
+    background: linear-gradient(45deg, red, yellow);
+    padding: 5px;
+    width: 100px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.spot-form-add-button:hover{
+    box-shadow: 2px 2px 2px black;
 }

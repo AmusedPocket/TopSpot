@@ -17,7 +17,7 @@ import Loading from '../components/Form/Loading/Loading';
 export const router = createBrowserRouter([
   {
     element: <Layout />,
-    errorElement: <LandingPage />,
+    errorElement: [<Layout/>, <LandingPage />],
     children: [
       {
         path: "/",
@@ -43,10 +43,6 @@ export const router = createBrowserRouter([
         path: "user",
         element: <UserPage />
       },
-      {
-        path: "loading",
-        element: <Loading />
-      }
     ],
   },
 ]);

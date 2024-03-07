@@ -7,6 +7,8 @@ import Error from "../Form/Error/Error";
 import { thunkGetSpot } from "../../redux/spot";
 import Delete from "../Form/Delete/Delete";
 import { useModal } from "../../context/Modal";
+import './ReviewForm.css'
+
 
 const ReviewForm = ({spot, review}) => {
     const dispatch = useDispatch()
@@ -28,6 +30,8 @@ const ReviewForm = ({spot, review}) => {
         if (!rating) errorsObj.rating = "Must submit a rating."
         if (!body) errorsObj.body = "Please describe your review."
         else if (body.length > 1000) errorsObj.body = "Review too long! Review must be less than 1,000 characters."
+
+        setErrors(errorsObj)
     }, [body, rating])
 
     const onSubmit = async (e) => {
@@ -65,6 +69,8 @@ const ReviewForm = ({spot, review}) => {
         }
     }
 
+    console.log("Hi i'm spot!", spot)
+
     return (
         <div className="form-review">
             {review && (
@@ -82,10 +88,10 @@ const ReviewForm = ({spot, review}) => {
                     <i className="fa-solid fa-trash" />
                 </div>
             )}
-            <h1>{spot.name}</h1>
-            <p className="review-title">Please rate your experience at {spot.name}!</p>
+            <h1>{spot.title}</h1>
+            <p className="review-form-review-title">Please rate your experience!</p>
 
-            <form onSubmit={onSubmit}>
+            <form className="review-form-wrapper" onSubmit={onSubmit}>
                 {submit && errors.rating && <Error errors={errors.rating} />}
                 <StarRatings rating={rating} setRating={setRating} />
 
@@ -94,6 +100,7 @@ const ReviewForm = ({spot, review}) => {
                     placeholder="Enter your review!"
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
+                    className="review-form-text-area"
                 />
 
                 <Button text={`${review ? "Update" : "Submit"} Review`}/>

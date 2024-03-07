@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import './StarRatings.css'
 
 const StarRatings = ({rating, setRating}) => {
     const starColors = {
@@ -12,7 +13,7 @@ const StarRatings = ({rating, setRating}) => {
     const ratingText = (rating) => {
         switch(rating){
             case 1:
-                return "Not trying that again."
+                return "No thanks!"
 
             case 2:
                 return "Not that good."
@@ -80,7 +81,7 @@ const StarRatings = ({rating, setRating}) => {
                 {setRating && (
                     <p
                     style={{
-                        fontFamily:`"Amatic SC", cursive`,
+                        fontFamily:`"Roboto Condensed", sans-serif`,
                         fontSize: "20px",
                         fontWeight: "bold"
                     }}

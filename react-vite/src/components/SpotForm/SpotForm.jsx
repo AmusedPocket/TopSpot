@@ -43,9 +43,9 @@ const SpotForm = ({ spot }) => {
         if (!title) errorsObj.title = "Must submit a title.";
         else if (title.length > 40) errorsObj.title = "Title must be less than 40 characters."
        
-        if (!city) errorsObj.city = "Must give a city.";
+        if (!city) errorsObj.city = "Must enter a city.";
         if (!state) errorsObj.state = "Must select a state."
-        if (!zipcode) errorsObj.zipcode = "Must select a zipcode."
+        if (!zipcode) errorsObj.zipcode = "Must enter a zipcode."
         if (!streetAddress) errorsObj.streetAddress = "Must enter an address."
         else if (address.length > 255) errorsObj.address = "Address must be less than 255 characters."
 
@@ -166,14 +166,14 @@ const SpotForm = ({ spot }) => {
                 />
 
                 <div className="spot-form-text-area-wrapper">
-                    {errors.description && <p className="p-error">{errors.description}</p>}
+                    {submit && errors.description && <p className="p-error">{errors.description}</p>}
                     <textarea
                         className="spot-form-text-area"
                         placeholder="Enter a description for your spot!"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                     />
-                    <button onClick={handleSubmit}>{`${spot ? "Edit" : "Add"} Spot`}</button>
+                    <button className="spot-form-add-button" onClick={handleSubmit}>{`${spot ? "Edit" : "Add"} Spot`}</button>
                 </div>
             </form>
         </div>
