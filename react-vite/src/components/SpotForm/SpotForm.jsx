@@ -7,6 +7,7 @@ import Delete from "../Form/Delete/Delete";
 import FormInput, { toInput, errorHandler } from "../Form/Input/Input";
 import FormSelect, { inputSelections } from "../Form/Select/Select";
 import Error from "../Form/Error/Error";
+import './SpotForm.css'
 
 const SpotForm = ({ spot }) => {
     const dispatch = useDispatch()
@@ -19,17 +20,17 @@ const SpotForm = ({ spot }) => {
     const [description, setDescription] = useState(spot ? spot.description : "")
     const [category, setCategory] = useState(spot ? spot.category : "")
     const [address, setAddress] = useState(spot ? spot.address : "")
-    
+
     let addressParts = " , , , "
-    if(address){
+    if (address) {
         addressParts = address.split(",").map(part => part.trim())
     }
-    
-    const [streetAddress, setStreetAddress] = useState(spot ? addressParts[0] : " ")
-    const [city, setCity] = useState(spot ? addressParts[1] : " ")
+
+    const [streetAddress, setStreetAddress] = useState(spot ? addressParts[0] : "")
+    const [city, setCity] = useState(spot ? addressParts[1] : "")
     const stateZip = addressParts[2].split(" ")
-    const [state, setState] = useState(spot ? stateZip[0] : " ")
-    const [zipcode, setZipcode] = useState(spot ? stateZip[1] : " ")
+    const [state, setState] = useState(spot ? stateZip[0] : "")
+    const [zipcode, setZipcode] = useState(spot ? stateZip[1] : "")
     const [phone, setPhone] = useState(spot ? spot.phone : "")
 
     const [errors, setErrors] = useState({})
@@ -41,8 +42,8 @@ const SpotForm = ({ spot }) => {
 
         if (!title) errorsObj.title = "Must submit a title.";
         else if (title.length > 40) errorsObj.title = "Title must be less than 40 characters."
-
-        if (!city) errorsObj.address = "Must give a city.";
+       
+        if (!city) errorsObj.city = "Must give a city.";
         if (!state) errorsObj.state = "Must select a state."
         if (!zipcode) errorsObj.zipcode = "Must select a zipcode."
         if (!streetAddress) errorsObj.streetAddress = "Must enter an address."
@@ -52,11 +53,13 @@ const SpotForm = ({ spot }) => {
         else if (description.length > 255) errorsObj.description = "Description must be less than 255 characters."
 
         if (!category) errorsObj.category = "Must select a category"
+        if (!phone) errorsObj.phone = "Must enter a phone number."
+        else if (!/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(phone)) errorsObj.phone = "Phone number must be a valid format."
 
         setErrors(errorsObj)
-    }, [title, address, description, category])
+    }, [title, city, state, streetAddress, description, category, zipcode, phone])
 
-    useEffect(()=> {
+    useEffect(() => {
         setAddress(`${streetAddress}, ${city}, ${state} ${zipcode}`)
     }, [streetAddress, city, state, zipcode])
 
@@ -72,17 +75,17 @@ const SpotForm = ({ spot }) => {
             formData.category = category;
             formData.address = address;
             formData.phone = phone
-          
+
 
             let data;
             if (spot) {
-                console.log("in edit spot")
+
                 data = await dispatch(thunkUpdateSpot(formData))
             } else {
-                console.log("in create spot")
+
                 data = await dispatch(thunkCreateSpot(formData))
             }
-           
+
             if (data.errors) {
                 const errorsObj = {}
                 for (const error of data.errors) {
@@ -117,9 +120,9 @@ const SpotForm = ({ spot }) => {
             <h1>{spot ? "Edit " : "Create a "}Spot</h1>
             <form onSubmit={handleSubmit}>
                 <FormInput input={toInput("Spot Name", title, setTitle)}
-                errorHandler={errorHandler(submit, errors.name)}
+                    errorHandler={errorHandler(submit, errors.title)}
                 />
-                <FormSelect 
+                <FormSelect
                     input={inputSelections(category, setCategory, [
                         "Restaurants",
                         "Shopping",
@@ -128,31 +131,31 @@ const SpotForm = ({ spot }) => {
                     ])}
                     buttonText="Select a category."
                     errorHandler={errorHandler(submit, errors.category)}
-                    />
-                
+                />
+
                 <div className="div-error">
                     {submit && errors.spot_id && (
-                       <Error error={errors.spot_id}/>
+                        <Error error={errors.spot_id} />
                     )}
                 </div>
 
-                <FormInput
-                    type={category}
-                    input={toInput("Street Address", streetAddress, setStreetAddress)}
-                    errorHandler={errorHandler(submit, errors.StreetAddress)}
+                <FormInput input={toInput("Street Address", streetAddress, setStreetAddress)}
+                    errorHandler={errorHandler(submit, errors.streetAddress)}
                 />
+
                 <FormInput
                     input={toInput("City", city, setCity)}
                     errorHandler={errorHandler(submit, errors.city)}
                 />
-                <FormSelect 
+                <FormSelect
+                    className="form-select-category"
                     type={state}
                     input={inputSelections(state, setState, [
                         "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"
                     ])}
                     buttonText={"Select a state."}
                     errorHandler={errorHandler(submit, errors.state)}
-                    />
+                />
                 <FormInput
                     input={toInput("Zip code", zipcode, setZipcode)}
                     errorHandler={errorHandler(submit, errors.zipcode)}
@@ -161,14 +164,17 @@ const SpotForm = ({ spot }) => {
                     input={toInput("Phone", phone, setPhone)}
                     errorHandler={errorHandler(submit, errors.phone)}
                 />
-                
-                
-                <textarea
-                    placeholder="Enter a description for your spot!"
-                    value={description}
-                    onChange={(e)=> setDescription(e.target.value)}
-                />
-                <button onClick={handleSubmit}>{`${spot ? "Edit" : "Add"} Spot`}</button>
+
+                <div className="spot-form-text-area-wrapper">
+                    {errors.description && <p className="p-error">{errors.description}</p>}
+                    <textarea
+                        className="spot-form-text-area"
+                        placeholder="Enter a description for your spot!"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                    />
+                    <button onClick={handleSubmit}>{`${spot ? "Edit" : "Add"} Spot`}</button>
+                </div>
             </form>
         </div>
     )

@@ -21,11 +21,14 @@
 
 }
 
-.add-review-wrap {
+.spot-page-title {
     width: fit-content;
-    display: flex;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    padding: 10px;
+   
 }
 
 .add-review {
@@ -63,4 +66,26 @@
     flex-direction: column;
     justify-content: center;
     margin: 10px;
+}
+
+.upload-image-text {
+    padding: 2px;
+    background-color: transparent;
+    border: none;
+    border: 2px solid var(--darkOrange);
+    color: white;
+    border-radius: 10px;
+    justify-self: flex-end;
+    display: flex;
+    width: fit-content;
+    margin: 10px;
+    align-items: center;
+}
+
+.upload-image-text:hover {
+    box-shadow: 2px 2px 2px white;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.24);
+    transition-duration: 500ms;
+    transition-property: background-color;
 }

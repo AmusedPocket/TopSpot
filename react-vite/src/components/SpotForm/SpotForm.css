@@ -1,0 +1,33 @@
+.spot-form {
+    background-image: url('https://topspots.s3.us-west-1.amazonaws.com/logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.delete-spot {
+    cursor: pointer;
+}
+
+.spot-form > h1 {
+    display: inline-flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.spot-form-text-area {
+    width: 150px;
+    resize: none;
+    height: 150px;
+    display: inline-flex;
+    margin-bottom: 10px;
+}
+
+.spot-form-text-area-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}

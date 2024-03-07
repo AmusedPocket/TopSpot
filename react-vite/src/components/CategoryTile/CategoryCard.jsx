@@ -16,13 +16,15 @@ const CategoryTile = ({ category, url, index }) => {
             const background = e.target.closest('.background')
 
             if (background) {
-                background.style.filter = "blur(2px)"
+                background.style.filter = "blur(2px)";
+                background.style.boxShadow = "2px 2px 2px grey";
             }
         }} onMouseEnter={(e) => {
             const background = e.target.closest('.background')
 
             if (background) {
-                background.style.filter = "none"
+                background.style.filter = "none";
+                background.style.boxShadow = "2px 2px 2px grey";
             }
         }}
         onClick={() => navigate(`/category/${category}`)}>

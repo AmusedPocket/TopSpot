@@ -41,7 +41,7 @@
 
 .background:hover{
     filter: blur(0px);
-    box-shadow: 2px 2px 2px grey;
+    
 }
 
 .background {

@@ -24,6 +24,12 @@ const reviewedAlready = (user, reviews) => {
     return false;
 }
 
+const happyPhone = number => {
+    number = number.replace(/\D/g, '');
+
+    return number.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+}
+
 const SpotPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -37,7 +43,9 @@ const SpotPage = () => {
     const spot = useSelector((state) => state.spot.currSpot)
 
     console.log("spot is: ", spot)
-    const { title, description, category, address, reviews, avg_rating, images } = spot
+    const { title, description, category, address, reviews, avg_rating, images, phone } = spot
+
+    
 
     const [loaded, setLoaded] = useState(false)
 
@@ -69,10 +77,15 @@ const SpotPage = () => {
         }
     }
 
+    const numOfReviews = Object.values(reviews).length
+    const reviewWord = numOfReviews !== 0 ? "review" : "Brand new spot! Be the first to review!"
+    const reviewPlural = numOfReviews > 1 ? "s" : ""
+    const reviewString = `${numOfReviews !== 0 ? numOfReviews : ""} ${reviewWord}${reviewPlural}`
+
     return (
         <div className="spot-page">
             <div className="top-bar" style={{ ...style() }}>
-                <div className="title">
+                <div className="spot-page-title">
                     <div className="name">
                         <h1>{title}</h1>
                         {user?.id === spot.owner_id && (
@@ -123,8 +136,7 @@ const SpotPage = () => {
                 <div className="average-rating-top">
                     <StarRatings rating={Math.round(Number(avg_rating))} />
                     <p className="spot-reviews">
-                        {Object.values(reviews).length} review
-                        {Object.values(reviews).length > 1 ? "s" : ""}
+                        {reviewString}
                     </p>
                 </div>
 
@@ -137,15 +149,17 @@ const SpotPage = () => {
                     <div className="address">
                         {address}
                     </div>
-
+                    <div className="phone">
+                        {happyPhone(phone)}
+                    </div>
 
                     <div className="upload-image-button"
                         style={{ visibility: user ? "visible" : "hidden" }}
                         onClick={() => {
                             if (user) setModalContent(<UploadReviewImages spotId={spotId} />)
                         }} >
-                        <i className="fa-solid fa-image">
-                            <p>Upload an image!</p>
+                        <i className="fa-solid fa-image upload-image-text">
+                            <p>&nbsp;&nbsp;Upload an image!</p>
                         </i>
                     </div>
                 </div>

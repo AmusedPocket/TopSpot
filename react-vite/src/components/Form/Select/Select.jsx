@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import './Select.css'
 
 export const inputSelections = (value, onChange, options) => ({
     value,

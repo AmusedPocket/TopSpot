@@ -1,6 +1,7 @@
 .p-error {
     color: red;
     font-size: 12px;
+    text-shadow: white 1px 0px 10px;
 }
 
 .form-input {
@@ -8,4 +9,5 @@
     align-items: center;
     justify-content: center;
     padding: 5px;
+    flex-direction: column;
 }

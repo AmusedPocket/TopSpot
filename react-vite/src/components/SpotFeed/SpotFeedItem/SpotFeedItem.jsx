@@ -7,6 +7,14 @@ const SpotFeedItem = ({spot}) => {
    
     console.log("image values: ", Object.values(images))
     const url = Object.values(images)[0]?.url
+
+    const reviewsText = () => {
+        if(numberOfReviews >= 1){
+            return `Based on ${numberOfReviews} review${numberOfReviews > 1 ? "s" : ""}.`
+        } else {
+            return `Brand new spot! Be the first to review!`
+        }
+    }
    
     return (
         <div className="spot-feed-item" style={{
@@ -18,7 +26,7 @@ const SpotFeedItem = ({spot}) => {
                 <div className="spot-card-rating">
                     <StarRatings rating={Math.round(Number(avg_rating))} />
                     <p>
-                        Based on {numberOfReviews} review{numberOfReviews > 1 ? "s" : ""}.
+                        {reviewsText()}
                     </p>
                 </div>
             </div>
