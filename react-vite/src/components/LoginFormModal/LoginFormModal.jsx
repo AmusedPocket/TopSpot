@@ -3,7 +3,7 @@ import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import "./LoginForm.css";
-
+import FormInput, { errorHandler, toInput } from "../Form/Input/Input";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -73,29 +73,17 @@ function LoginFormModal() {
     <div className="login-modal">
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        {errors.credential && <p>{errors.credential}</p>}
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+        <FormInput
+        input={toInput("User name or Email", credential, setCredential)}
+        errorHandler={errorHandler(submitted, errors.credential)}
+        />
+        <FormInput
+        input={toInput("Password", password, setPassword, "password")}
+        errorHandler={errorHandler(submitted, errors.password)}
+        />
+        <button className="logged-out-buttons" type="submit">Log In</button>
       </form>
-      <p className="" onClick={demoUserLogin}>
+      <p className="logged-out-buttons" onClick={demoUserLogin}>
                 Log in as Demo User
             </p>
     </div>

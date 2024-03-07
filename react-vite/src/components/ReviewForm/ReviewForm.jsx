@@ -92,18 +92,18 @@ const ReviewForm = ({spot, review}) => {
             <p className="review-form-review-title">Please rate your experience!</p>
 
             <form className="review-form-wrapper" onSubmit={onSubmit}>
-                {submit && errors.rating && <Error errors={errors.rating} />}
+                {submit && errors.rating && <p className="p-error">{errors.rating}</p>}
                 <StarRatings rating={rating} setRating={setRating} />
 
-                {submit && errors.body && <Error errors={errors.body} />}
+                {submit && errors.body && <p className="p-error">{errors.body} </p>}
                 <textarea
                     placeholder="Enter your review!"
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                     className="review-form-text-area"
                 />
-
-                <Button text={`${review ? "Update" : "Submit"} Review`}/>
+                <button className="spot-form-add-button" onClick={onSubmit}>{`${review ? "Update" : "Submit"} Review`}</button>
+                
             </form>
         </div>
     )

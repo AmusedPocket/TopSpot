@@ -6,6 +6,7 @@ import { useModal } from "../../context/Modal";
 import FormInput, { errorHandler, toInput } from "../Form/Input/Input";
 
 import Button from "../Form/Button/Button";
+import './SignupForm.css'
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -117,8 +118,11 @@ function SignupFormPage() {
           input={toInput("Confirm Password", confirmPassword, setConfirmPassword, "password")}
           errorHandler={errorHandler(submit, errors.confirmPassword)}
         />
-
-        <Button text={"Sign Up"} />
+        
+        <button onClick={handleSubmit} className='logged-out-buttons'>Sign up</button>
+      
+        
+        
 
 
       </form>
