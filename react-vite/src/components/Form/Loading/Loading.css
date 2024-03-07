@@ -1,10 +1,10 @@
-@keyframes spin {
-    0% {
-        transform: rotate(0 turn);
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
     }
 
-    100% {
-        transform: rotate(1 turn);
+    to {
+        transform: rotate(359deg);
     }
 }
 
@@ -17,8 +17,12 @@
     align-items: center;
 }
 
+.loading-page-text {
+    padding: 20px;
+    
+}
+
 .loading-logo {
-    animation: spin 2s linear infinite;
-    width: 300px;
-    height: 300px;
+    animation: rotation 2s infinite linear;
+    margin-right: 20px;
 }
