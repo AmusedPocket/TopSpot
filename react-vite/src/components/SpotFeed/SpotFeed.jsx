@@ -5,6 +5,7 @@ import { thunkGetAllSpots } from "../../redux/spot";
 import SpotFeedItem from "./SpotFeedItem/SpotFeedItem";
 import './SpotFeed.css'
 import Loading from "../Form/Loading/Loading";
+
 const SpotFeed = () => {
     const dispatch = useDispatch()
     const { category } = useParams()
