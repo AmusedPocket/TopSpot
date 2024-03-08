@@ -9,8 +9,7 @@ import UserPage from '../components/UserPage/UserPage';
 
 
 import SpotPage from '../components/SpotPage/SpotPage';
-import LoginPage from '../components/LoginPage/LoginPage';
-import Loading from '../components/Form/Loading/Loading';
+
 
 
 
@@ -22,10 +21,6 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <LandingPage />,
-      },
-      {
-        path: "login",
-        element: <LoginPage />,
       },
       {
         path: "signup",

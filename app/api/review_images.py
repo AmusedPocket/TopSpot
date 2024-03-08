@@ -67,8 +67,8 @@ def upload_review_image():
 
     db.session.add(new_review_image)
     db.session.commit()
-
-    return {'image': new_review_image.to_dict()}
+    print({'image': new_review_image.to_dict()})
+    return {'reviewImage': new_review_image.to_dict()}
 
 @review_image_routes.route("/<int:id>", methods=['DELETE'])
 @login_required
