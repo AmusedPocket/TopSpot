@@ -5,7 +5,7 @@ import { thunkSignup } from "../../redux/session";
 import { useModal } from "../../context/Modal";
 import FormInput, { errorHandler, toInput } from "../Form/Input/Input";
 
-import Button from "../Form/Button/Button";
+
 import './SignupForm.css'
 
 function SignupFormPage() {

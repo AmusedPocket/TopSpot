@@ -5,6 +5,7 @@ import { useState } from "react";
 import { thunkGetSpot } from "../../../redux/spot";
 import SpotForm from "../../SpotForm/SpotForm";
 import Button from "../Button/Button";
+import './Delete.css'
 
 const Delete = ({spot, thunk, item}) => {
     const dispatch = useDispatch()
@@ -36,10 +37,10 @@ const Delete = ({spot, thunk, item}) => {
 
     return (
         <div className="confirm-delete-button">
-            <div className="delete">
-                <p className="confirm">Confirm delete?</p>
+            
+                <p className="confirm-delete">Confirm delete?</p>
                 <div
-                    className="yes"
+                    className="yes-delete"
                     onMouseEnter={() => {
                         setYes("Delete");
                     }}
@@ -50,17 +51,17 @@ const Delete = ({spot, thunk, item}) => {
                         <Button onClick={deleteClick} text={yes}/>
                     </div>
                     <div
-                        className="no"
-                        onMouseEnter={(e) => {
+                        className="no-delete"
+                        onMouseEnter={() => {
                             setNo("Cancel delete")
                         }}
-                        onMouseLeave={(e) => {
+                        onMouseLeave={() => {
                             setNo("No")
                         }}
                         >
                             <Button onClick={cancel} text={no} />
                         </div>
-            </div>
+            
         </div>
     )
 }

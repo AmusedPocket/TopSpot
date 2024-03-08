@@ -1,0 +1,19 @@
+.confirm-delete-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ), url('https://topspots.s3.us-west-1.amazonaws.com/logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.confirm-delete {
+    font-weight: 900;
+}
+
+

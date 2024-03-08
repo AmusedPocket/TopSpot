@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { thunkCreateReview, thunkDeleteReview, thunkGetReview, thunkUpdateReview } from "../../redux/reviews";
-import Button from "../Form/Button/Button";
+
 import StarRatings from "../StarRatings/StarRatings";
-import Error from "../Form/Error/Error";
+
 import { thunkGetSpot } from "../../redux/spot";
 import Delete from "../Form/Delete/Delete";
 import { useModal } from "../../context/Modal";
 import './ReviewForm.css'
+
 
 
 const ReviewForm = ({spot, review}) => {
@@ -69,7 +70,7 @@ const ReviewForm = ({spot, review}) => {
         }
     }
 
-    console.log("Hi i'm spot!", spot)
+    
 
     return (
         <div className="form-review">

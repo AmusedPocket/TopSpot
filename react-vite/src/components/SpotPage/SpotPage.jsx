@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import SingleReview from "../SingleReview/SingleReview";
 import SpotForm from "../SpotForm/SpotForm";
 import { useModal } from "../../context/Modal";
-import { thunkGetSpot} from "../../redux/spot";
+import { thunkGetSpot } from "../../redux/spot";
 import StarRatings from "../StarRatings/StarRatings";
 import Loading from "../Form/Loading/Loading";
 import './SpotPage.css'
@@ -12,6 +12,8 @@ import ReviewForm from "../ReviewForm/ReviewForm";
 import UploadReviewImages from "../UploadImages/UploadReviewImages";
 
 import LoginFormModal from "../LoginFormModal";
+import Delete from "../Form/Delete/Delete";
+import { thunkDeleteReview } from "../../redux/reviews";
 
 
 const reviewedAlready = (user, reviews) => {
@@ -45,7 +47,7 @@ const SpotPage = () => {
     console.log("spot is: ", spot)
     const { title, description, category, address, reviews, avg_rating, images, phone } = spot
 
-    
+
 
     const [loaded, setLoaded] = useState(false)
 
@@ -65,18 +67,27 @@ const SpotPage = () => {
         })
     }, [dispatch, spotId, navigate])
 
-    if (!loaded) return (<Loading/>)
+    if (!loaded) return (<Loading />)
 
-   
+
+
 
     const style = () => {
-        if (Object.values(images).length === 0) return { backgroundColor: "#fa8e54" };
+        if (Object.values(images).length === 0) return {
+            backgroundImage: `linear-gradient(
+                to right,
+                rgba(0, 0, 0, 0.5),
+                rgba(255, 255, 255, 0.5)
+              ), url('https://topspots.s3.us-west-1.amazonaws.com/logo.png')`
+        };
 
         return {
             backgroundImage: `linear-gradient(90deg, black, transparent), url(${Object.values(images)[Math.floor(Math.random() * Object.values(images).length)].url})`,
         }
     }
 
+
+    console.log("images are: ", Object.values(images))
     const numOfReviews = Object.values(reviews).length
     const reviewWord = numOfReviews !== 0 ? "review" : "Brand new spot! Be the first to review!"
     const reviewPlural = numOfReviews > 1 ? "s" : ""
@@ -86,15 +97,18 @@ const SpotPage = () => {
         <div className="spot-page">
             <div className="top-bar" style={{ ...style() }}>
                 <div className="spot-page-title">
-                    <div className="name">
-                        <h1>{title}</h1>
-                        {user?.id === spot.owner_id && (
-                            <p onClick={() => setModalContent(<SpotForm spot={spot} />)}> Update your spot! </p>)}
 
-                    </div>
+                    <h1>{title}</h1>
+                    {user?.id === spot.owner_id && (
+                        <p className="update-spot-button" onClick={() => setModalContent(<SpotForm spot={spot} />)}><i className="fa-solid fa-pen-to-square page-icon" />  &nbsp;&nbsp;Update your spot!
+
+                        </p>)}
+
+
                     <div className="add-review-wrap">
                         {user && hasBeenReviewed ? (
-                            <button
+                            <div className="review-exists">
+                                <button
                                 className="add-review"
                                 onMouseEnter={() => {
                                     const star = document.querySelector(".fa-star");
@@ -107,8 +121,30 @@ const SpotPage = () => {
                                 onClick={() =>
                                     setModalContent(<ReviewForm spot={spot} review={hasBeenReviewed} />)} >
                                 <i className="fa-regular fa-star" />
-                                Update your review!
-                            </button>
+                                    Update your review!
+                                </button>
+                                <div
+                                    className="delete-review-spot-page"
+                                    title="Delete your review."
+                                    onMouseEnter={() => {
+                                        const trash = document.querySelector(".fa-trash");
+                                        trash.className = "fa-solid fa-trash fa-bounce"
+                                    }}
+                                    onMouseLeave={() => {
+                                        const trash = document.querySelector(".fa-trash");
+                                        trash.className = "fa-solid fa-trash"
+                                    }}
+                                    onClick={() => setModalContent(
+                                        <Delete
+                                            spot={spot}
+                                            thunk={thunkDeleteReview}
+                                            item={reviewedAlready(user, reviews)}
+                                        />
+                                    )}
+                                >
+                                    <i className="fa-solid fa-trash" />
+                                </div>
+                            </div>
                         ) : user ? (
                             <button
                                 className="add-review"
@@ -136,40 +172,46 @@ const SpotPage = () => {
                 <div className="average-rating-top">
                     <StarRatings rating={Math.round(Number(avg_rating))} />
                     <p className="spot-reviews">
-                        {reviewString}
+                        &nbsp;&nbsp;{reviewString}
                     </p>
                 </div>
 
                 <p className="category">
-                    <i className={`fa-solid ${catIcon[category]}`} />
-                    {category[0].toUpperCase() + category.slice(1)}
+                    <i className={`fa-solid ${catIcon[category]} page-icon`} />
+                    &nbsp;&nbsp;{category[0].toUpperCase() + category.slice(1)}
                 </p>
 
                 <div className="bottom-bit">
-                    <div className="address">
-                        {address}
+                    <div className="address-block">
+                        <i className="fa-solid fa-location-dot page-icon" />
+                        <div className="address">
+                            &nbsp;&nbsp;{address}
+                        </div>
                     </div>
-                    <div className="phone">
-                        {happyPhone(phone)}
-                    </div>
-
+                    <p className="phone-block">
+                        <i class="fa-solid fa-phone page-icon"></i>
+                        <div className="phone">
+                            &nbsp;&nbsp;{happyPhone(phone)}
+                        </div>
+                    </p>
                     <div className="upload-image-button"
                         style={{ visibility: user ? "visible" : "hidden" }}
                         onClick={() => {
                             if (user) setModalContent(<UploadReviewImages spotId={spotId} />)
                         }} >
-                        <i className="fa-solid fa-image upload-image-text">
-                            <p>&nbsp;&nbsp;Upload an image!</p>
-                        </i>
+                        <div className="upload-image-text">
+                            <i className="fa-solid fa-image page-icon" />
+                            <p className="upload-image-text-text">&nbsp;&nbsp;Upload an image!</p></div>
+
                     </div>
                 </div>
             </div>
 
             <div className="description-about">
-                
-                    <p className="description-title">About this spot:</p>
-                    <div className="description-body">{description}</div>
-              
+
+                <p className="description-title">About this spot:</p>
+                <div className="description-body">{description}</div>
+
             </div>
 
             <div className="featured-reviews">

@@ -1,10 +1,12 @@
 .default-button {
-    color: red;
+    
     margin-top: 10px;
     border-radius: 10px;
     text-decoration: none;
     cursor: pointer;
     background-color: none;
+    padding: 0px 15px;
+    background-color: linear-gradient(to bottom right, red, yellow);
 }
 
 .default-button:hover{
