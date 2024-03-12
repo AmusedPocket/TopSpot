@@ -10,7 +10,7 @@ const CategoryTile = ({ category, url, index }) => {
         "Active Life": "fa-person-walking",
         Health: "fa-file-medical"
     }
-    console.log("Category is: ", category)
+
     return (
         <div className="c-wrap" id={`category-${index}`} onMouseLeave={(e) => {
             const background = e.target.closest('.background')
@@ -27,13 +27,13 @@ const CategoryTile = ({ category, url, index }) => {
                 background.style.boxShadow = "2px 2px 2px grey";
             }
         }}
-        onClick={() => navigate(`/category/${category}`)}>
+            onClick={() => navigate(`/category/${category}`)}>
             <div className="background" style={{
                 backgroundImage: `url(${url})`
             }}>
 
             </div>
-            <div className="category-tile" id={index} 
+            <div className="category-tile" id={index}
 
             >
                 <i className={`fa-solid ${catIcon[category]} fa-lg`} />

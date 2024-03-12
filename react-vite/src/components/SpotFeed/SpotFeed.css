@@ -9,3 +9,15 @@
     margin-right: 20px;
     text-shadow:  rgb(255, 217, 0) 0px 0px 5px;
 }
+
+.spot-page{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 1230px){
+    .spot-page{
+        margin-top: 140px;
+    }
+}
