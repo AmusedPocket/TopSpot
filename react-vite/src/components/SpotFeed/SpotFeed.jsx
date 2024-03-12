@@ -27,7 +27,7 @@ const SpotFeed = () => {
     if (!loaded) return (<Loading />)
 
     return (
-        <>
+        <div className="spot-page">
             <h1 className="spot-feed-title">
                 <i className={`spot-feed-icon fa-solid ${catIcon[category]} fa-lg`} />
                 {category.split("").map((word) => word[0].toUpperCase() + word.slice(1)).join(" ")}{" "}
@@ -44,7 +44,7 @@ const SpotFeed = () => {
                     </NavLink>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 
