@@ -31,6 +31,12 @@ class Spot(db.Model):
     user = db.relationship("UserSpot", back_populates="spot", cascade='all, delete-orphan')
     owner = db.relationship("User", back_populates="owned_spot")
 
+    likes = db.relationship(
+        "User",
+        secondary="spot_likes",
+        back_populates="user_likes"
+    )
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -45,7 +51,8 @@ class Spot(db.Model):
             'owner': self.owner.to_obj() if self.owner else None,
             'avg_rating': self.avg_rating(),
             'reviews': [review.to_obj() for review in self.reviews] if self.reviews else [],
-            'images': [image.to_obj() for image in self.images] if self.images else []
+            'images': [image.to_obj() for image in self.images] if self.images else [],
+            'likes': len(self.likes)
         }
 
     def to_obj(self):
@@ -54,7 +61,8 @@ class Spot(db.Model):
             'title': self.title,
             'description': self.description,
             'category': self.category,
-            'avg_rating': self.avg_rating()
+            'avg_rating': self.avg_rating(),
+            'likes': len(self.likes)
         }
     
     def avg_rating(self):

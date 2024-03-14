@@ -35,7 +35,7 @@ function Navigation({ isLoaded }) {
         <input
           className="search-bar-input"
           type="text"
-          placeHolder="Search Top Spots!"
+          placeholder="Search Top Spots!"
         />
         <i
           className="fa-brands fa-searchengin"

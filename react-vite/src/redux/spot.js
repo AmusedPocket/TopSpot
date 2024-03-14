@@ -5,6 +5,8 @@ const GET_ALL_SPOTS = "spot/GET_ALL_SPOTS"
 const CREATE_SPOT = "spot/CREATE_SPOT"
 const UPDATE_SPOT = "spot/UPDATE_SPOT"
 const DELETE_SPOT = "spot/DELETE_SPOT"
+const ADD_LIKE = "spot/ADD_LIKE"
+const DELETE_LIKE = "spot/DELETE_LIKE"
 
 const _getSpot = (spot) => ({
     type: GET_SPOT,
@@ -30,6 +32,17 @@ const _deleteSpot = (spotId) => ({
     type: DELETE_SPOT,
     spotId
 })
+
+const _addLike = (spotId, current_user, spot) => ({
+    type: ADD_LIKE,
+    payload: {spotId, current_user, spot}
+})
+
+const _deleteLike = (spotId, current_user) => ({
+    type: DELETE_LIKE,
+    payload: {spotId, current_user}
+})
+
 
 export const thunkGetSpot = (spotId) => async (dispatch) => {
     const response = await fetch(`/api/spots/${spotId}`);
@@ -103,6 +116,23 @@ export const thunkDeleteSpot = (spotId) => async (dispatch) => {
     return message;
 }
 
+export const thunkSpotLike = (spotId, current_user) => async (dispatch) => {
+    const response = await fetch(`/api/spots/${spotId}/like`, {
+        method: "POST"
+    })
+
+    const spot = await response.json();
+
+    if(spot.message === "added like"){
+        dispatch(_addLike(spotId, current_user, spot))
+        return 1;
+    } else if (spot.message === "deleted like"){
+        dispatch(_deleteLike(songId, current_user))
+        return -1;
+    }
+    return 0;
+}
+
 const initialState = { currSpot: {}, allSpots: {} };
 
 const spotReducer = (state = initialState, action) => {
@@ -152,7 +182,14 @@ const spotReducer = (state = initialState, action) => {
 
             return newState;
         }
+        
+        case ADD_LIKE:
+            const newState = normalizeData(state)
 
+            newState.currSpot = normalizeData(action.spot)
+            newState.allSpots[action.spot.id] = normalizeData(action.spot)
+
+            return newState;
         default:
             return state;
     }

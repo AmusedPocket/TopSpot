@@ -111,3 +111,20 @@ def delete_spot(id):
     db.session.commit()
 
     return {'message': "Successfully deleted spot."}
+
+#add/remove like
+@spot_routes.route('<int:id>/like', methods=['POST'])
+@login_required
+def spot_like(id):
+    found = False
+    spot = Spot.query.get(id)
+    for user in spot.likes:
+        if user.id == current_user.id:
+            spot.likes.remove(user)
+            found = True
+            break
+        if not found:
+            spot.likes.append(current_user)
+        db.session.add(spot)
+        db.session.commit()
+        return {"message": "deleted like" if found else "added like"}, 202 if found else 200

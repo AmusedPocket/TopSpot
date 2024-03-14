@@ -103,3 +103,71 @@ def delete_review(id):
 def user_reviews():
     reviews = Review.query.where(Review.user_id == current_user.id).all()
     return {'reviews': [review.to_dict() for review in reviews]}
+
+#Lbulbs
+@review_routes.route('/<int:id>/lbulb', methods=['POST'])
+@login_required
+def lbulb(id):
+    found = False
+    review = Review.query.get(id)
+    for user in review.lbulbs:
+        if user.id == current_user.id:
+            review.lbulbs.remove(current_user)
+            found = True
+            break
+        if not found:
+            review.lbulbs.append(current_user)
+    db.session.add(review)
+    db.session.commit()
+    return {"message": "deleted lbulb" if found else "added lbulb"}, 202 if found else 200
+
+#Hearts
+@review_routes.route('/<int:id>/heart', methods=['POST'])
+@login_required
+def heart(id):
+    found = False
+    review = Review.query.get(id)
+    for user in review.hearts:
+        if user.id == current_user.id:
+            review.hearts.remove(current_user)
+            found = True
+            break
+        if not found:
+            review.hearts.append(current_user)
+    db.session.add(review)
+    db.session.commit()
+    return {"message": "deleted heart" if found else "added heart"}, 202 if found else 200
+
+#thumbs
+@review_routes.route('/<int:id>/thumb', methods=['POST'])
+@login_required
+def thumb(id):
+    found = False
+    review = Review.query.get(id)
+    for user in review.thumbs:
+        if user.id == current_user.id:
+            review.thumbs.remove(current_user)
+            found = True
+            break
+        if not found:
+            review.thumbs.append(current_user)
+    db.session.add(review)
+    db.session.commit()
+    return {"message": "deleted thumb" if found else "added thumb"}, 202 if found else 200
+
+#sads
+@review_routes.route('/<int:id>/sad', methods=['POST'])
+@login_required
+def sad(id):
+    found = False
+    review = Review.query.get(id)
+    for user in review.sads:
+        if user.id == current_user.id:
+            review.sads.remove(current_user)
+            found = True
+            break
+        if not found:
+            review.sads.append(current_user)
+    db.session.add(review)
+    db.session.commit()
+    return {"message": "deleted sad" if found else "added sad"}, 202 if found else 200

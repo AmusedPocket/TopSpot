@@ -18,6 +18,15 @@ class Review(db.Model):
     spot = db.relationship("Spot", back_populates="reviews")
     images = db.relationship('ReviewImage', back_populates="reviews")
     
+
+    lbulbs = db.relationship("User",secondary="review_lbulbs",back_populates="user_lbulb_reviews")
+
+    hearts = db.relationship("User",secondary="review_hearts",back_populates="user_heart_reviews")
+
+    thumbs = db.relationship("User",secondary="review_thumbs",back_populates="user_thumb_reviews")
+
+    sads = db.relationship("User", secondary="review_sads", back_populates="user_sad_reviews")
+
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
 
@@ -31,6 +40,10 @@ class Review(db.Model):
             'spot_id': self.spot_id,
             'spot': self.spot.to_obj(),
             'images': [image.to_obj() for image in self.images],
+            'lbulbs': len(self.lbulbs),
+            'hearts': len(self.hearts),
+            'thumbs': len(self.thumbs),
+            'sads': len(self.sads),
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
@@ -41,6 +54,10 @@ class Review(db.Model):
             'rating': self.rating,
             'body': self.body,
             'user': self.user.to_obj(),
+            'lbulbs': len(self.lbulbs),
+            'hearts': len(self.hearts),
+            'thumbs': len(self.thumbs),
+            'sads': len(self.sads),
             'spot': self.spot.to_obj() if self.spot else None,
             'created_at': self.created_at
         }

@@ -24,6 +24,38 @@ class User(db.Model, UserMixin):
     images = db.relationship('ReviewImage', back_populates="user")
     owned_spot = db.relationship("Spot", back_populates="owner")
 
+    #Many to many relationship
+    user_liked_spots = db.relationship(
+        "Spot",
+        secondary = "spot_likes",
+        back_populates = "likes"
+    )
+
+
+    user_lbulb_reviews = db.relationship(
+        "Review",
+        secondary = "review_lbulbs",
+        back_populates = "lbulbs"
+    )
+
+    user_heart_reviews = db.relationship(
+        "Review",
+        secondary = "review_hearts",
+        back_populates = "hearts"
+    )
+
+    user_thumb_reviews = db.relationship(
+        "Review",
+        secondary = "review_thumbs",
+        back_populates = "thumbs"
+    )
+
+    user_sad_reviews = db.relationship(
+        "Review",
+        secondary = "review_sads",
+        back_populates = "sads"
+    )
+
     @property
     def password(self):
         return self.hashed_password
