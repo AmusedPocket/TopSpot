@@ -27,7 +27,7 @@ const ReviewTile = ({ review }) => {
             setCurrentSad(review.sads)
         }
     }, [review])
-    // updated status
+    
     const heartClick = () => {
         
         setCanHeart(true)
