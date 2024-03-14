@@ -1,12 +1,79 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import StarRatings from "../StarRatings/StarRatings";
 import './ReviewTile.css'
+import { thunkHeart, thunkLbulb, thunkSad, thunkThumb } from "../../redux/reviews";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const ReviewTile = ({ review }) => {
+    const currentUser = useSelector((state)=>state.session.user)
+    const dispatch = useDispatch()
     const navigate = useNavigate()
-
+    const [canHeart, setCanHeart] = useState(false)
+    const [currentHeart, setCurrentHeart] = useState(0)
+    const [canLbulb, setCanLbulb] = useState(false)
+    const [currentLbulbs, setCurrentLbulbs] = useState(0)
+    const [canSad, setCanSad] = useState(false)
+    const [currentSad, setCurrentSad] = useState(0)
+    const [canThumb, setCanThumb] = useState(false)
+    const [currentThumb, setCurrentThumb] = useState(0)
     const imageLink = Object.values(review.images)[0]?.url
+    
+    useEffect(()=>{
+        if(review) {
+            setCurrentLbulbs(review.lbulbs);
+            setCurrentHeart(review.hearts);
+            setCurrentThumb(review.thumbs);
+            setCurrentSad(review.sads)
+        }
+    }, [review])
+    
+    const heartClick = () => {
+        
+        setCanHeart(true)
+        
+        dispatch(thunkHeart(review.id, currentUser))
+            .then(result => {
+                const heartUpdate = currentHeart + result;
+                setCurrentHeart(heartUpdate)
+                setCanHeart(false)
+            })
+    }
 
+    const lBulbClick = () => {
+        setCanLbulb(true)
+       
+        dispatch(thunkLbulb(review.id, currentUser))
+            .then(result => {
+                
+                const lBulbUpdate = currentLbulbs + result
+                
+    
+                setCurrentLbulbs(lBulbUpdate)
+                setCanLbulb(false)
+            })
+    }
+
+    const thumbClick = () => {
+        setCanThumb(true)
+        dispatch(thunkThumb(review.id, currentUser))
+            .then(result => {
+                const thumbUpdate = currentThumb + result
+                setCurrentThumb(thumbUpdate)
+                setCanThumb(false)
+            })
+    }
+
+    const sadClick = () => {
+        setCanSad(true)
+        dispatch(thunkSad(review.id, currentUser))
+            .then(result => {
+                const sadUpdate = currentSad + result
+                setCurrentSad(sadUpdate)
+                setCanSad(false)
+            })
+    }
+    
     return (
         <div className="review-tile"
             style={{
@@ -43,17 +110,40 @@ const ReviewTile = ({ review }) => {
             </div>
 
             <div className='icon-bar'>
-                {["fa-regular fa-lightbulb fa-xl",
-                    "fa-regular fa-thumbs-up fa-xl",
-                    "fa-regular fa-heart fa-xl",
-                    "fa-regular fa-face-sad-tear fa-xl"].map((className, index) => (
-                        <div className="icon" key={index}>
+              
+                    <div className="icon">
+                     <button onClick={()=>lBulbClick()} disabled={canLbulb || !currentUser}>
+                            {currentLbulbs}&nbsp;
                             <i
-                                onClick={() => alert("Feature coming soon!")}
-                                className={className}
+                                className="fa-regular fa-lightbulb fa-xl"
+                                
                             />
+                        </button>
                         </div>
-                    ))}
+                    <div className="icon">
+                        <button onClick={()=>thumbClick()} disabled={canThumb || !currentUser}>
+                            {currentThumb}&nbsp;
+                            <i
+                                className="fa-regular fa-thumbs-up fa-xl"
+                            />
+                            </button>
+                    </div>
+                    <div className="icon">
+                        <button onClick={()=>heartClick()} disabled={canHeart || !currentUser}>
+                            {currentHeart}&nbsp;
+                            <i
+                                className="fa-regular fa-heart fa-xl"
+                            />
+                            </button>
+                    </div>
+                    <div className="icon">
+                        <button onClick={()=>sadClick()} disabled={canSad || !currentUser}>
+                            {currentSad}&nbsp;
+                            <i
+                                className="fa-regular fa-face-sad-tear fa-xl"
+                            />
+                        </button>
+                    </div>
             </div>
         </div>
     )

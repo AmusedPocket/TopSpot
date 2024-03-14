@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from enum import Enum
 from datetime import datetime
+from .spot_like import spot_likes
 
 # class Category(Enum):
 #     Restaurants = "Restaurants"
@@ -33,8 +34,8 @@ class Spot(db.Model):
 
     likes = db.relationship(
         "User",
-        secondary="spot_likes",
-        back_populates="user_likes"
+        secondary=spot_likes,
+        back_populates="user_liked_spots"
     )
 
     def to_dict(self):

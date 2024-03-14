@@ -1,5 +1,9 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime
+from .review_lightbulb import review_lbulbs
+from .review_heart import review_hearts
+from .review_thumbs import review_thumbs
+from .review_sads import review_sads
 
 class Review(db.Model):
     __tablename__ = 'reviews'
@@ -19,13 +23,13 @@ class Review(db.Model):
     images = db.relationship('ReviewImage', back_populates="reviews")
     
 
-    lbulbs = db.relationship("User",secondary="review_lbulbs",back_populates="user_lbulb_reviews")
+    lbulbs = db.relationship("User",secondary=review_lbulbs,back_populates="user_lbulb_reviews")
 
-    hearts = db.relationship("User",secondary="review_hearts",back_populates="user_heart_reviews")
+    hearts = db.relationship("User",secondary=review_hearts,back_populates="user_heart_reviews")
 
-    thumbs = db.relationship("User",secondary="review_thumbs",back_populates="user_thumb_reviews")
+    thumbs = db.relationship("User",secondary=review_thumbs,back_populates="user_thumb_reviews")
 
-    sads = db.relationship("User", secondary="review_sads", back_populates="user_sad_reviews")
+    sads = db.relationship("User", secondary=review_sads, back_populates="user_sad_reviews")
 
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.now())

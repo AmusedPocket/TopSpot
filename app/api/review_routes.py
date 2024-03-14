@@ -108,6 +108,7 @@ def user_reviews():
 @review_routes.route('/<int:id>/lbulb', methods=['POST'])
 @login_required
 def lbulb(id):
+    print("===============================================> in backend")
     found = False
     review = Review.query.get(id)
     for user in review.lbulbs:
@@ -115,8 +116,8 @@ def lbulb(id):
             review.lbulbs.remove(current_user)
             found = True
             break
-        if not found:
-            review.lbulbs.append(current_user)
+    if not found:
+        review.lbulbs.append(current_user)
     db.session.add(review)
     db.session.commit()
     return {"message": "deleted lbulb" if found else "added lbulb"}, 202 if found else 200
@@ -132,8 +133,8 @@ def heart(id):
             review.hearts.remove(current_user)
             found = True
             break
-        if not found:
-            review.hearts.append(current_user)
+    if not found:
+        review.hearts.append(current_user)
     db.session.add(review)
     db.session.commit()
     return {"message": "deleted heart" if found else "added heart"}, 202 if found else 200
@@ -149,8 +150,8 @@ def thumb(id):
             review.thumbs.remove(current_user)
             found = True
             break
-        if not found:
-            review.thumbs.append(current_user)
+    if not found:
+        review.thumbs.append(current_user)
     db.session.add(review)
     db.session.commit()
     return {"message": "deleted thumb" if found else "added thumb"}, 202 if found else 200
@@ -166,8 +167,8 @@ def sad(id):
             review.sads.remove(current_user)
             found = True
             break
-        if not found:
-            review.sads.append(current_user)
+    if not found:
+        review.sads.append(current_user)
     db.session.add(review)
     db.session.commit()
     return {"message": "deleted sad" if found else "added sad"}, 202 if found else 200

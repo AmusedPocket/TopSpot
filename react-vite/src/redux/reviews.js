@@ -57,7 +57,7 @@ const _addLbulb = (reviewId, current_user, review) => ({
 })
 
 const _deleteLbulb = (reviewId, current_user) => ({
-    type: ADD_LBULB,
+    type: DELETE_LBULB,
     payload: {reviewId, current_user}
 })
 
@@ -188,11 +188,11 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
 
 export const thunkLbulb = (reviewId, current_user) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}/lbulb`, {
-        methods: "POST"
+        method: "POST"
     })
-
+    
     const review = await response.json()
-
+    console.log("in lbulb thunk: ", response)
     if(review.message === "added lbulb"){
         dispatch(_addLbulb(reviewId, current_user, review))
         return 1;
@@ -205,7 +205,7 @@ export const thunkLbulb = (reviewId, current_user) => async (dispatch) => {
 
 export const thunkThumb = (reviewId, current_user) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}/thumb`, {
-        methods: "POST"
+        method: "POST"
     })
 
     const review = await response.json()
@@ -222,7 +222,7 @@ export const thunkThumb = (reviewId, current_user) => async (dispatch) => {
 
 export const thunkHeart = (reviewId, current_user) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}/heart`, {
-        methods: "POST"
+        method: "POST"
     })
 
     const review = await response.json()
@@ -239,7 +239,7 @@ export const thunkHeart = (reviewId, current_user) => async (dispatch) => {
 
 export const thunkSad = (reviewId, current_user) => async (dispatch) => {
     const response = await fetch(`/api/reviews/${reviewId}/sad`, {
-        methods: "POST"
+        method: "POST"
     })
 
     const review = await response.json()
@@ -317,14 +317,42 @@ const reviewReducer = (state = initialState, action) => {
             newState.userReviews = normalizeData(action.reviews)
             return newState;
         }
-        case ADD_LBULB:
+        case ADD_LBULB:{
             const newState = normalizeData(state);
             const newReview = normalizeData(action.review)
             newState.currReview = newReview;
-            newState.allReviews[action.review.id] = newReview
-            newState.userReviews[action.review.id] = newReview
+            newState.allReviews[action.reviewId] = newReview
+            newState.userReviews[action.reviewId] = newReview
 
             return newState;
+        }
+        case ADD_THUMB:{
+            const newState = normalizeData(state);
+            const newReview = normalizeData(action.review)
+            newState.currReview = newReview;
+            newState.allReviews[action.reviewId] = newReview
+            newState.userReviews[action.reviewId] = newReview
+
+            return newState;
+        }
+        case ADD_HEART:{
+            const newState = normalizeData(state);
+            const newReview = normalizeData(action.review)
+            newState.currReview = newReview;
+            newState.allReviews[action.reviewId] = newReview
+            newState.userReviews[action.reviewId] = newReview
+
+            return newState;
+        }
+        case ADD_SAD:{
+            const newState = normalizeData(state);
+            const newReview = normalizeData(action.review)
+            newState.currReview = newReview;
+            newState.allReviews[action.reviewId] = newReview
+            newState.userReviews[action.reviewId] = newReview
+
+            return newState;
+        }
         default:
             return state;
     }

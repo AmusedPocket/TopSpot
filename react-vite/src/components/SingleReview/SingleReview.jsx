@@ -1,10 +1,23 @@
 
+import { useEffect, useState } from "react";
 import StarRatings from "../StarRatings/StarRatings";
-
+import { thunkHeart, thunkLbulb, thunkSad, thunkThumb } from "../../redux/reviews";
 import './SingleReview.css'
 
-const SingleReview = ({ review, userEmail}) => {
+import { useDispatch, useSelector } from "react-redux";
 
+const SingleReview = ({ review, userEmail}) => {
+    const currentUser = useSelector((state)=>state.session.user)
+    const dispatch = useDispatch()
+    // const navigate = useNavigate()
+    const [canHeart, setCanHeart] = useState(false)
+    const [currentHeart, setCurrentHeart] = useState(0)
+    const [canLbulb, setCanLbulb] = useState(false)
+    const [currentLbulbs, setCurrentLbulbs] = useState(0)
+    const [canSad, setCanSad] = useState(false)
+    const [currentSad, setCurrentSad] = useState(0)
+    const [canThumb, setCanThumb] = useState(false)
+    const [currentThumb, setCurrentThumb] = useState(0)
 
     const { user, rating, body, created_at } = review
 
@@ -45,8 +58,60 @@ const SingleReview = ({ review, userEmail}) => {
         }
     }
 
-   
+    useEffect(()=>{
+        if(review) {
+            setCurrentLbulbs(review.lbulbs);
+            setCurrentHeart(review.hearts);
+            setCurrentThumb(review.thumbs);
+            setCurrentSad(review.sads)
+        }
+    }, [review])
 
+    const heartClick = () => {
+        
+        setCanHeart(true)
+        
+        dispatch(thunkHeart(review.id, currentUser))
+            .then(result => {
+                const heartUpdate = currentHeart + result;
+                setCurrentHeart(heartUpdate)
+                setCanHeart(false)
+            })
+    }
+
+    const lBulbClick = () => {
+        setCanLbulb(true)
+       
+        dispatch(thunkLbulb(review.id, currentUser))
+            .then(result => {
+                
+                const lBulbUpdate = currentLbulbs + result
+                
+    
+                setCurrentLbulbs(lBulbUpdate)
+                setCanLbulb(false)
+            })
+    }
+
+    const thumbClick = () => {
+        setCanThumb(true)
+        dispatch(thunkThumb(review.id, currentUser))
+            .then(result => {
+                const thumbUpdate = currentThumb + result
+                setCurrentThumb(thumbUpdate)
+                setCanThumb(false)
+            })
+    }
+
+    const sadClick = () => {
+        setCanSad(true)
+        dispatch(thunkSad(review.id, currentUser))
+            .then(result => {
+                const sadUpdate = currentSad + result
+                setCurrentSad(sadUpdate)
+                setCanSad(false)
+            })
+    }
 
     return (
         <div className="review-feed-item" style={{ ...style() }}>
@@ -69,7 +134,7 @@ const SingleReview = ({ review, userEmail}) => {
             <StarRatings rating={rating} />
             <p className="review-body">{body}</p>
             <div className='review-tile-icon-bar'>
-                {["fa-regular fa-lightbulb fa-xl",
+                {/* {["fa-regular fa-lightbulb fa-xl",
                     "fa-regular fa-thumbs-up fa-xl",
                     "fa-regular fa-heart fa-xl",
                     "fa-regular fa-face-sad-tear fa-xl"].map((className, index) => (
@@ -79,7 +144,40 @@ const SingleReview = ({ review, userEmail}) => {
                                 className={className}
                             />
                         </div>
-                    ))}
+                    ))} */}
+                   
+                     <button className="review-tile-icon" onClick={()=>lBulbClick()} disabled={canLbulb || !currentUser}>
+                            {currentLbulbs}&nbsp;
+                            <i
+                                className="fa-regular fa-lightbulb fa-xl review-icon"
+                                
+                            />
+                        </button>
+                        
+                   
+                    <button className="review-tile-icon" onClick={()=>thumbClick()} disabled={canThumb || !currentUser}>
+                            {currentThumb}&nbsp;
+                            <i
+                                className="fa-regular fa-thumbs-up fa-xl"
+                            />
+                            </button>
+                    
+                  
+                    <button className="review-tile-icon" onClick={()=>heartClick()} disabled={canHeart || !currentUser}>
+                            {currentHeart}&nbsp;
+                            <i
+                                className="fa-regular fa-heart fa-xl"
+                            />
+                            </button>
+                  
+               
+                    <button onClick={()=>sadClick()} disabled={canSad || !currentUser} className="review-tile-icon">
+                            {currentSad}&nbsp;
+                            <i
+                                className="fa-regular fa-face-sad-tear fa-xl"
+                            />
+                        </button>
+                  
             </div>
         </div>
     )

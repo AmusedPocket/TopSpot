@@ -11,7 +11,7 @@ spot_likes = db.Table(
     db.Column(
         "user_id",
         db.Integer,
-        db.Foreignkey(add_prefix_for_prod("users.id")),
+        db.ForeignKey(add_prefix_for_prod("users.id")),
         primary_key=True
     )
 )

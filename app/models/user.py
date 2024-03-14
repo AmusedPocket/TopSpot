@@ -2,7 +2,11 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
-
+from .review_lightbulb import review_lbulbs
+from .review_heart import review_hearts
+from .review_thumbs import review_thumbs
+from .review_sads import review_sads
+from .spot_like import spot_likes
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -27,32 +31,32 @@ class User(db.Model, UserMixin):
     #Many to many relationship
     user_liked_spots = db.relationship(
         "Spot",
-        secondary = "spot_likes",
+        secondary = spot_likes,
         back_populates = "likes"
     )
 
 
     user_lbulb_reviews = db.relationship(
-        "Review",
-        secondary = "review_lbulbs",
-        back_populates = "lbulbs"
+    "Review",
+    secondary=review_lbulbs,
+    back_populates="lbulbs"
     )
 
     user_heart_reviews = db.relationship(
         "Review",
-        secondary = "review_hearts",
+        secondary=review_hearts,
         back_populates = "hearts"
     )
 
     user_thumb_reviews = db.relationship(
         "Review",
-        secondary = "review_thumbs",
+        secondary = review_thumbs,
         back_populates = "thumbs"
     )
 
     user_sad_reviews = db.relationship(
         "Review",
-        secondary = "review_sads",
+        secondary = review_sads,
         back_populates = "sads"
     )
 
