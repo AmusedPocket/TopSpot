@@ -2,281 +2,323 @@
     {
         "title": "The Cheesecake Factory",
         "category": "Restaurants",
-        "description": "Culpa magna magna laboris ullamco nulla adipisicing cillum fugiat amet ex enim.",
+        "description": "American chain restaurant offering sizable portions from a vast menu including signature cheesecake.",
         "address": "251 Geary St, San Francisco, CA 94102",
         "phone": "(415) 391-4444"
     },
     {
         "title": "Westfield San Francisco Centre",
         "category": "Shopping",
-        "description": "Reprehenderit est esse sunt anim ipsum elit Lorem.",
+        "description": "Emporium Centre San Francisco is a shopping mall located in San Francisco, California, United States.",
         "address": "865 Market St, San Francisco, CA 94103",
         "phone": "(415) 512-6776"
     },
     {
         "title": "Crunch Fitness",
         "category": "Active Life",
-        "description": "Laborum incididunt consectetur laboris elit duis culpa.",
+        "description": "Crunch is a full-spectrum gym with state-of-the-art equipment, personal training, and over 200 fitness classes.",
         "address": "61 New Montgomery St, San Francisco, CA 94105",
         "phone": "(415) 543-8555"
     },
     {
         "title": "UCSF Medical Center at Mission Bay",
         "category": "Health",
-        "description": "Eu dolore culpa duis cillum consectetur tempor ipsum irure occaecat sint.",
+        "description": "UCSF Medical Center at Mission Bay is an innovative 289-bed complex features three separate hospitals, specializing in serving children, women, and cancer patients.",
         "address": "1825 4th St, San Francisco, CA 94158",
         "phone": "(415) 353-3000"
     },
     {
         "title": "The Slanted Door",
         "category": "Restaurants",
-        "description": "Consequat aliquip duis est commodo fugiat dolor ea exercitation proident esse laboris reprehenderit.",
+        "description": "Trendy Charles Phan eatery serving modern Vietnamese fare in a glass-heavy space with bay views.",
         "address": "1 Ferry Building #3, San Francisco, CA 94111",
         "phone": "(415) 861-8032"
     },
     {
         "title": "Union Square San Francisco",
         "category": "Shopping",
-        "description": "Nulla pariatur occaecat magna sint aliqua proident velit Lorem.",
+        "description": "Union Square is the teeming commercial hub of the city. Many major hotels and department stores are packed into the area surrounding the actual square. ",
         "address": "333 Post St, San Francisco, CA 94108",
         "phone": "(415) 477-2610"
     },
     {
         "title": "Golden Gate Park",
         "category": "Active Life",
-        "description": "Nisi reprehenderit voluptate voluptate voluptate culpa esse in nostrud elit velit.",
+        "description": "The rumors are true. Golden Gate Park is as fantastic as they say. Explore this iconic parks 1,017 acres, from bucolic lakes and meadows to vibrant activity destinations. Golden Gate Park has something for everyone.",
         "address": "San Francisco, CA 94121",
         "phone": "(415) 831-2700"
     },
     {
         "title": "California Pacific Medical Center",
         "category": "Health",
-        "description": "Est ipsum Lorem velit sunt eiusmod sunt proident esse exercitation consequat dolore.",
+        "description": "Medical diagnostic imaging center in San Francisco, California.",
         "address": "2333 Buchanan St, San Francisco, CA 94115",
         "phone": "(415) 600-6000"
     },
     {
         "title": "Boudin Bakery & Cafe",
         "category": "Restaurants",
-        "description": "Ad nostrud ea cillum esse enim culpa duis ea aute ex.",
+        "description": "Home of our mother dough—flagship of our brand. This beautiful building is the place to see the bakers at work, dine with a view or in a casual cafe, and learn the full story of our famous sourdough bread and the city that made it possible.",
         "address": "160 Jefferson St, San Francisco, CA 94133",
         "phone": "(415) 928-1849"
     },
     {
         "title": "Westfield Valley Fair",
         "category": "Shopping",
-        "description": "Quis incididunt anim veniam reprehenderit velit aliquip exercitation consectetur amet sit excepteur.",
+        "description": "Discover the great brands of the Westfield Valley Fair Shopping Center ! Find information about the opening of your stores on our website.",
         "address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050",
         "phone": "(408) 248-4451"
     },
     {
         "title": "Equinox Sports Club San Francisco",
         "category": "Active Life",
-        "description": "Deserunt excepteur ipsum culpa minim Lorem duis non cupidatat elit deserunt.",
+        "description": "Equinox Sports Club San Francisco's luxurious, state-of-the-art facilities offer a comprehensive selection of fitness options.",
         "address": "747 Market St, San Francisco, CA 94103",
         "phone": "(415) 633-3900"
     },
     {
         "title": "Kaiser Permanente San Francisco Medical Center",
         "category": "Health",
-        "description": "Consequat esse laboris reprehenderit esse.",
+        "description": "A general medical and surgical facility. Kaiser Permanente San Francisco Medical Center in San Francisco, CA is rated high performing in 8 adult procedures and conditions.",
         "address": "2425 Geary Blvd, San Francisco, CA 94115",
         "phone": "(415) 833-2200"
     },
     {
         "title": "Farmhouse Kitchen Thai Cuisine",
         "category": "Restaurants",
-        "description": "Sint ad duis enim ea culpa aliquip.",
+        "description": "Thai eatery for classic curries & noodles, plus rarer street foods in an airy, rustic-chic space.",
         "address": "710 Florida St, San Francisco, CA 94110",
         "phone": "(415) 814-2920"
     },
     {
         "title": "Westlake Shopping Center",
         "category": "Shopping",
-        "description": "Aliquip elit id occaecat voluptate enim pariatur minim dolor quis nisi nisi.",
+        "description": "Westlake Shopping Center is one of the first shopping malls built in America; ground was broken in 1948 for the mall in Daly City, California, United States. ",
         "address": "22 Serramonte Center, Daly City, CA 94015",
         "phone": "(650) 992-8687"
     },
     {
         "title": "24 Hour Fitness",
         "category": "Active Life",
-        "description": "Culpa esse ad dolor fugiat consectetur excepteur ullamco enim occaecat aliqua occaecat cillum anim.",
+        "description": "24 Hour Fitness is a fitness center with locations in San Francisco. Find your nearest gym and get started on your fitness journey today!",
         "address": "350 Bay St, San Francisco, CA 94133",
         "phone": "(415) 956-0999"
     },
     {
         "title": "Kaiser Permanente Santa Clara Medical Center",
         "category": "Health",
-        "description": "Adipisicing aliqua Lorem officia incididunt pariatur nostrud.",
+        "description": "Kaiser Permanente Santa Clara Medical Center in Santa Clara, CA is rated high performing in 9 adult procedures and conditions. It is a general medical and surgical facility.",
         "address": "700 Lawrence Expy, Santa Clara, CA 95051",
         "phone": "(408) 851-1000"
     },
     {
         "title": "House of Prime Rib",
         "category": "Restaurants",
-        "description": "Consectetur nisi fugiat in aliquip.",
+        "description": "Old-school, English-style restaurant serving acclaimed prime rib & martinis since the 1940s.",
         "address": "1906 Van Ness Ave, San Francisco, CA 94109",
         "phone": "(415) 885-4605"
     },
     {
         "title": "Stonestown Galleria",
         "category": "Shopping",
-        "description": "Fugiat aliquip ullamco exercitation deserunt exercitation nulla.",
+        "description": "Stonestown Galleria is a shopping mall in San Francisco, California, United States.",
         "address": "3251 20th Ave, San Francisco, CA 94132",
         "phone": "(415) 759-2626"
     },
     {
         "title": "YMCA Embarcadero",
         "category": "Active Life",
-        "description": "Ex aliquip laborum ex officia quis esse reprehenderit enim eu reprehenderit.",
+        "description": "Our wellness facility is located on the beautiful San Francisco waterfront. Experience wellness and community at its best at the Embarcadero YMCA.",
         "address": "169 Steuart St, San Francisco, CA 94105",
         "phone": "(415) 957-9622"
     },
     {
         "title": "Dignity Health - Saint Francis Memorial Hospital",
         "category": "Health",
-        "description": "Ut culpa reprehenderit eiusmod ut consequat ea laboris sit eu cillum nulla.",
+        "description": "Saint Francis Memorial Hospital is an accredited, not-for-profit community hospital that has been operating in San Francisco since the early twentieth century. Saint Francis Memorial is a member of Dignity Health, now part of CommonSpirit Health.",
         "address": "900 Hyde St, San Francisco, CA 94109",
         "phone": "(415) 353-6000"
     },
     {
         "title": "Golden Gate Restaurant",
         "category": "Restaurants",
-        "description": "Nostrud enim id veniam duis dolor nostrud magna deserunt minim.",
+        "description": "Familiar Indian fare shares the menu with specialty pizzas at this unfussy venue with a buffet.",
         "address": "123 Main Street, San Francisco, CA 94103",
         "phone": "415-123-4567"
     },
     {
         "title": "Bay Area Mall",
         "category": "Shopping",
-        "description": "Incididunt aliquip minim non duis eu aliquip.",
+        "description": "A bustling mall in the heart of the Bay Area, offering a wide range of stores and entertainment options.",
         "address": "456 Oak Avenue, Fremont, CA 94536",
         "phone": "510-456-7890"
     },
     {
         "title": "Healthy Life Gym",
         "category": "Active Life",
-        "description": "Ea officia ex in id incididunt nisi qui.",
+        "description": "A fitness center dedicated to promoting a healthy lifestyle through various workout programs and amenities.",
         "address": "789 Elm Street, San Mateo, CA 94401",
         "phone": "650-789-1234"
     },
     {
         "title": "Bayview Hospital",
         "category": "Health",
-        "description": "Ad commodo ipsum est exercitation duis consequat dolor ad duis laboris ipsum.",
+        "description": "A reputable medical facility providing compassionate care and advanced treatment options to patients.",
         "address": "987 Pine Street, Redwood City, CA 94061",
         "phone": "650-987-6543"
     },
     {
         "title": "Bayview Cafe",
         "category": "Restaurants",
-        "description": "Ullamco duis non veniam anim.",
+        "description": "A cozy cafe serving delicious cuisine with a picturesque view of the bay, perfect for a casual dining experience.",
         "address": "321 Maple Avenue, Fremont, CA 94538",
         "phone": "510-321-6543"
     },
     {
         "title": "City Center Mall",
         "category": "Shopping",
-        "description": "Ullamco dolor magna dolore Lorem nulla adipisicing labore.",
+        "description": "An expansive mall located in the city center, offering diverse shopping options and dining establishments.",
         "address": "654 Broadway Street, San Mateo, CA 94403",
         "phone": "650-654-9876"
     },
     {
         "title": "Active Fitness Club",
         "category": "Active Life",
-        "description": "Sint tempor do exercitation Lorem.",
+        "description": "A premier fitness club providing state-of-the-art equipment and personalized training programs to help individuals achieve their fitness goals.",
         "address": "987 Chestnut Avenue, Fremont, CA 94539",
         "phone": "510-987-3210"
     },
     {
         "title": "Bay Area Medical Center",
         "category": "Health",
-        "description": "Quis nisi do ex sit quis eu minim irure.",
+        "description": "A leading medical center committed to delivering exceptional healthcare services and innovative medical treatments.",
         "address": "741 Walnut Street, Redwood City, CA 94063",
         "phone": "650-741-8520"
     },
     {
         "title": "Oceanview Diner",
         "category": "Restaurants",
-        "description": "Proident nostrud elit non eiusmod exercitation fugiat excepteur dolore nisi.",
+        "description": "A charming diner offering a wide selection of delectable dishes with a stunning ocean view, creating a memorable dining experience.",
         "address": "852 Pine Street, San Mateo, CA 94402",
         "phone": "650-852-7410"
     },
     {
         "title": "Sunset Mall",
         "category": "Shopping",
-        "description": "Fugiat anim ipsum labore qui esse quis aliquip magna sunt laborum commodo veniam consequat.",
+        "description": "A vibrant shopping destination where shoppers can explore a variety of stores and enjoy entertainment options against the backdrop of a beautiful sunset.",
         "address": "147 Cherry Lane, Fremont, CA 94555",
         "phone": "510-147-3698"
     },
     {
         "title": "Downtown Diner",
         "category": "Restaurants",
-        "description": "Commodo fugiat proident excepteur officia est exercitation.",
+        "description": "A cozy diner nestled in downtown Fremont, offering comfort food and warm hospitality to patrons.",
         "address": "258 Maple Avenue, Fremont, CA 94537",
         "phone": "510-258-3698"
     },
     {
         "title": "Bayfront Shopping Center",
         "category": "Shopping",
-        "description": "Voluptate consequat mollit occaecat nisi Lorem ipsum laborum dolor duis id nisi.",
+        "description": "A modern shopping center located along the bayfront, featuring a diverse range of retail stores and dining options.",
         "address": "369 Elm Street, San Mateo, CA 94404",
         "phone": "650-369-2587"
     },
     {
         "title": "FitZone Gym",
         "category": "Active Life",
-        "description": "Veniam id aliquip amet nisi eiusmod aliqua.",
+        "description": "A dynamic fitness facility offering a variety of classes and workout equipment to help individuals achieve their fitness aspirations.",
         "address": "147 Walnut Street, Fremont, CA 94540",
         "phone": "510-147-3698"
     },
     {
         "title": "San Mateo General Hospital",
         "category": "Health",
-        "description": "Ullamco esse fugiat id non et fugiat.",
+        "description": "San Mateo General Hospital is a leading healthcare facility dedicated to providing compassionate care and medical services to the community. Our state-of-the-art facilities and experienced staff ensure that patients receive the highest quality treatment and support.",
         "address": "258 Oak Avenue, San Mateo, CA 94405",
         "phone": "650-258-1478"
     },
     {
         "title": "Harborview Restaurant",
         "category": "Restaurants",
-        "description": "Nisi voluptate duis labore qui esse sint proident officia aliquip sint id mollit.",
+        "description": "Harborview Restaurant offers a delightful dining experience with scenic views of the harbor and exquisite cuisine that tantalizes the taste buds. Whether you're seeking a romantic dinner for two or a lively gathering with friends, our restaurant provides the perfect ambiance for any occasion.",
         "address": "369 Broadway Street, Fremont, CA 94541",
         "phone": "510-369-2587"
     },
     {
         "title": "Citywide Mall",
         "category": "Shopping",
-        "description": "Do veniam sit nisi voluptate laboris id consectetur enim nulla fugiat exercitation Lorem aliquip magna.",
+        "description": "Citywide Mall is a premier shopping destination offering an unparalleled retail experience for fashion enthusiasts and bargain hunters alike. With a vast selection of stores ranging from high-end boutiques to popular brands, shoppers can indulge in the latest trends and discover unique treasures at every turn.",
         "address": "147 Cherry Lane, San Mateo, CA 94406",
         "phone": "650-147-3698"
     },
     {
-        "title": "Active Lifestyle Center",
+        "title": "Fremont Lifestyle Center",
         "category": "Active Life",
-        "description": "Incididunt irure fugiat duis irure duis consectetur irure esse aliquip excepteur Lorem anim quis occaecat.",
+        "description": "Fremont Lifestyle Center is dedicated to promoting wellness through various activities and programs. Our facilities provide opportunities for physical fitness, social interaction, and personal growth. Join us in embracing a healthy and active lifestyle.",
         "address": "258 Pine Street, Fremont, CA 94542",
         "phone": "510-258-1478"
     },
     {
         "title": "Peninsula Health Clinic",
         "category": "Health",
-        "description": "Reprehenderit id anim sunt et ut commodo non incididunt amet duis qui ullamco.",
+        "description": "Peninsula Health Clinic offers comprehensive healthcare services tailored to meet the needs of our patients. With a focus on preventive care and patient education, our clinic strives to improve the health and well-being of individuals and families in the community.",
         "address": "369 Oak Avenue, San Mateo, CA 94407",
         "phone": "650-369-2587"
     },
     {
         "title": "Bayview Bistro",
         "category": "Restaurants",
-        "description": "Dolore labore quis dolor nisi consectetur laborum ea.",
+        "description": "Bayview Bistro provides a culinary experience that delights the senses. From flavorful dishes crafted with fresh, locally sourced ingredients to attentive service in a relaxed atmosphere, our bistro invites guests to savor every moment and indulge in the pleasures of good food and company.",
         "address": "147 Maple Avenue, Fremont, CA 94543",
         "phone": "510-147-3698"
     },
     {
         "title": "Town Center Mall",
         "category": "Shopping",
-        "description": "Sunt elit aliqua tempor excepteur nisi.",
+        "description": "Town Center Mall offers a diverse selection of shops, eateries, and entertainment options, making it the perfect destination for a day of leisurely shopping and dining. Whether you're looking for the latest fashion trends or seeking a delicious meal, our mall provides something for everyone to enjoy.",
         "address": "258 Elm Street, San Mateo, CA 94408",
         "phone": "650-258-1478"
+    },
+    {
+        "title": "Redwood General Hospital",
+        "category": "Health",
+        "description": "A reputable hospital providing comprehensive healthcare services and compassionate care to the Redwood community.",
+        "address": "369 Cedar Avenue, Redwood City, CA 94061",
+        "phone": "650-369-2587"
+    },
+    {
+        "title": "Seaside Grill",
+        "category": "Restaurants",
+        "description": "A waterfront restaurant offering exquisite cuisine and scenic views, creating a memorable dining experience for patrons.",
+        "address": "147 Oceanfront Boulevard, Monterey, CA 93940",
+        "phone": "831-147-3698"
+    },
+    {
+        "title": "Metropolis Plaza",
+        "category": "Shopping",
+        "description": "A bustling mall offering a wide array of shops and entertainment options, catering to shoppers of all preferences.",
+        "address": "258 Main Street, Metropolis, CA 94501",
+        "phone": "510-258-1478"
+    },
+    {
+        "title": "Vitality Fitness Center",
+        "category": "Active Life",
+        "description": "A fitness center dedicated to promoting an active lifestyle through various exercise programs and facilities.",
+        "address": "369 Elm Street, Vitalitytown, CA 94542",
+        "phone": "510-369-2587"
+    },
+    {
+        "title": "Cascade Health Clinic",
+        "category": "Health",
+        "description": "A clinic offering personalized healthcare services and medical expertise to residents of the Cascade region.",
+        "address": "147 Waterfall Avenue, Cascade City, CA 94407",
+        "phone": "650-147-3698"
+    },
+    {
+        "title": "Harborfront Bistro",
+        "category": "Restaurants",
+        "description": "A cozy bistro serving delectable dishes with a focus on fresh, locally sourced ingredients, providing a delightful culinary experience.",
+        "address": "258 Bay Street, Harborfront, CA 94543",
+        "phone": "510-258-1478"
     }
 ]
