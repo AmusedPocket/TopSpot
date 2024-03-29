@@ -8,12 +8,16 @@ import UserDetails from "./UserDetails/UserDetails";
 import ReviewListings from "../ReviewListings/ReviewListings";
 import Loading from "../Form/Loading/Loading";
 
+
+
+
+
 const UserPage = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const user = useSelector((state) => state.session.user)
-
+    const likedSpots = Object.values(user.user_liked_spots)
     const userReviews = useSelector((state) => state.reviews.userReviews)
     console.log("User reviews are: ", userReviews)
     const [loaded, setLoaded] = useState(false)
@@ -24,7 +28,7 @@ const UserPage = () => {
     }, [dispatch, navigate, user])
 
     if(!loaded) return (<Loading />)
-
+    console.log("liked spots: ", likedSpots)
     return (
         <div className="user-page">
             <div className="user-image">
@@ -32,13 +36,13 @@ const UserPage = () => {
                     <h1>User Information</h1>
                     <UserDetails user={user}/>
                 </div>
-                <div className="images">
+                {/* <div className="images">
                     <h1>My posted images</h1>
                     <AccountImages user={user}/>
-                </div>
+                </div> */}
             </div>
 
-            <div className="user-reviews">
+            {/* <div className="user-reviews">
                 <h1>Posted Reviews</h1>
                 <div className="user-single-reviews">
                     {Object.values(userReviews).map((review) => (
@@ -51,7 +55,8 @@ const UserPage = () => {
                             />
                     ))}
                 </div>
-            </div>
+            </div> */}
+            
         </div>
     )
 }

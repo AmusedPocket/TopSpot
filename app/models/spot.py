@@ -63,7 +63,7 @@ class Spot(db.Model):
             'description': self.description,
             'category': self.category,
             'avg_rating': self.avg_rating(),
-            'likes': len(self.likes)
+            'likes': len(self.likes),
         }
     
     def avg_rating(self):
@@ -75,3 +75,10 @@ class Spot(db.Model):
         
         return rating_total / number_of_ratings
 
+    def user_liked_spots_with_reviews(self):
+        liked_spots_with_reviews = []
+        for liked_user in self.likes:
+            spot_dict = liked_user.to_obj()
+            spot_dict['reviews'] = [review.to_obj() for review in liked_user.reviews]
+            liked_spots_with_reviews.append(spot_dict)
+        return liked_spots_with_reviews

@@ -69,7 +69,6 @@ class User(db.Model, UserMixin):
         self.hashed_password = generate_password_hash(password)
 
     def check_password(self, password):
-        print("checking password <---------------------------------------")
         return check_password_hash(self.password, password)
 
     def to_dict(self):
@@ -85,6 +84,7 @@ class User(db.Model, UserMixin):
             'reviews': [review.to_obj() for review in self.reviews],
             'images': [image.to_obj() for image in self.images],
             'owned_spot': [spot.to_obj() for spot in self.owned_spot],
+            'user_liked_spots': [spot.to_obj() for spot in self.user_liked_spots]
         }
     
     def to_obj(self):

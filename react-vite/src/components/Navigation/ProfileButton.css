@@ -1,14 +1,65 @@
 .profile-button-wrapper {
     margin-right: 20px;
-    border: 2px solid black;
+    display: flex;
+    cursor: pointer;
 }
 
-.profile-button-wrapper > .profile-dropdown {
-    display: hidden;
+.profile-dropdown {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    background-color: white;
+    position: absolute;
+    right: 20px;
+    top: 140px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .hidden {
     display: none;
+}
+
+.profile-button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.profile-button-header{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid red;
+    cursor: default;
+    font-size: large;
+    font-weight: 700;
+    background-color: rgba(184, 184, 184, 0.281);
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+    height: 100%;
+}
+
+.account-page-button {
+    margin-left: 5px;
+}
+
+.logout {
+    font-size: large;
+    justify-content: center;
+    display: flex;
+    height: fit-content;
+}
+
+.logout > i {
+    padding-right: 5px;
+    display: flex;
+    height: 0px;
 }

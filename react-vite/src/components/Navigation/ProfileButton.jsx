@@ -12,10 +12,7 @@ function ProfileButton({ user }) {
 
   const ulRef = useRef();
 
-  const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true)
-  }
+  const toggleMenu = () => setShowMenu(prevState => !prevState)
 
   useEffect(() => {
     if (!showMenu) return;
@@ -26,46 +23,47 @@ function ProfileButton({ user }) {
       }
     };
 
-    document.addEventListener("click", closeMenu);
+    document.addEventListener("mousedown", closeMenu);
 
-    return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+    return () => document.removeEventListener("mousedown", closeMenu);
+  }, []);
 
-  
+
 
   const logout = (e) => {
     e.preventDefault();
     dispatch(thunkLogout());
-    closeMenu();
+    setShowMenu(false)
   };
 
-  const divClassName = "profile-dropdown" + (showMenu ? "" : "hidden")
-  
+  const divClassName = "profile-dropdown" + (showMenu ? "" : " hidden")
+
   return (
     <div className="profile-button-wrapper">
-
-      <i className="fa-regular fa-user" onClick={openMenu} />
+      <button onClick={toggleMenu} className="profile-button">
+        <i className="fa-regular fa-user" />
+      </button>
       <div className={divClassName} ref={ulRef}>
         {user && (
           <>
             <div className="profile-button-header">
               <p>
-                {user.first_name}{user.last_name[0]}
+                {user.first_name} {user.last_name[0]}.
               </p>
             </div>
-            <p 
+            <p
               className="about"
               onClick={() => {
                 setShowMenu(false);
-                navigate('/user') 
+                navigate('/user')
               }}>
-              <i className="fa-regular fa-user" /> User Page
-              </p>
+              <i className="fa-regular fa-user" /> <div className="account-page-button">Account Page</div>
+            </p>
 
-              <p className="logout" onClick={logout}>
-                <i className="fa-solid fa-arrow-right-from-bracket"/>
-                Log Out
-              </p>
+            <p className="logout" onClick={logout}>
+              <i className="fa-solid fa-arrow-right-from-bracket" />
+              Log Out
+            </p>
           </>
         )}
       </div>

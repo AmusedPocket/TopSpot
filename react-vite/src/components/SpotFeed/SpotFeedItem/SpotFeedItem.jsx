@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 import StarRatings from "../../StarRatings/StarRatings"
 import './SpotFeedItem.css'
 
