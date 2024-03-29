@@ -2,24 +2,26 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { thunkLogout } from "../../redux/session";
 
-import './Navigation.css'
+import './ProfileButton.css'
+import { useNavigate } from "react-router";
 
-function ProfileButton({user}) {
+function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
-  // const user = useSelector((store) => store.session.user);
+
   const ulRef = useRef();
 
-  const toggleMenu = (e) => {
-    e.stopPropagation(); 
-    setShowMenu(!showMenu);
-  };
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true)
+  }
 
   useEffect(() => {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (ulRef.current && !ulRef.current.contains(e.target)) {
+      if (!ulRef.current.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -29,7 +31,7 @@ function ProfileButton({user}) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const closeMenu = () => setShowMenu(false);
+  
 
   const logout = (e) => {
     e.preventDefault();
@@ -37,16 +39,40 @@ function ProfileButton({user}) {
     closeMenu();
   };
 
+  const divClassName = "profile-dropdown" + (showMenu ? "" : "hidden")
+  
   return (
-    <div className="logged-out-buttons" onClick={logout}>
-            
-            <i className="fa-solid fa-arrow-right-from-bracket"/>
-              Sign Out
-           
+    <div className="profile-button-wrapper">
+
+      <i className="fa-regular fa-user" onClick={openMenu} />
+      <div className={divClassName} ref={ulRef}>
+        {user && (
+          <>
+            <div className="profile-button-header">
+              <p>
+                {user.first_name}{user.last_name[0]}
+              </p>
+            </div>
+            <p 
+              className="about"
+              onClick={() => {
+                setShowMenu(false);
+                navigate('/user') 
+              }}>
+              <i className="fa-regular fa-user" /> User Page
+              </p>
+
+              <p className="logout" onClick={logout}>
+                <i className="fa-solid fa-arrow-right-from-bracket"/>
+                Log Out
+              </p>
+          </>
+        )}
       </div>
-   
+    </div>
+
   )
 }
-     
+
 
 export default ProfileButton;
