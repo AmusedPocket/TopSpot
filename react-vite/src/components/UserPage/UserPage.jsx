@@ -19,6 +19,7 @@ const UserPage = () => {
     const user = useSelector((state) => state.session.user)
     const likedSpots = Object.values(user.user_liked_spots)
     const userReviews = useSelector((state) => state.reviews.userReviews)
+    console.log("User is: ", user)
     console.log("User reviews are: ", userReviews)
     const [loaded, setLoaded] = useState(false)
 

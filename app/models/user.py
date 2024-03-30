@@ -7,6 +7,7 @@ from .review_heart import review_hearts
 from .review_thumbs import review_thumbs
 from .review_sads import review_sads
 from .spot_like import spot_likes
+from .following import follows
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -60,6 +61,15 @@ class User(db.Model, UserMixin):
         back_populates = "sads"
     )
 
+    following = db.relationship(
+        "User",
+        secondary=follows,
+        primaryjoin=(follows.c.user_id == id),  # Changed primaryjoin condition
+        secondaryjoin=(follows.c.follower_id == id),  # Changed secondaryjoin condition
+        backref=db.backref("following_users", lazy="dynamic")  # Changed back reference name
+    )
+
+
     @property
     def password(self):
         return self.hashed_password
@@ -72,6 +82,7 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        follows_ids = [follower.id for follower in self.followers]
         return {
             'id': self.id,
             'first_name': self.first_name,
@@ -84,7 +95,8 @@ class User(db.Model, UserMixin):
             'reviews': [review.to_obj() for review in self.reviews],
             'images': [image.to_obj() for image in self.images],
             'owned_spot': [spot.to_obj() for spot in self.owned_spot],
-            'user_liked_spots': [spot.to_obj() for spot in self.user_liked_spots]
+            'user_liked_spots': [spot.to_obj() for spot in self.user_liked_spots],
+            'follows': follows_ids
         }
     
     def to_obj(self):

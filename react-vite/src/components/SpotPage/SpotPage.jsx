@@ -44,8 +44,8 @@ const SpotPage = () => {
 
     const spot = useSelector((state) => state.spot.currSpot)
 
-    console.log("spot is: ", spot)
-    const { title, description, category, address, reviews, avg_rating, images, phone } = spot
+  
+    const { title, description, category, address, reviews, avg_rating, images, phone, likes } = spot
 
 
 
@@ -166,7 +166,9 @@ const SpotPage = () => {
                                 Log in to review!
                             </button>
                         )}
+                        
                     </div>
+                    
                 </div>
 
                 <div className="average-rating-top">
