@@ -37,7 +37,7 @@ def user(id):
 @login_required
 def update_user():
     form = UserForm()
-    form['csrf_token'].date = request.cookies['csrf_token']
+    form['csrf_token'].data = request.cookies['csrf_token']
 
     if not form.validate_on_submit():
         return {'errors': errors_message(form.errors)}, 401

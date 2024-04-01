@@ -6,7 +6,7 @@ from app.models import User
 
 def check_username_duplicates(form, field):
     username = field.data
-    user = User.query.filter(User.username == username).first()
+    user = User.query.filter(User.user_name == username).first()
     if user and user.id != form.data['user_id']:
         raise ValidationError("Username is taken.")
     

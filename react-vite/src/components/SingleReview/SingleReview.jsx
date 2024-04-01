@@ -5,9 +5,10 @@ import { thunkHeart, thunkLbulb, thunkSad, thunkThumb } from "../../redux/review
 import './SingleReview.css'
 
 import { useDispatch, useSelector } from "react-redux";
+import { thunkFollow } from "../../redux/follows";
 
-const SingleReview = ({ review, userEmail}) => {
-    const currentUser = useSelector((state)=>state.session.user)
+const SingleReview = ({ review, userEmail }) => {
+    const currentUser = useSelector((state) => state.session.user)
     const dispatch = useDispatch()
     // const navigate = useNavigate()
     const [canHeart, setCanHeart] = useState(false)
@@ -18,6 +19,8 @@ const SingleReview = ({ review, userEmail}) => {
     const [currentSad, setCurrentSad] = useState(0)
     const [canThumb, setCanThumb] = useState(false)
     const [currentThumb, setCurrentThumb] = useState(0)
+    const [canFollow, setCanFollow] = useState(false)
+    const [isCurrentUserFollowing, setIsCurrentUserFollowing] = useState(false)
 
     const { user, rating, body, created_at } = review
 
@@ -26,18 +29,18 @@ const SingleReview = ({ review, userEmail}) => {
         const months = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
-          ]
-        
+        ]
+
         const day = newDate.getDate()
         const month = months[newDate.getMonth()]
         const year = newDate.getFullYear()
 
         let daySuffix;
-        if(day === 1 || day === 21 || day === 31){
+        if (day === 1 || day === 21 || day === 31) {
             daySuffix = "st"
-        } else if (day === 2 || day === 22){
+        } else if (day === 2 || day === 22) {
             daySuffix = "nd"
-        } else if (day === 3 || day === 23){
+        } else if (day === 3 || day === 23) {
             daySuffix = "rd"
         } else {
             daySuffix = "th"
@@ -49,7 +52,7 @@ const SingleReview = ({ review, userEmail}) => {
     const happyDate = formatDate(created_at)
 
     const userOwned = userEmail === user.email
-    
+
     const style = () => {
         if (!userOwned) return { outline: "2px solid red" };
 
@@ -58,19 +61,20 @@ const SingleReview = ({ review, userEmail}) => {
         }
     }
 
-    useEffect(()=>{
-        if(review) {
+    useEffect(() => {
+        if (review) {
             setCurrentLbulbs(review.lbulbs);
             setCurrentHeart(review.hearts);
             setCurrentThumb(review.thumbs);
-            setCurrentSad(review.sads)
+            setCurrentSad(review.sads);
+            setIsCurrentUserFollowing(isFollowing(review.user));
         }
-    }, [review])
+    }, [review, currentUser])
 
     const heartClick = () => {
-        
+
         setCanHeart(true)
-        
+
         dispatch(thunkHeart(review.id, currentUser))
             .then(result => {
                 const heartUpdate = currentHeart + result;
@@ -81,13 +85,13 @@ const SingleReview = ({ review, userEmail}) => {
 
     const lBulbClick = () => {
         setCanLbulb(true)
-       
+
         dispatch(thunkLbulb(review.id, currentUser))
             .then(result => {
-                
+
                 const lBulbUpdate = currentLbulbs + result
-                
-    
+
+
                 setCurrentLbulbs(lBulbUpdate)
                 setCanLbulb(false)
             })
@@ -113,6 +117,22 @@ const SingleReview = ({ review, userEmail}) => {
             })
     }
 
+    console.log("review is: ------->", review.user.id)
+    console.log("current user is: .......>>>", currentUser)
+    const followClick = () => {
+        setCanFollow(true);
+        dispatch(thunkFollow(currentUser, review.user))
+            .then(() => {
+                setCanFollow(false);
+                setIsCurrentUserFollowing(prevState => !prevState); // Toggle the state based on previous state
+            });
+    };
+
+    const isFollowing = (userToCheck) => {
+        if (!currentUser || !currentUser.follows) return false;
+        return currentUser.follows.hasOwnProperty(userToCheck.id);
+    };
+
     return (
         <div className="review-feed-item" style={{ ...style() }}>
             <div className="r-header-wrap">
@@ -128,7 +148,26 @@ const SingleReview = ({ review, userEmail}) => {
 
 
                     )}
-                 <p>&nbsp;on {happyDate}.</p>
+                    <p>&nbsp;on {happyDate}.</p>
+                    {!isCurrentUserFollowing ? (
+                        <div className="follow-user" title="Click to follow user!">
+                        <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
+                            <i className="fa-solid fa-user-plus follow-user-button" />
+                        </button>
+                        </div>
+                    ) : (<>
+                        <i className="fa-solid fa-star follow-user-star" title="Followed user review"/>
+                        <div className="follow-user" title="Click to unfollow user!">
+                            
+                            <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
+                                <i className="fa-solid fa-user-minus follow-user-button" />
+                            </button>
+                            </div>
+                            </>
+                    )
+                    }
+                    
+
                 </div>
             </div>
             <StarRatings rating={rating} />
@@ -145,39 +184,39 @@ const SingleReview = ({ review, userEmail}) => {
                             />
                         </div>
                     ))} */}
-                   
-                     <button className="review-tile-icon" onClick={()=>lBulbClick()} disabled={canLbulb || !currentUser}>
-                            {currentLbulbs}&nbsp;
-                            <i
-                                className="fa-regular fa-lightbulb fa-xl review-icon"
-                                
-                            />
-                        </button>
-                        
-                   
-                    <button className="review-tile-icon" onClick={()=>thumbClick()} disabled={canThumb || !currentUser}>
-                            {currentThumb}&nbsp;
-                            <i
-                                className="fa-regular fa-thumbs-up fa-xl"
-                            />
-                            </button>
-                    
-                  
-                    <button className="review-tile-icon" onClick={()=>heartClick()} disabled={canHeart || !currentUser}>
-                            {currentHeart}&nbsp;
-                            <i
-                                className="fa-regular fa-heart fa-xl"
-                            />
-                            </button>
-                  
-               
-                    <button onClick={()=>sadClick()} disabled={canSad || !currentUser} className="review-tile-icon">
-                            {currentSad}&nbsp;
-                            <i
-                                className="fa-regular fa-face-sad-tear fa-xl"
-                            />
-                        </button>
-                  
+
+                <button className="review-tile-icon" onClick={() => lBulbClick()} disabled={canLbulb || !currentUser}>
+                    {currentLbulbs}&nbsp;
+                    <i
+                        className="fa-regular fa-lightbulb fa-xl review-icon"
+
+                    />
+                </button>
+
+
+                <button className="review-tile-icon" onClick={() => thumbClick()} disabled={canThumb || !currentUser}>
+                    {currentThumb}&nbsp;
+                    <i
+                        className="fa-regular fa-thumbs-up fa-xl"
+                    />
+                </button>
+
+
+                <button className="review-tile-icon" onClick={() => heartClick()} disabled={canHeart || !currentUser}>
+                    {currentHeart}&nbsp;
+                    <i
+                        className="fa-regular fa-heart fa-xl"
+                    />
+                </button>
+
+
+                <button onClick={() => sadClick()} disabled={canSad || !currentUser} className="review-tile-icon">
+                    {currentSad}&nbsp;
+                    <i
+                        className="fa-regular fa-face-sad-tear fa-xl"
+                    />
+                </button>
+
             </div>
         </div>
     )

@@ -82,7 +82,15 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        follows_ids = [follower.id for follower in self.followers]
+        followed_users = [{
+            "id": followed_user.id,
+            "first_name": followed_user.first_name,
+            "last_name": followed_user.last_name,
+            "user_name": followed_user.user_name,
+            "email": followed_user.email,
+            "reviews": [review.to_obj() for review in followed_user.reviews] 
+        } for followed_user in self.following]  # Extract relevant information from followed users
+    
         return {
             'id': self.id,
             'first_name': self.first_name,
@@ -96,11 +104,12 @@ class User(db.Model, UserMixin):
             'images': [image.to_obj() for image in self.images],
             'owned_spot': [spot.to_obj() for spot in self.owned_spot],
             'user_liked_spots': [spot.to_obj() for spot in self.user_liked_spots],
-            'follows': follows_ids
+            'follows': followed_users  # Include the followed users instead of just their count
         }
     
     def to_obj(self):
         return {
+            'id': self.id,
             'first_name': self.first_name,
             'last_name': self.last_name,
             'user_name': self.user_name,

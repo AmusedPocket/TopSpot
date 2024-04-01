@@ -42,14 +42,14 @@ def follow_user(id):
     if user_to_follow == current_user:
         return {"error": "Cannot follow self."}, 400
     # Check if the current user is already following the user_to_follow
-    if current_user in user_to_follow.followers:
-        user_to_follow.followers.remove(current_user)
+    if user_to_follow in current_user.following:
+        current_user.following.remove(user_to_follow)
         db.session.commit()
         return {"message": "Unfollowed user"}, 200
 
     else:
     # Add the current user to the followers of user_to_follow
-        user_to_follow.followers.append(current_user)
+        current_user.following.append(user_to_follow)
         db.session.commit()
         return {"message": "Followed user"}, 200
 

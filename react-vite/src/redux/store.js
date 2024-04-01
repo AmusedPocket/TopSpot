@@ -9,6 +9,7 @@ import sessionReducer from "./session";
 import spotReducer from "./spot";
 import reviewReducer from "./reviews";
 import reviewImageReducer from "./review_images";
+import followReducer from "./follows";
 
 
 
@@ -51,7 +52,8 @@ const rootReducer = combineReducers({
   session: sessionReducer,
   spot: spotReducer,
   reviews: reviewReducer,
-  reviewImages: reviewImageReducer
+  reviewImages: reviewImageReducer,
+  follows: followReducer
 });
 
 let enhancer;

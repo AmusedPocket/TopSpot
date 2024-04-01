@@ -29,7 +29,7 @@ const UserData = ({value, label, onChange, user, form}) => {
                         <input
                             type="text"
                             value={value}
-                            onChange={(e)=> setData(true)}
+                            onChange={(e)=> onChange(e.target.value)}
                         />
                         <button className="submit">
                             <i 
@@ -60,9 +60,9 @@ const UserDetails = ({user}) => {
     const dispatch = useDispatch();
 
     const inputRef = useRef()
-    const [firstName, setFirstName] = useState(user.first_name)
-    const [lastName, setLastName] = useState(user.last_name)
-    const [userName, setUserName] = useState(user.username)
+    const [first_name, setFirstName] = useState(user.first_name)
+    const [last_name, setLastName] = useState(user.last_name)
+    const [user_name, setUserName] = useState(user.user_name)
     const [email, setEmail] = useState(user.email)
 
     const [errors, setErrors] = useState({})
@@ -71,20 +71,20 @@ const UserDetails = ({user}) => {
         setErrors({});
         const errorsObj = {}
 
-        if(!firstName) errorsObj.first_name = "Must submit a first name."
-        else if (firstName.length > 30) errorsObj.first_name = "First name must be less than 30 characters."
+        if(!first_name) errorsObj.first_name = "Must submit a first name."
+        else if (first_name.length > 30) errorsObj.first_name = "First name must be less than 30 characters."
 
-        if(!lastName) errorsObj.last_name = "Must submit a last name."
-        else if (lastName.length > 30) errorsObj.last_name = "Last name must be less than 30 characters."
+        if(!last_name) errorsObj.last_name = "Must submit a last name."
+        else if (last_name.length > 30) errorsObj.last_name = "Last name must be less than 30 characters."
 
         if(!email) errorsObj.email = "Must submit an email."
         if(!validateEmail(email)) errorsObj.email = "Must enter a valid email."
         else if (email.length > 30) errorsObj.email = "Email must be less than 30 characters."
 
-        if(!userName) errorsObj.userName = "Username required."
-        else if(userName.length > 30) errorsObj.userName = "Username must be less than 30 characters."
+        if(!user_name) errorsObj.user_name = "Username required."
+        else if(user_name.length > 30) errorsObj.user_name = "Username must be less than 30 characters."
         setErrors(errorsObj)
-    }, [firstName, lastName, email, userName])
+    }, [email, first_name, last_name, user_name])
 
     const validateEmail = (email) => {
         const validEmail = /^[\w\-_$]+(\.[\w\-_$]+)*@[\w\-]+(\.[\w\-]+)*(\.[a-zA-Z]{2,})$/;
@@ -93,34 +93,38 @@ const UserDetails = ({user}) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
-        const updatedInfo = {
-            user_id: user.id,
-            email,
-            firstName,
-            lastName
-        }
-
-        const data = await dispatch(thunkUpdateUser(updatedInfo));
-
-        if(data){
-            const errorsObj = {}
-
-            for (const error of data){
-                const [name, message] = error.split(" : ")
-                errorsObj[name] = message
+        if(Object.values(errors).length === 0){
+            const updatedInfo = {
+                user_id: user.id,
+                email,
+                user_name,
+                first_name,
+                last_name
             }
-
-            return setErrors(errorsObj);
+    
+            const data = await dispatch(thunkUpdateUser(updatedInfo));
+    
+            if(data){
+                const errorsObj = {}
+    
+                for (const error of data){
+                    const [name, message] = error.split(" : ")
+                    errorsObj[name] = message
+                }
+    
+                return setErrors(errorsObj);
+            }
         }
+        
     }
 
     return (
         <div className="edit-user-form">
             <form className="update-user" onSubmit={onSubmit} ref={inputRef}>
                 {[
-                    [firstName, "firstName", setFirstName],
-                    [lastName, "lastName", setLastName],
-                    [userName, "userName", setUserName],
+                    [first_name, "First Name", setFirstName],
+                    [last_name, "Last Name", setLastName],
+                    [user_name, "User Name", setUserName],
                     [email, "email", setEmail],
                 ].map(([value, label, onChange], index) => (
                     <div key={index}>
