@@ -8,8 +8,8 @@ import UserDetails from "./UserDetails/UserDetails";
 import ReviewListings from "../ReviewListings/ReviewListings";
 import Loading from "../Form/Loading/Loading";
 import {NavLink} from "react-router-dom";
-
-
+import './UserPage.css'
+import StarRatings from "../StarRatings/StarRatings";
 
 
 const UserPage = () => {
@@ -30,7 +30,32 @@ const UserPage = () => {
 
     if (!loaded) return (<Loading />)
   
+    const formatDate = (uglyDate) => {
+        const newDate = new Date(uglyDate)
+        const months = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ]
 
+        const day = newDate.getDate()
+        const month = months[newDate.getMonth()]
+        const year = newDate.getFullYear()
+
+        let daySuffix;
+        if (day === 1 || day === 21 || day === 31) {
+            daySuffix = "st"
+        } else if (day === 2 || day === 22) {
+            daySuffix = "nd"
+        } else if (day === 3 || day === 23) {
+            daySuffix = "rd"
+        } else {
+            daySuffix = "th"
+        }
+
+        return `${month} ${day}${daySuffix}, ${year}`
+    }
+
+    
 
     return (
         <div className="user-page">
@@ -49,13 +74,13 @@ const UserPage = () => {
                 <h1>My Reviews:</h1>
                 <div className="user-single-reviews">
                     {Object.values(userReviews).map((review) => (
-                        <ReviewListings
-                            key={review.id}
-                            review={review}
-                            userEmail={user.email}
-                            spot={review.spot}
-                            aboutMe={true}
-                        />
+                        <div className="account-page-single-review" id={review.id}>
+                        <NavLink to={`/spot/${review.spot.id}`}>
+                        <h3 className="account-page-single-review-title">{review.spot.title} <StarRatings rating={review.rating}/></h3>
+                        <p>{review.body}</p>
+                        <p>on {formatDate(review.created_at)}</p>
+                        </NavLink>
+                        </div>
                     ))}
                 </div>
             </div>
@@ -65,14 +90,17 @@ const UserPage = () => {
                     <div key={follow.id}>
                         <h3>{`${follow.first_name} ${follow.last_name[0]}`}.</h3>
                         {Object.values(follow.reviews).map((review) => (
+                            <div className="account-page-single-review" id={review.id}>
                             <NavLink to={`/spot/${review.spot.id}`}>
-                            <div key={review.id}>
+                            
+                                <h3 className="account-page-single-review-title">{review.spot.title}<StarRatings rating={review.rating}/></h3>
                                 <p>{review.body}</p>
-                                <p>{review.spot.title}</p>
+                                <p>on {formatDate(review.created_at)}</p>
                               
                                 {/* Include additional review details as needed */}
-                            </div>
+                            
                             </NavLink>
+                            </div>
                         ))}
                     </div>
                 ))}

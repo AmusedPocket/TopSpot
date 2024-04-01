@@ -1,0 +1,27 @@
+.account-page-single-review {
+    border: 1px solid black;
+    width: fit-content;
+    display: flex;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    background: linear-gradient(to left, var(--orange), var(--darkOrange), var(--red));
+    text-decoration: none;
+    color: black;
+}
+
+.account-page-single-review-title a {
+    text-decoration: none;
+    color: black;
+}
+
+.account-page-single-review a {
+    text-decoration: none; /* Prevent text decoration from NavLink */
+    color: inherit; /* Inherit the color from the parent element */
+}
+
+.account-page-single-review a h3,
+.account-page-single-review a p {
+    text-decoration: none; /* Prevent text decoration for h3 and p inside NavLink */
+    color: black; /* Set the color to black */
+}
