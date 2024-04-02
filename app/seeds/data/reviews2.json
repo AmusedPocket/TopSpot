@@ -1,0 +1,723 @@
+[
+    {
+        "rating": 4,
+        "body": "Great food and atmosphere!",
+        "user_id": 12,
+        "spot_id": 1
+      },
+      {
+        "rating": 2,
+        "body": "Poor service, won't be returning.",
+        "user_id": 27,
+        "spot_id": 16
+      },
+      {
+        "rating": 5,
+        "body": "Best shopping experience ever!",
+        "user_id": 8,
+        "spot_id": 31
+      },
+      {
+        "rating": 3,
+        "body": "Decent place for outdoor activities.",
+        "user_id": 35,
+        "spot_id": 36
+      },
+      {
+        "rating": 1,
+        "body": "Avoid this place at all costs.",
+        "user_id": 19,
+        "spot_id": 4
+      },
+      {
+        "rating": 4,
+        "body": "Excellent healthcare service.",
+        "user_id": 2,
+        "spot_id": 11
+      },
+      {
+        "rating": 5,
+        "body": "Highly recommend for a healthy lifestyle!",
+        "user_id": 10,
+        "spot_id": 20
+      },
+      {
+        "rating": 2,
+        "body": "Not worth the money.",
+        "user_id": 31,
+        "spot_id": 7
+      },
+      {
+        "rating": 3,
+        "body": "Average restaurant, nothing special.",
+        "user_id": 14,
+        "spot_id": 2
+      },
+      {
+        "rating": 4,
+        "body": "Good selection of products.",
+        "user_id": 22,
+        "spot_id": 13
+      },
+      {
+        "rating": 5,
+        "body": "Amazing food, great service!",
+        "user_id": 18,
+        "spot_id": 5
+      },
+      {
+        "rating": 3,
+        "body": "Decent selection but pricey.",
+        "user_id": 29,
+        "spot_id": 24
+      },
+      {
+        "rating": 4,
+        "body": "Fun activities for the whole family.",
+        "user_id": 7,
+        "spot_id": 30
+      },
+      {
+        "rating": 2,
+        "body": "Poor hygiene, wouldn't recommend.",
+        "user_id": 16,
+        "spot_id": 8
+      },
+      {
+        "rating": 1,
+        "body": "Worst shopping experience ever!",
+        "user_id": 25,
+        "spot_id": 17
+      },
+      {
+        "rating": 4,
+        "body": "Excellent medical care, highly professional staff.",
+        "user_id": 38,
+        "spot_id": 12
+      },
+      {
+        "rating": 5,
+        "body": "Fantastic gym with top-notch equipment.",
+        "user_id": 9,
+        "spot_id": 22
+      },
+      {
+        "rating": 3,
+        "body": "Average food quality, slow service.",
+        "user_id": 33,
+        "spot_id": 1
+      },
+      {
+        "rating": 4,
+        "body": "Great variety of products, reasonable prices.",
+        "user_id": 14,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor facilities.",
+        "user_id": 21,
+        "spot_id": 35
+      },
+      {
+        "rating": 4,
+        "body": "Delicious cuisine, cozy ambiance.",
+        "user_id": 11,
+        "spot_id": 3
+      },
+      {
+        "rating": 2,
+        "body": "Overpriced items, not worth it.",
+        "user_id": 28,
+        "spot_id": 14
+      },
+      {
+        "rating": 5,
+        "body": "Best place for outdoor adventures!",
+        "user_id": 6,
+        "spot_id": 27
+      },
+      {
+        "rating": 3,
+        "body": "Average service, nothing exceptional.",
+        "user_id": 17,
+        "spot_id": 4
+      },
+      {
+        "rating": 1,
+        "body": "Terrible experience, avoid at all costs.",
+        "user_id": 24,
+        "spot_id": 29
+      },
+      {
+        "rating": 4,
+        "body": "Prompt and attentive medical care.",
+        "user_id": 39,
+        "spot_id": 13
+      },
+      {
+        "rating": 5,
+        "body": "Top-quality equipment, friendly trainers.",
+        "user_id": 5,
+        "spot_id": 21
+      },
+      {
+        "rating": 2,
+        "body": "Below average food quality, high prices.",
+        "user_id": 34,
+        "spot_id": 2
+      },
+      {
+        "rating": 3,
+        "body": "Decent selection but crowded.",
+        "user_id": 15,
+        "spot_id": 18
+      },
+      {
+        "rating": 4,
+        "body": "Great atmosphere, helpful staff.",
+        "user_id": 23,
+        "spot_id": 10
+      },
+      {
+        "rating": 5,
+        "body": "Exceptional food quality and service!",
+        "user_id": 20,
+        "spot_id": 6
+      },
+      {
+        "rating": 3,
+        "body": "Moderate selection, prices could be better.",
+        "user_id": 30,
+        "spot_id": 19
+      },
+      {
+        "rating": 4,
+        "body": "Exciting outdoor activities, highly recommend!",
+        "user_id": 13,
+        "spot_id": 28
+      },
+      {
+        "rating": 2,
+        "body": "Unsanitary conditions, avoid this place.",
+        "user_id": 26,
+        "spot_id": 11
+      },
+      {
+        "rating": 1,
+        "body": "Worst shopping experience ever, rude staff!",
+        "user_id": 37,
+        "spot_id": 24
+      },
+      {
+        "rating": 4,
+        "body": "Professional healthcare services, satisfied with the treatment.",
+        "user_id": 1,
+        "spot_id": 7
+      },
+      {
+        "rating": 5,
+        "body": "Excellent gym with state-of-the-art equipment!",
+        "user_id": 36,
+        "spot_id": 15
+      },
+      {
+        "rating": 3,
+        "body": "Average food quality, but friendly staff.",
+        "user_id": 16,
+        "spot_id": 20
+      },
+      {
+        "rating": 4,
+        "body": "Wide variety of products, reasonable prices.",
+        "user_id": 21,
+        "spot_id": 33
+      },
+      {
+        "rating": 2,
+        "body": "Limited outdoor facilities, not worth the visit.",
+        "user_id": 10,
+        "spot_id": 5
+      },
+      {
+        "rating": 4,
+        "body": "Great restaurant with delicious food!",
+        "user_id": 25,
+        "spot_id": 1
+      },
+      {
+        "rating": 2,
+        "body": "Poor selection and high prices.",
+        "user_id": 15,
+        "spot_id": 16
+      },
+      {
+        "rating": 5,
+        "body": "Amazing hiking trails and scenery!",
+        "user_id": 30,
+        "spot_id": 30
+      },
+      {
+        "rating": 3,
+        "body": "Average service, could improve.",
+        "user_id": 5,
+        "spot_id": 8
+      },
+      {
+        "rating": 1,
+        "body": "Horrible shopping experience, rude staff!",
+        "user_id": 20,
+        "spot_id": 17
+      },
+      {
+        "rating": 4,
+        "body": "Excellent medical facilities, caring staff.",
+        "user_id": 35,
+        "spot_id": 12
+      },
+      {
+        "rating": 5,
+        "body": "Best gym I've been to, highly recommend!",
+        "user_id": 10,
+        "spot_id": 22
+      },
+      {
+        "rating": 3,
+        "body": "Decent food but nothing extraordinary.",
+        "user_id": 18,
+        "spot_id": 3
+      },
+      {
+        "rating": 4,
+        "body": "Good variety of products, reasonable prices.",
+        "user_id": 7,
+        "spot_id": 18
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities, not worth the trip.",
+        "user_id": 12,
+        "spot_id": 35
+      },
+      {
+        "rating": 5,
+        "body": "The food was exceptional, and the service was outstanding!",
+        "user_id": 28,
+        "spot_id": 2
+      },
+      {
+        "rating": 3,
+        "body": "Decent variety of items, but the prices are a bit high.",
+        "user_id": 17,
+        "spot_id": 17
+      },
+      {
+        "rating": 4,
+        "body": "Great place for outdoor activities with beautiful scenery.",
+        "user_id": 4,
+        "spot_id": 26
+      },
+      {
+        "rating": 2,
+        "body": "The cleanliness of the place left much to be desired.",
+        "user_id": 22,
+        "spot_id": 9
+      },
+      {
+        "rating": 1,
+        "body": "Worst shopping experience ever! Rude staff and poor quality products.",
+        "user_id": 31,
+        "spot_id": 18
+      },
+      {
+        "rating": 4,
+        "body": "Received excellent medical care. The staff was attentive and knowledgeable.",
+        "user_id": 8,
+        "spot_id": 13
+      },
+      {
+        "rating": 5,
+        "body": "Outstanding gym facilities with top-notch equipment!",
+        "user_id": 33,
+        "spot_id": 22
+      },
+      {
+        "rating": 3,
+        "body": "The food was okay, but the service was slow.",
+        "user_id": 16,
+        "spot_id": 3
+      },
+      {
+        "rating": 4,
+        "body": "Good selection of products at reasonable prices.",
+        "user_id": 24,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Limited options and not well-maintained.",
+        "user_id": 10,
+        "spot_id": 34
+      },
+      {
+        "rating": 4,
+        "body": "The restaurant had a cozy atmosphere and delicious food!",
+        "user_id": 13,
+        "spot_id": 5
+      },
+      {
+        "rating": 2,
+        "body": "Limited selection and high prices.",
+        "user_id": 29,
+        "spot_id": 20
+      },
+      {
+        "rating": 5,
+        "body": "Fantastic place for outdoor adventures!",
+        "user_id": 7,
+        "spot_id": 27
+      },
+      {
+        "rating": 3,
+        "body": "Average service, could be improved.",
+        "user_id": 16,
+        "spot_id": 4
+      },
+      {
+        "rating": 1,
+        "body": "Terrible shopping experience, rude staff!",
+        "user_id": 25,
+        "spot_id": 31
+      },
+      {
+        "rating": 4,
+        "body": "Excellent medical care, friendly staff.",
+        "user_id": 38,
+        "spot_id": 6
+      },
+      {
+        "rating": 5,
+        "body": "Highly recommend this gym, great facilities!",
+        "user_id": 9,
+        "spot_id": 15
+      },
+      {
+        "rating": 3,
+        "body": "Decent food, but service was slow.",
+        "user_id": 33,
+        "spot_id": 1
+      },
+      {
+        "rating": 4,
+        "body": "Good variety of products, reasonable prices.",
+        "user_id": 14,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Limited outdoor facilities, not worth the visit.",
+        "user_id": 21,
+        "spot_id": 33
+      },
+      {
+        "rating": 4,
+        "body": "The food was amazing, and the service was excellent!",
+        "user_id": 18,
+        "spot_id": 2
+      },
+      {
+        "rating": 3,
+        "body": "Decent selection but overpriced.",
+        "user_id": 30,
+        "spot_id": 21
+      },
+      {
+        "rating": 5,
+        "body": "Great place for outdoor activities!",
+        "user_id": 13,
+        "spot_id": 28
+      },
+      {
+        "rating": 3,
+        "body": "Average service, nothing special.",
+        "user_id": 22,
+        "spot_id": 8
+      },
+      {
+        "rating": 1,
+        "body": "Terrible shopping experience, rude staff!",
+        "user_id": 37,
+        "spot_id": 17
+      },
+      {
+        "rating": 4,
+        "body": "Received excellent medical care. Highly recommend!",
+        "user_id": 1,
+        "spot_id": 12
+      },
+      {
+        "rating": 5,
+        "body": "Amazing gym facilities with friendly staff!",
+        "user_id": 36,
+        "spot_id": 16
+      },
+      {
+        "rating": 3,
+        "body": "The food was okay, but nothing extraordinary.",
+        "user_id": 16,
+        "spot_id": 3
+      },
+      {
+        "rating": 4,
+        "body": "Good selection of products at fair prices.",
+        "user_id": 21,
+        "spot_id": 18
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Not recommended.",
+        "user_id": 10,
+        "spot_id": 35
+      },
+      {
+        "rating": 5,
+        "body": "The food here is absolutely delicious! Highly recommend!",
+        "user_id": 28,
+        "spot_id": 3
+      },
+      {
+        "rating": 3,
+        "body": "Decent selection but prices could be more competitive.",
+        "user_id": 17,
+        "spot_id": 18
+      },
+      {
+        "rating": 4,
+        "body": "Great spot for outdoor activities with beautiful scenery.",
+        "user_id": 4,
+        "spot_id": 29
+      },
+      {
+        "rating": 2,
+        "body": "The place was not very clean and the service was poor.",
+        "user_id": 22,
+        "spot_id": 11
+      },
+      {
+        "rating": 1,
+        "body": "Worst shopping experience ever! Terrible service and low-quality products.",
+        "user_id": 31,
+        "spot_id": 24
+      },
+      {
+        "rating": 4,
+        "body": "Received exceptional medical care. Staff was friendly and professional.",
+        "user_id": 8,
+        "spot_id": 7
+      },
+      {
+        "rating": 5,
+        "body": "Absolutely love this gym! Amazing equipment and supportive staff.",
+        "user_id": 33,
+        "spot_id": 15
+      },
+      {
+        "rating": 3,
+        "body": "The food was decent, but service was a bit slow.",
+        "user_id": 16,
+        "spot_id": 2
+      },
+      {
+        "rating": 4,
+        "body": "Good variety of products and fair prices.",
+        "user_id": 24,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Limited options and not well-maintained.",
+        "user_id": 10,
+        "spot_id": 34
+      },
+      {
+        "rating": 4,
+        "body": "The restaurant had a lovely ambiance and delicious food!",
+        "user_id": 19,
+        "spot_id": 1
+      },
+      {
+        "rating": 2,
+        "body": "Limited options and overpriced items.",
+        "user_id": 26,
+        "spot_id": 16
+      },
+      {
+        "rating": 5,
+        "body": "Great place for outdoor adventures! Beautiful trails!",
+        "user_id": 12,
+        "spot_id": 27
+      },
+      {
+        "rating": 3,
+        "body": "Average service, could be better.",
+        "user_id": 20,
+        "spot_id": 4
+      },
+      {
+        "rating": 1,
+        "body": "Terrible shopping experience, rude staff!",
+        "user_id": 29,
+        "spot_id": 15
+      },
+      {
+        "rating": 4,
+        "body": "Received excellent medical care. Staff was attentive and caring.",
+        "user_id": 7,
+        "spot_id": 6
+      },
+      {
+        "rating": 5,
+        "body": "Outstanding gym facilities! Great atmosphere!",
+        "user_id": 34,
+        "spot_id": 14
+      },
+      {
+        "rating": 3,
+        "body": "The food was okay, but the service was slow.",
+        "user_id": 18,
+        "spot_id": 21
+      },
+      {
+        "rating": 4,
+        "body": "Good variety of products at reasonable prices.",
+        "user_id": 11,
+        "spot_id": 35
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Limited options and poorly maintained.",
+        "user_id": 6,
+        "spot_id": 10
+      },
+      {
+        "rating": 5,
+        "body": "Amazing food and service! Definitely recommend!",
+        "user_id": 15,
+        "spot_id": 2
+      },
+      {
+        "rating": 3,
+        "body": "Decent selection but prices are a bit high.",
+        "user_id": 28,
+        "spot_id": 17
+      },
+      {
+        "rating": 4,
+        "body": "Great spot for outdoor activities with stunning views.",
+        "user_id": 9,
+        "spot_id": 28
+      },
+      {
+        "rating": 2,
+        "body": "Poor cleanliness and subpar service.",
+        "user_id": 16,
+        "spot_id": 7
+      },
+      {
+        "rating": 1,
+        "body": "Worst shopping experience ever! Rude staff and low-quality products.",
+        "user_id": 25,
+        "spot_id": 18
+      },
+      {
+        "rating": 4,
+        "body": "Received excellent medical care. Highly recommend!",
+        "user_id": 38,
+        "spot_id": 13
+      },
+      {
+        "rating": 5,
+        "body": "Fantastic gym with top-notch equipment and friendly staff!",
+        "user_id": 10,
+        "spot_id": 22
+      },
+      {
+        "rating": 3,
+        "body": "The food was decent, but the service was slow.",
+        "user_id": 18,
+        "spot_id": 3
+      },
+      {
+        "rating": 4,
+        "body": "Good variety of products and fair prices.",
+        "user_id": 7,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Not recommended.",
+        "user_id": 12,
+        "spot_id": 36
+      },
+      {
+        "rating": 4,
+        "body": "Great restaurant with delicious food and friendly staff!",
+        "user_id": 23,
+        "spot_id": 1
+      },
+      {
+        "rating": 2,
+        "body": "Limited selection and high prices.",
+        "user_id": 30,
+        "spot_id": 14
+      },
+      {
+        "rating": 5,
+        "body": "Awesome place for outdoor activities with breathtaking views!",
+        "user_id": 8,
+        "spot_id": 29
+      },
+      {
+        "rating": 3,
+        "body": "Decent service, but the food could be better.",
+        "user_id": 19,
+        "spot_id": 4
+      },
+      {
+        "rating": 1,
+        "body": "Horrible shopping experience, rude staff!",
+        "user_id": 24,
+        "spot_id": 15
+      },
+      {
+        "rating": 4,
+        "body": "Received excellent medical care. The staff was caring and attentive.",
+        "user_id": 37,
+        "spot_id": 12
+      },
+      {
+        "rating": 5,
+        "body": "Fantastic gym with state-of-the-art equipment!",
+        "user_id": 5,
+        "spot_id": 22
+      },
+      {
+        "rating": 3,
+        "body": "The food was okay, but the service was slow.",
+        "user_id": 14,
+        "spot_id": 2
+      },
+      {
+        "rating": 4,
+        "body": "Good selection of products at reasonable prices.",
+        "user_id": 21,
+        "spot_id": 19
+      },
+      {
+        "rating": 2,
+        "body": "Disappointing outdoor activities. Not recommended.",
+        "user_id": 10,
+        "spot_id": 33
+      }
+  ]
+  

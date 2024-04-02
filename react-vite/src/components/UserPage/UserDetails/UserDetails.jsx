@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { thunkUpdateUser } from "../../../redux/session";
 import Error from "../../Form/Error/Error";
+import './UserDetails.css'
 
 const UserData = ({value, label, onChange, user, form}) => {
     const [data, setData] = useState(false)
@@ -18,14 +19,14 @@ const UserData = ({value, label, onChange, user, form}) => {
             <div className="display-field">
                 {!data ? (
                     <p className="value">
-                        {value}
+                        &nbsp;{value}&nbsp;&nbsp;
                         <i
-                        className="fa-regular fa-pen-to-square"
+                        className="fa-regular fa-pen-to-square edit-button"
                         onClick={() => setData(true)}
                         />
                     </p>
                 ) : (
-                    <>
+                    <div className="edit-info">
                         <input
                             type="text"
                             value={value}
@@ -33,7 +34,7 @@ const UserData = ({value, label, onChange, user, form}) => {
                         />
                         <button className="submit">
                             <i 
-                                className="fa-solid fa-check-to-slot"
+                                className="fa-solid fa-check-to-slot edit-button"
                                 onClick={()=> {
                                     setData(false);
                                     form.current.dispatchEvent(
@@ -43,12 +44,12 @@ const UserData = ({value, label, onChange, user, form}) => {
                                 />
                         </button>
                         <i
-                            className="fa-solid fa-square-xmark"
+                            className="fa-solid fa-square-xmark edit-button"
                             onClick={()=> {
                                 onChange(user[label]);
                                 setData(false)
                             }}/>
-                    </>
+                    </div>
                 )}
                 
             </div>
@@ -129,9 +130,9 @@ const UserDetails = ({user}) => {
                 ].map(([value, label, onChange], index) => (
                     <div key={index}>
                         {errors[label] ? (
-                            <Error error={errors[label]}/>
+                            <Error error={errors[label]}>Error</Error>
                         ) : (
-                            <p style={{height: '20px'}}/>
+                            <p/>
                         )}
                     <UserData
                         value={value}

@@ -3,10 +3,11 @@ import { normalizeData, errorHandler } from "./store";
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
 const UPDATE_USER = 'session/UPDATE_USER';
+const CURR_USER = 'session/CURR_USER'
 
 const setUser = (user) => ({
   type: SET_USER,
-  payload: user
+  user
 });
 
 const removeUser = () => ({
@@ -16,6 +17,11 @@ const removeUser = () => ({
 const updateUser = (user) => ({
   type: UPDATE_USER,
   user
+})
+
+const currUser = (user) => ({
+  type: CURR_USER,
+  payload: user
 })
 
 export const thunkAuthenticate = () => async (dispatch) => {
@@ -113,18 +119,34 @@ export const deleteUser = () => async (dispatch) => {
   return null;
 }
 
+export const thunkGetUser = () => async (dispatch) => {
+  const response = await fetch(`/api/user/curr`, {
+    method: "GET"
+  })
+
+  if(!response.ok) return await errorHandler(response);
+  const data = await response.json()
+  
+  dispatch(currUser(data))
+
+  return data;
+}
+
 
 
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {
   switch (action.type) {
+    
     case SET_USER:
-      return { user: normalizeData(action.payload) };
+      return { user: normalizeData(action.user) };
     case REMOVE_USER:
       return { user: null };
     case UPDATE_USER:
       return {user: normalizeData(action.user)}
+    case CURR_USER:
+      return {user: normalizeData(action.payload)}
     default:
       return state;
   }

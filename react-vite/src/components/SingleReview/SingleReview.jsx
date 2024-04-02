@@ -149,24 +149,25 @@ const SingleReview = ({ review, userEmail }) => {
 
                     )}
                     <p>&nbsp;on {happyDate}.</p>
-                    {!isCurrentUserFollowing ? (
+                    {currentUser && review.user && currentUser.id !== review.user.id && !isCurrentUserFollowing && (
                         <div className="follow-user" title="Click to follow user!">
-                        <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
-                            <i className="fa-solid fa-user-plus follow-user-button" />
-                        </button>
-                        </div>
-                    ) : (<>
-                        <i className="fa-solid fa-star follow-user-star" title="Followed user review"/>
-                        <div className="follow-user" title="Click to unfollow user!">
-                            
                             <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
-                                <i className="fa-solid fa-user-minus follow-user-button" />
+                                <i className="fa-solid fa-user-plus follow-user-button" />
                             </button>
+                        </div>
+                    )}
+
+                    {isCurrentUserFollowing && (
+                        <>
+                            <i className="fa-solid fa-star follow-user-star" title="Followed user review" />
+                            <div className="follow-user" title="Click to unfollow user!">
+                                <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
+                                    <i className="fa-solid fa-user-minus follow-user-button" />
+                                </button>
                             </div>
-                            </>
-                    )
-                    }
-                    
+                        </>
+                    )}
+
 
                 </div>
             </div>

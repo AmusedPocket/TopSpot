@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
   const { setModalContent } = useModal()
 
   const sessionUser = useSelector((state) => state.session.user)
-
+  
   useEffect(() => { }, [sessionUser])
 
   const demoUserLogin = async (e) => {

@@ -2,13 +2,15 @@
     border: 1px solid black;
     width: fit-content;
     display: flex;
-    margin: 5px;
+    margin: 15px 60px;
     border-radius: 10px;
     padding: 5px;
-    background: linear-gradient(to left, var(--orange), var(--darkOrange), var(--red));
+    background: linear-gradient(to left, rgba(255, 165, 0, 0.6), rgba(255, 140, 0, 0.6), rgba(255, 0, 0, 0.6));
     text-decoration: none;
     color: black;
 }
+
+
 
 .account-page-single-review-title a {
     text-decoration: none;
@@ -24,4 +26,42 @@
 .account-page-single-review a p {
     text-decoration: none; /* Prevent text decoration for h3 and p inside NavLink */
     color: black; /* Set the color to black */
+}
+
+.follower-reviews > h1 {
+    background: linear-gradient(to left, var(--orange), var(--darkOrange), var(--red));
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+}
+
+.user-reviews > h1 {
+    background: linear-gradient(to left, var(--orange), var(--darkOrange), var(--red));
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+}
+
+.user > h1 {
+    background: linear-gradient(to left, var(--orange), var(--darkOrange), var(--red));
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px black;
+}
+
+.follower-name {
+    padding: 10px;
+    border: 1px solid var(--darkOrange);
+    width: fit-content;
+    background-color: black;
+    color: red;
+    border-radius: 10px;
+    font-size: x-large;
+    margin: 15px 30px;
 }

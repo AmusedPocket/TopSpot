@@ -56,6 +56,17 @@ def update_user():
 
     return user.to_dict()
 
+@user_routes.route('/curr', methods=['GET'])
+@login_required
+def get_curr_user():
+        
+    user = User.query.get(current_user.id)
+
+    if not user:
+        return {'errors': ['User could not be found']}, 404
+    
+    return user.to_dict()
+
 @user_routes.route('/curr', methods=['DELETE'])
 @login_required
 def delete_user():

@@ -1,0 +1,79 @@
+.entry-field {
+    border: 1px solid black;
+    background: linear-gradient(to left, rgba(255, 165, 0, 0.6), rgba(255, 140, 0, 0.6), rgba(255, 0, 0, 0.6));
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: large;
+}
+
+.edit-user-form {
+    display: flex;
+    flex-direction: row;
+}
+
+/* .update-user {
+    display: flex;
+    margin: 10px;
+} */
+
+.label {
+    border-bottom: 1px solid black;
+    font-weight: 700;
+}
+
+.display-field {
+    display: flex;
+    width: fit-content;
+    align-content: center;
+    height: 30px;
+    font-size: large;
+}
+
+.edit-button {
+    cursor: pointer;
+    font-weight: 900;
+}
+
+.edit-info {
+    display: flex;
+    margin-top: 12px;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: center;
+    height: fit-content;
+    align-items: center;
+    width: fit-content;
+    padding: 2px;
+}
+
+/* .edit-info:active {
+    outline: none;
+    border: 20px solid red;
+} */
+
+.edit-info:hover {
+    box-shadow: 2px 2px 2px black;
+}
+
+.edit-info > input {
+    width: fit-content;
+    background-color: transparent;
+    font-size: large;
+    border: none;
+}
+
+.edit-info > input:focus {
+    outline: none;
+}
+
+.submit {
+    color: black;
+    font-size: large;
+    border: none;
+    background: none;
+}

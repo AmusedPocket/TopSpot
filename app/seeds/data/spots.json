@@ -196,20 +196,6 @@
         "phone": "650-741-8520"
     },
     {
-        "title": "Oceanview Diner",
-        "category": "Restaurants",
-        "description": "A charming diner offering a wide selection of delectable dishes with a stunning ocean view, creating a memorable dining experience.",
-        "address": "852 Pine Street, San Mateo, CA 94402",
-        "phone": "650-852-7410"
-    },
-    {
-        "title": "Sunset Mall",
-        "category": "Shopping",
-        "description": "A vibrant shopping destination where shoppers can explore a variety of stores and enjoy entertainment options against the backdrop of a beautiful sunset.",
-        "address": "147 Cherry Lane, Fremont, CA 94555",
-        "phone": "510-147-3698"
-    },
-    {
         "title": "Downtown Diner",
         "category": "Restaurants",
         "description": "A cozy diner nestled in downtown Fremont, offering comfort food and warm hospitality to patrons.",
@@ -266,27 +252,6 @@
         "phone": "650-369-2587"
     },
     {
-        "title": "Bayview Bistro",
-        "category": "Restaurants",
-        "description": "Bayview Bistro provides a culinary experience that delights the senses. From flavorful dishes crafted with fresh, locally sourced ingredients to attentive service in a relaxed atmosphere, our bistro invites guests to savor every moment and indulge in the pleasures of good food and company.",
-        "address": "147 Maple Avenue, Fremont, CA 94543",
-        "phone": "510-147-3698"
-    },
-    {
-        "title": "Town Center Mall",
-        "category": "Shopping",
-        "description": "Town Center Mall offers a diverse selection of shops, eateries, and entertainment options, making it the perfect destination for a day of leisurely shopping and dining. Whether you're looking for the latest fashion trends or seeking a delicious meal, our mall provides something for everyone to enjoy.",
-        "address": "258 Elm Street, San Mateo, CA 94408",
-        "phone": "650-258-1478"
-    },
-    {
-        "title": "Redwood General Hospital",
-        "category": "Health",
-        "description": "A reputable hospital providing comprehensive healthcare services and compassionate care to the Redwood community.",
-        "address": "369 Cedar Avenue, Redwood City, CA 94061",
-        "phone": "650-369-2587"
-    },
-    {
         "title": "Seaside Grill",
         "category": "Restaurants",
         "description": "A waterfront restaurant offering exquisite cuisine and scenic views, creating a memorable dining experience for patrons.",
@@ -313,12 +278,5 @@
         "description": "A clinic offering personalized healthcare services and medical expertise to residents of the Cascade region.",
         "address": "147 Waterfall Avenue, Cascade City, CA 94407",
         "phone": "650-147-3698"
-    },
-    {
-        "title": "Harborfront Bistro",
-        "category": "Restaurants",
-        "description": "A cozy bistro serving delectable dishes with a focus on fresh, locally sourced ingredients, providing a delightful culinary experience.",
-        "address": "258 Bay Street, Harborfront, CA 94543",
-        "phone": "510-258-1478"
     }
 ]
