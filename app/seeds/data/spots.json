@@ -219,21 +219,21 @@
     {
         "title": "San Mateo General Hospital",
         "category": "Health",
-        "description": "San Mateo General Hospital is a leading healthcare facility dedicated to providing compassionate care and medical services to the community. Our state-of-the-art facilities and experienced staff ensure that patients receive the highest quality treatment and support.",
+        "description": "San Mateo General Hospital is a leading healthcare facility dedicated to providing compassionate care and medical services to the community. Our state-of-the-art facilities and experienced staff ensure that patients receive the best treatment.",
         "address": "258 Oak Avenue, San Mateo, CA 94405",
         "phone": "650-258-1478"
     },
     {
         "title": "Harborview Restaurant",
         "category": "Restaurants",
-        "description": "Harborview Restaurant offers a delightful dining experience with scenic views of the harbor and exquisite cuisine that tantalizes the taste buds. Whether you're seeking a romantic dinner for two or a lively gathering with friends, our restaurant provides the perfect ambiance for any occasion.",
+        "description": "Harborview Restaurant offers a delightful dining experience with scenic views of the harbor and exquisite cuisine that tantalizes the taste buds. Whether you're seeking a romantic dinner for two or a lively gathering with friends, we cater to you!",
         "address": "369 Broadway Street, Fremont, CA 94541",
         "phone": "510-369-2587"
     },
     {
         "title": "Citywide Mall",
         "category": "Shopping",
-        "description": "Citywide Mall is a premier shopping destination offering an unparalleled retail experience for fashion enthusiasts and bargain hunters alike. With a vast selection of stores ranging from high-end boutiques to popular brands, shoppers can indulge in the latest trends and discover unique treasures at every turn.",
+        "description": "Citywide Mall is a premier shopping destination offering an unparalleled retail experience for fashion enthusiasts and bargain hunters alike. Shops contain a vast selection of stores ranging from high-end boutiques to popular brands.",
         "address": "147 Cherry Lane, San Mateo, CA 94406",
         "phone": "650-147-3698"
     },
