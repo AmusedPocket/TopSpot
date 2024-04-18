@@ -5,7 +5,7 @@ from random import randint, random, sample
 
 
 def seed_reviews():
-    data = open('app/seeds/data/reviews2.json')
+    data = open('app/seeds/data/reviews.json')
     reviews = json.load(data)
 
     print("\nSeeding reviews...")

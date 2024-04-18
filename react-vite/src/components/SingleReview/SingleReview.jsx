@@ -120,18 +120,15 @@ const SingleReview = ({ review, userEmail }) => {
     console.log("review is: ------->", review.user.id)
     console.log("current user is: .......>>>", currentUser)
     const followClick = () => {
-        setCanFollow(true);
+        setCanFollow(true)
         dispatch(thunkFollow(currentUser, review.user))
             .then(() => {
-                setCanFollow(false);
-                setIsCurrentUserFollowing(prevState => !prevState); // Toggle the state based on previous state
-            });
-    };
+                setCanFollow(false)
+                setIsCurrentUserFollowing(true)
+            })
+    }
 
-    const isFollowing = (userToCheck) => {
-        if (!currentUser || !currentUser.follows) return false;
-        return currentUser.follows.hasOwnProperty(userToCheck.id);
-    };
+    const isFollowing = (userToCheck) => currentUser.follows.hasOwnProperty(userToCheck.id);
 
     return (
         <div className="review-feed-item" style={{ ...style() }}>
@@ -149,25 +146,16 @@ const SingleReview = ({ review, userEmail }) => {
 
                     )}
                     <p>&nbsp;on {happyDate}.</p>
-                    {currentUser && review.user && currentUser.id !== review.user.id && !isCurrentUserFollowing && (
-                        <div className="follow-user" title="Click to follow user!">
-                            <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
-                                <i className="fa-solid fa-user-plus follow-user-button" />
+                    {!isFollowing(review.user) && <button onClick={() => followClick()} disabled={canFollow || !currentUser}>
+                        <i className="fa-solid fa-user-plus" />
+                    </button>}
+                    {isFollowing(review.user) &&
+                        <div className="following-user">
+                            <i className="fa-solid fa-star" />
+                            <button onClick={() => followClick()} disabled={canFollow || !currentUser}>
+                                <i className="fa-solid fa-user-minus" />
                             </button>
-                        </div>
-                    )}
-
-                    {isCurrentUserFollowing && (
-                        <>
-                            <i className="fa-solid fa-star follow-user-star" title="Followed user review" />
-                            <div className="follow-user" title="Click to unfollow user!">
-                                <button onClick={followClick} disabled={canFollow || !currentUser} className="follow-user-button">
-                                    <i className="fa-solid fa-user-minus follow-user-button" />
-                                </button>
-                            </div>
-                        </>
-                    )}
-
+                        </div>}
 
                 </div>
             </div>

@@ -60,8 +60,8 @@
         "spot_id": 2
       },
       {
-        "rating": 4,
-        "body": "The food was excellent, but the service could be improved.",
+        "rating": 3,
+        "body": "The shopping selection was fine, nothing amazing. Got what I needed.",
         "user_id": 12,
         "spot_id": 14
       },
@@ -85,31 +85,31 @@
       },
       {
         "rating": 4,
-        "body": "Great variety of health products available!",
+        "body": "Great variety of products available!",
         "user_id": 33,
         "spot_id": 14
       },
       {
         "rating": 5,
-        "body": "Exceptional dining experience with impeccable service!",
+        "body": "Great selection of shops and places to eat at! Love spending my Saturday's here!",
         "user_id": 2,
         "spot_id": 22
       },
       {
         "rating": 3,
-        "body": "Average shopping experience, nothing stood out.",
+        "body": "Crowded place, but huge variety of equipment.",
         "user_id": 16,
         "spot_id": 23
       },
       {
         "rating": 4,
-        "body": "Good place for workouts, but overcrowded during peak hours.",
+        "body": "Staff was very attentive of my husbands needs.",
         "user_id": 28,
         "spot_id": 24
       },
       {
         "rating": 5,
-        "body": "Delicious food and a cozy atmosphere, highly recommend!",
+        "body": "Delicious food, nice selection of shops and a cozy atmosphere, highly recommend!",
         "user_id": 38,
         "spot_id": 14
       },
@@ -121,49 +121,49 @@
       },
       {
         "rating": 5,
-        "body": "Absolutely loved the food here, top-notch quality!",
+        "body": "Great place for a workout and absolutely loved the food here, top-notch quality!",
         "user_id": 11,
         "spot_id": 31
       },
       {
         "rating": 3,
-        "body": "Found some interesting items while shopping, but prices were high.",
+        "body": "Average hospital. Only here because I needed to see a doctor.",
         "user_id": 26,
         "spot_id": 32
       },
       {
         "rating": 4,
-        "body": "Great place for outdoor activities, beautiful scenery!",
+        "body": "Great place for outdoor dining, beautiful scenery! Come when the weather is nice!",
         "user_id": 6,
         "spot_id": 33
       },
       {
         "rating": 2,
-        "body": "Poor hygiene standards observed, wouldn't recommend.",
+        "body": "Poor hygiene standards observed in the food court, wouldn't recommend. Selection of stores was mediocre.",
         "user_id": 20,
         "spot_id": 34
       },
       {
         "rating": 4,
-        "body": "Impressed with the range of health services available!",
+        "body": "Impressed with the range of activities available!",
         "user_id": 34,
         "spot_id": 31
       },
       {
         "rating": 5,
-        "body": "Outstanding dining experience, exceeded expectations!",
+        "body": "Staff was very knowledgeable and respectful. Would recommend.",
         "user_id": 3,
         "spot_id": 32
       },
       {
         "rating": 3,
-        "body": "Average shopping experience, nothing remarkable.",
+        "body": "Average dining experience, nothing remarkable.",
         "user_id": 15,
         "spot_id": 33
       },
       {
         "rating": 4,
-        "body": "Good gym facilities, but could use more equipment.",
+        "body": "Good shops, but could use more vareity.",
         "user_id": 27,
         "spot_id": 34
       },
@@ -171,13 +171,13 @@
         "rating": 5,
         "body": "Delicious food and great service, will definitely return!",
         "user_id": 39,
-        "spot_id": 31
+        "spot_id": 33
       },
       {
         "rating": 3,
         "body": "Limited selection, not the best shopping spot.",
         "user_id": 13,
-        "spot_id": 32
+        "spot_id": 30
       },
       {
         "rating": 5,
@@ -189,7 +189,7 @@
         "rating": 2,
         "body": "Disappointing shopping experience, items were overpriced.",
         "user_id": 26,
-        "spot_id": 17
+        "spot_id": 18
       },
       {
         "rating": 4,
@@ -201,13 +201,13 @@
         "rating": 3,
         "body": "Mediocre healthcare services, expected better.",
         "user_id": 35,
-        "spot_id": 37
+        "spot_id": 20
       },
       {
         "rating": 5,
         "body": "Top-notch service and an extensive menu selection!",
         "user_id": 11,
-        "spot_id": 3
+        "spot_id": 33
       },
       {
         "rating": 4,
@@ -219,127 +219,127 @@
         "rating": 3,
         "body": "Average dining experience, nothing extraordinary.",
         "user_id": 15,
-        "spot_id": 10
+        "spot_id": 17
       },
       {
         "rating": 5,
         "body": "Best shopping spot in town, found everything I needed!",
         "user_id": 30,
-        "spot_id": 19
+        "spot_id": 18
       },
       {
         "rating": 4,
         "body": "Great workout facilities and friendly staff!",
         "user_id": 3,
-        "spot_id": 25
+        "spot_id": 27
       },
       {
         "rating": 3,
         "body": "Decent food, but service was slow.",
         "user_id": 37,
-        "spot_id": 1
+        "spot_id": 17
       },
       {
         "rating": 4,
         "body": "The food was lit, like seriously bomb!",
         "user_id": 8,
-        "spot_id": 12
+        "spot_id": 13
       },
       {
         "rating": 3,
         "body": "Meh, shopping here was kinda basic, not gonna lie.",
         "user_id": 15,
-        "spot_id": 27
+        "spot_id": 26
       },
       {
         "rating": 5,
         "body": "This place for outdoor stuff? Totally rad! Had the sickest time!",
         "user_id": 22,
-        "spot_id": 6
+        "spot_id": 7
       },
       {
         "rating": 2,
         "body": "Dude, the health vibes here were kinda whack, not worth it.",
         "user_id": 17,
-        "spot_id": 31
+        "spot_id": 32
       },
       {
         "rating": 4,
         "body": "Bro, the service here was legit and the food was fire!",
         "user_id": 10,
-        "spot_id": 3
+        "spot_id": 5
       },
       {
         "rating": 5,
         "body": "OMG, shopping spree here? It was like, total goals!",
         "user_id": 29,
-        "spot_id": 16
+        "spot_id": 18
       },
       {
         "rating": 3,
         "body": "Eh, the food was okay, nothing to text home about.",
         "user_id": 6,
-        "spot_id": 8
+        "spot_id": 9
       },
       {
         "rating": 5,
         "body": "Legit found the sickest stuff here, best shopping day ever!",
         "user_id": 19,
-        "spot_id": 21
+        "spot_id": 22
       },
       {
         "rating": 4,
         "body": "Gym sesh here was chill, bro, gonna come back for sure!",
         "user_id": 25,
-        "spot_id": 33
+        "spot_id": 35
       },
       {
         "rating": 3,
         "body": "Food was kinda meh, but the vibes were low-key cool.",
         "user_id": 14,
-        "spot_id": 2
+        "spot_id": 1
       },
       {
         "rating": 4,
         "body": "Lovely atmosphere and delightful company!",
         "user_id": 25,
-        "spot_id": 20
+        "spot_id": 19
       },
       {
         "rating": 3,
         "body": "Decent selection, but could use more variety.",
         "user_id": 13,
-        "spot_id": 32
+        "spot_id": 34
       },
       {
         "rating": 5,
         "body": "Enjoyed the outdoor activities and the friendly crowd!",
         "user_id": 38,
-        "spot_id": 26
+        "spot_id": 27
       },
       {
         "rating": 2,
         "body": "Health services were subpar, not suitable for our lifestyle.",
         "user_id": 27,
-        "spot_id": 37
+        "spot_id": 36
       },
       {
         "rating": 4,
         "body": "Exceptional service and a discreet atmosphere, perfect for us!",
         "user_id": 11,
-        "spot_id": 11
+        "spot_id": 13
       },
       {
         "rating": 5,
         "body": "Found some great items here for our special nights!",
         "user_id": 29,
-        "spot_id": 24
+        "spot_id": 26
       },
       {
         "rating": 3,
         "body": "Food was decent, but nothing extraordinary.",
         "user_id": 40,
-        "spot_id": 10
+        "spot_id": 9
       },
       {
         "rating": 5,
@@ -351,13 +351,13 @@
         "rating": 4,
         "body": "Great facilities for staying fit and meeting like-minded people!",
         "user_id": 27,
-        "spot_id": 30
+        "spot_id": 31
       },
       {
         "rating": 3,
         "body": "Food was alright, but the ambiance was lacking.",
         "user_id": 12,
-        "spot_id": 4
+        "spot_id": 5
       },
       {
         "rating": 4,
@@ -369,7 +369,7 @@
         "rating": 3,
         "body": "Service was okay, but nothing to write home about.",
         "user_id": 2,
-        "spot_id": 14
+        "spot_id": 20
       },
       {
         "rating": 5,
@@ -387,13 +387,13 @@
         "rating": 4,
         "body": "Great experience overall, enjoyed the variety of dishes!",
         "user_id": 5,
-        "spot_id": 8
+        "spot_id": 9
       },
       {
         "rating": 5,
         "body": "Amazing food and wonderful service!",
         "user_id": 6,
-        "spot_id": 12
+        "spot_id": 13
       },
       {
         "rating": 3,
@@ -405,31 +405,31 @@
         "rating": 5,
         "body": "Delicious desserts and a cozy ambiance!",
         "user_id": 8,
-        "spot_id": 27
+        "spot_id": 25
       },
       {
         "rating": 4,
         "body": "Good selection of dishes, enjoyed my meal here.",
         "user_id": 9,
-        "spot_id": 7
+        "spot_id": 9
       },
       {
         "rating": 3,
         "body": "Service could've been better, but the food was decent.",
         "user_id": 10,
-        "spot_id": 16
+        "spot_id": 17
       },
       {
         "rating": 4,
         "body": "Had a great meal here and got a sweet discount using TopSpots!",
         "user_id": 11,
-        "spot_id": 5
+        "spot_id": 25
       },
       {
         "rating": 3,
         "body": "Managed to snag a discount with TopSpots, but the service was just okay.",
         "user_id": 12,
-        "spot_id": 14
+        "spot_id": 13
       },
       {
         "rating": 5,
@@ -447,13 +447,13 @@
         "rating": 4,
         "body": "TopSpots saved the day with a discount, enjoyed the variety of dishes!",
         "user_id": 15,
-        "spot_id": 8
+        "spot_id": 9
       },
       {
         "rating": 5,
         "body": "Used TopSpots and got a great discount, the food was amazing!",
         "user_id": 16,
-        "spot_id": 12
+        "spot_id": 13
       },
       {
         "rating": 3,
@@ -465,37 +465,37 @@
         "rating": 5,
         "body": "Thanks to TopSpots, got a discount on the delicious desserts!",
         "user_id": 18,
-        "spot_id": 27
+        "spot_id": 25
       },
       {
         "rating": 4,
         "body": "TopSpots came through with a discount, enjoyed the variety of dishes.",
         "user_id": 19,
-        "spot_id": 7
+        "spot_id": 5
       },
       {
         "rating": 3,
         "body": "Got a discount with TopSpots, but the service was lacking.",
         "user_id": 20,
-        "spot_id": 16
+        "spot_id": 18
       },
       {
         "rating": 4,
         "body": "My friend recommended this spot and we had a great time together!",
         "user_id": 21,
-        "spot_id": 5
+        "spot_id": 11
       },
       {
         "rating": 3,
         "body": "Visited this place based on a friend's recommendation, it was alright.",
         "user_id": 22,
-        "spot_id": 14
+        "spot_id": 31
       },
       {
         "rating": 5,
         "body": "Thanks to my friend's suggestion, I found this amazing spot!",
         "user_id": 23,
-        "spot_id": 25
+        "spot_id": 39
       },
       {
         "rating": 2,
@@ -507,19 +507,19 @@
         "rating": 4,
         "body": "Shoutout to my friend for recommending this place, we had a blast!",
         "user_id": 25,
-        "spot_id": 8
+        "spot_id": 27
       },
       {
         "rating": 5,
         "body": "Thanks to my friend, I discovered this gem of a spot!",
         "user_id": 26,
-        "spot_id": 12
+        "spot_id": 39
       },
       {
         "rating": 3,
         "body": "My friend suggested this spot, but it didn't quite meet expectations.",
         "user_id": 27,
-        "spot_id": 19
+        "spot_id": 20
       },
       {
         "rating": 5,
@@ -543,13 +543,13 @@
         "rating": 4,
         "body": "Had a pleasant interaction with the waiter here, excellent service!",
         "user_id": 31,
-        "spot_id": 1
+        "spot_id": 21
       },
       {
         "rating": 3,
         "body": "Service staff seemed a bit overwhelmed, took a while to get served.",
         "user_id": 32,
-        "spot_id": 2
+        "spot_id": 17
       },
       {
         "rating": 5,
@@ -561,19 +561,19 @@
         "rating": 2,
         "body": "Rude staff ruined the experience, won't be coming back.",
         "user_id": 34,
-        "spot_id": 4
+        "spot_id": 16
       },
       {
         "rating": 4,
         "body": "Service was quick and efficient, staff were attentive.",
         "user_id": 35,
-        "spot_id": 1
+        "spot_id": 37
       },
       {
         "rating": 5,
         "body": "Impressed with the service, staff went above and beyond!",
         "user_id": 36,
-        "spot_id": 2
+        "spot_id": 20
       },
       {
         "rating": 3,
@@ -591,19 +591,19 @@
         "rating": 4,
         "body": "Friendly staff made the dining experience enjoyable!",
         "user_id": 39,
-        "spot_id": 1
+        "spot_id": 29
       },
       {
         "rating": 3,
         "body": "Service was slow and staff seemed disinterested.",
         "user_id": 40,
-        "spot_id": 2
+        "spot_id": 20
       },
       {
         "rating": 4,
         "body": "Delicious food, enjoyed every bite!",
         "user_id": 31,
-        "spot_id": 1
+        "spot_id": 21
       },
       {
         "rating": 3,
@@ -615,108 +615,109 @@
         "rating": 5,
         "body": "Loved the outdoor activities available!",
         "user_id": 33,
-        "spot_id": 3
+        "spot_id": 31
       },
       {
         "rating": 2,
         "body": "Disappointing experience, won't be returning.",
         "user_id": 34,
-        "spot_id": 4
+        "spot_id": 15
       },
       {
         "rating": 4,
         "body": "Great dining experience with a variety of options!",
         "user_id": 35,
-        "spot_id": 1
+        "spot_id": 33
       },
       {
         "rating": 5,
         "body": "Awesome shopping spot with unique finds!",
         "user_id": 36,
-        "spot_id": 2
+        "spot_id": 18
       },
       {
         "rating": 3,
         "body": "Enjoyed the activities, but could use more variety.",
         "user_id": 37,
-        "spot_id": 3
+        "spot_id": 23
       },
       {
         "rating": 5,
         "body": "Impressive selection of health products!",
         "user_id": 38,
-        "spot_id": 4
+        "spot_id": 3
       },
       {
         "rating": 4,
         "body": "Delightful dining experience, will come back!",
         "user_id": 39,
-        "spot_id": 1
+        "spot_id": 17
       },
       {
         "rating": 3,
         "body": "Average shopping experience, nothing stood out.",
         "user_id": 40,
-        "spot_id": 2
+        "spot_id": 26
       },
       {
         "rating": 4,
         "body": "Visited this spot on a Friday. It was sunny and pleasant!",
         "user_id": 21,
-        "spot_id": 1
+        "spot_id": 18
       },
       {
         "rating": 3,
         "body": "Went shopping here on a Saturday. It was cloudy but not too cold.",
         "user_id": 32,
-        "spot_id": 2
+        "spot_id": 26
       },
       {
         "rating": 5,
         "body": "Enjoyed some outdoor activities here on a Sunday. It was warm and sunny!",
         "user_id": 13,
-        "spot_id": 3
+        "spot_id": 23
       },
       {
         "rating": 2,
         "body": "Decided to check out this place on a Monday. Unfortunately, it was raining heavily.",
         "user_id": 34,
-        "spot_id": 4
+        "spot_id": 15
       },
       {
         "rating": 4,
         "body": "Had a lovely dining experience here on a Tuesday. Weather was clear and cool.",
         "user_id": 25,
-        "spot_id": 1
+        "spot_id": 17
       },
       {
         "rating": 5,
         "body": "Went shopping on a Wednesday. It was a perfect sunny day!",
         "user_id": 36,
-        "spot_id": 2
+        "spot_id": 26
       },
       {
         "rating": 3,
         "body": "Explored some outdoor activities on a Thursday. Weather was a bit chilly.",
         "user_id": 17,
-        "spot_id": 3
+        "spot_id": 35
       },
       {
         "rating": 5,
         "body": "Bought some health products on a Friday. Weather was sunny and warm!",
         "user_id": 8,
-        "spot_id": 4
+        "spot_id": 34
       },
       {
         "rating": 4,
         "body": "Enjoyed a delicious meal on a Saturday. Weather was overcast but pleasant.",
         "user_id": 29,
-        "spot_id": 1
+        "spot_id": 25
       },
       {
         "rating": 3,
         "body": "Went shopping here on a Sunday. It was drizzling on and off.",
         "user_id": 30,
-        "spot_id": 2
+        "spot_id": 22
       }
 ]
+
