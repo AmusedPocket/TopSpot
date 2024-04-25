@@ -1,4 +1,4 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, render_template
 from flask_login import login_required, current_user
 from app.models import db, Spot
 from app.forms import SpotForm
@@ -128,3 +128,15 @@ def spot_like(id):
         db.session.add(spot)
         db.session.commit()
         return {"message": "deleted like" if found else "added like"}, 202 if found else 200
+    
+#Search
+@spot_routes.route('/search')
+def search():
+    q = request.args.get("q")
+    print(q)
+    if q:
+        results = Spot.query.filter(Spot.title.icontains(q) | Spot.description.icontains(q)).order_by(Spot.title.asc).limit(5)
+    else:
+        results = []
+    
+    return render_template("search_results.html", results=results)
