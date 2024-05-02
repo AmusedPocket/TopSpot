@@ -2,6 +2,7 @@ from flask import Blueprint, request, render_template
 from flask_login import login_required, current_user
 from app.models import db, Spot
 from app.forms import SpotForm
+from sqlalchemy import or_
 
 spot_routes = Blueprint("spots", __name__)
 
@@ -135,8 +136,8 @@ def search():
     q = request.args.get("q")
     print(q)
     if q:
-        results = Spot.query.filter(Spot.title.icontains(q) | Spot.description.icontains(q)).order_by(Spot.title.asc).limit(5)
+        results = Spot.query.filter(or_(Spot.title.ilike(f"%{q}%"), Spot.description.ilike(f"%{q}%"))).order_by(Spot.title.asc()).limit(5)
     else:
         results = []
     
-    return render_template("search_results.html", results=results)
+    return [spot.to_dict() for spot in results]

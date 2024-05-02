@@ -32,9 +32,9 @@ function Navigation({ isLoaded }) {
 
   return (
     <div className="navigation-bar-div">
-
+     
       <NavLink to="/"><img src="https://topspots.s3.us-west-1.amazonaws.com/logo.png" className="navigation-bar-logo" /></NavLink>
-
+    
         <div className="search-bar-nav-bar">
         <SearchBar setResults={setResults}/>
         <SearchResultsList results={results}/>
