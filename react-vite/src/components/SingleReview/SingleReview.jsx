@@ -128,7 +128,7 @@ const SingleReview = ({ review, userEmail }) => {
             })
     }
 
-    const isFollowing = (userToCheck) => currentUser.follows.hasOwnProperty(userToCheck.id);
+    const isFollowing = (userToCheck) => currentUser?.follows.hasOwnProperty(userToCheck.id);
 
     return (
         <div className="review-feed-item" style={{ ...style() }}>
